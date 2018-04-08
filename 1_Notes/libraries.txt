@@ -1,0 +1,1 @@
+quandl https://github.com/quandl/quandl-python 
