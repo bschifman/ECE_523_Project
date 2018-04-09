@@ -1,1 +1,9 @@
 quandl https://github.com/quandl/quandl-python 
+
+%%%%%%The following is optional depending on the framework we want to run%%%%%%%%%%%%%%
+zipline http://www.zipline.io/install.html
+Set you environment variable per the QUANDL_API_KEY png file
+Then run the following command to ingest all of the WIKI prices data, this will take ~10mins
+$ zipline ingest -b quandl
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+

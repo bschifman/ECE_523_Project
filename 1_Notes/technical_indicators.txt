@@ -1,0 +1,4 @@
+Bollinger Bands:
+	Middle Band = 20-day SMA
+	Upper Band = 20-day SMA + (20-day STD of price x 2)
+	Upper Band = 20-day SMA - (20-day STD of price x 2)
