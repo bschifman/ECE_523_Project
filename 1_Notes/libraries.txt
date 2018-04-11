@@ -1,5 +1,18 @@
 quandl https://github.com/quandl/quandl-python 
 
+%%%%%%Download is complicated as fuck, talk to me%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+TA-Lib https://github.com/mrjbq7/ta-lib
+	https://www.ta-lib.org/hdr_dw.html
+		ta-lib-0.4.0-msvc.zip
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
 %%%%%%The following is optional depending on the framework we want to run%%%%%%%%%%%%%%
 zipline http://www.zipline.io/install.html
 Set you environment variable per the QUANDL_API_KEY png file

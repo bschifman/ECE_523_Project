@@ -37,29 +37,35 @@ quandl.ApiConfig.api_key = 'HwQoB4ePcDi8bFzJ6SJA'
 #        print(ticker)
 #        data[ticker] = import_data(ticker, start_date, end_date)
 #        
-#with open('data.pickle', 'wb') as handle:
-#    pickle.dump(data, handle, protocol=pickle.HIGHEST_PROTOCOL)
+#    pickle.dump(data, open('data.pickle', 'wb'), protocol=pickle.HIGHEST_PROTOCOL)
 #%%
-with open('data.pickle', 'rb') as handle:
-    data = pickle.load(handle)
-
+data = pickle.load(open('data.pickle', 'rb'))
+#%%REFORMAT DATA 
+for ticker in data:
+    data[ticker].drop(['Open', 'High', 'Low', 'Close', 'Volume', 'Ex-Dividend', 'Split Ratio'], axis=1, inplace=True)
+    data[ticker].rename(index=str, columns={"Adj. Open": "Open", "Adj. High": "High", "Adj. Low": "Low", "Adj. Close": "Close"}, inplace=True)
+#%%
 data_sma20 = {}
 data_bollinger_low = {}
 data_bollinger_high = {}
 
-test = data['JPM'].iloc[:, 0:4]
 
 for ticker in data:
     data_sma20[ticker] = data[ticker].iloc[:, 0:4].rolling(window=20).mean()
-    data_sma20[ticker]['Open_std'] = data[ticker].iloc[:,0].rolling(window=20).std()
-    data_sma20[ticker]['High_std'] = data[ticker].iloc[:,1].rolling(window=20).std() 
-    data_sma20[ticker]['Low_std'] = data[ticker].iloc[:,2].rolling(window=20).std() 
+    data_sma20[ticker]['Open_std' ] = data[ticker].iloc[:,0].rolling(window=20).std()
+    data_sma20[ticker]['High_std' ] = data[ticker].iloc[:,1].rolling(window=20).std() 
+    data_sma20[ticker]['Low_std'  ] = data[ticker].iloc[:,2].rolling(window=20).std() 
     data_sma20[ticker]['Close_std'] = data[ticker].iloc[:,3].rolling(window=20).std() 
-    data_bollinger_low[ticker] = data_sma20[ticker]['Open'] - data_sma20[ticker]['Open_std']*2
+    
+    data_sma20[ticker]['Open_Delta' ] = data[ticker].iloc[:,0].rolling(window=2).diff()
+    data_sma20[ticker]['High_Delta' ] = data[ticker].iloc[:,1].rolling(window=20).diff() 
+    data_sma20[ticker]['Low_Delta'  ] = data[ticker].iloc[:,2].rolling(window=20).diff() 
+    data_sma20[ticker]['Close_Delta'] = data[ticker].iloc[:,3].rolling(window=20).diff() 
+    data_bollinger_low[ticker] = data_sma20[ticker]['Open' ] - data_sma20[ticker]['Open_std']*2
     data_bollinger_high[ticker] = data_sma20[ticker]['Open'] + data_sma20[ticker]['Open_std']*2
 
-plt.plot(data['JPM']['Open'])
-plt.plot(data_sma20['JPM']['Open'])
-plt.plot(data_bollinger_low['JPM'])
-plt.plot(data_bollinger_high['JPM'])
+#plt.plot(data['JPM']['Open'])
+#plt.plot(data_sma20['JPM']['Open'])
+#plt.plot(data_bollinger_low['JPM'])
+#plt.plot(data_bollinger_high['JPM'])
 
