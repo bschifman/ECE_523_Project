@@ -1,6 +1,7 @@
 import quandl
 import pandas as pd
 import numpy as np
+import talib as ta
 import pickle
 import matplotlib.pyplot as plt
 quandl.ApiConfig.api_key = 'HwQoB4ePcDi8bFzJ6SJA'
@@ -49,7 +50,6 @@ data_sma20 = {}
 data_bollinger_low = {}
 data_bollinger_high = {}
 
-
 for ticker in data:
     data_sma20[ticker] = data[ticker].iloc[:, 0:4].rolling(window=20).mean()
     data_sma20[ticker]['Open_std' ] = data[ticker].iloc[:,0].rolling(window=20).std()
@@ -57,12 +57,17 @@ for ticker in data:
     data_sma20[ticker]['Low_std'  ] = data[ticker].iloc[:,2].rolling(window=20).std() 
     data_sma20[ticker]['Close_std'] = data[ticker].iloc[:,3].rolling(window=20).std() 
     
-    data_sma20[ticker]['Open_Delta' ] = data[ticker].iloc[:,0].rolling(window=2).diff()
-    data_sma20[ticker]['High_Delta' ] = data[ticker].iloc[:,1].rolling(window=20).diff() 
-    data_sma20[ticker]['Low_Delta'  ] = data[ticker].iloc[:,2].rolling(window=20).diff() 
-    data_sma20[ticker]['Close_Delta'] = data[ticker].iloc[:,3].rolling(window=20).diff() 
-    data_bollinger_low[ticker] = data_sma20[ticker]['Open' ] - data_sma20[ticker]['Open_std']*2
-    data_bollinger_high[ticker] = data_sma20[ticker]['Open'] + data_sma20[ticker]['Open_std']*2
+    data_sma20[ticker]['RSI_Open' ] = ta.RSI(data[ticker].iloc[:,0], timeperiod=14)
+    data_sma20[ticker]['RSI_High' ] = ta.RSI(data[ticker].iloc[:,1], timeperiod=14)
+    data_sma20[ticker]['RSI_Low'  ] = ta.RSI(data[ticker].iloc[:,2], timeperiod=14)
+    data_sma20[ticker]['RSI_Close'] = ta.RSI(data[ticker].iloc[:,3], timeperiod=14)
+    
+#    data_sma20[ticker]['Open_Delta' ] = data[ticker].iloc[:,0].rolling(window=2).diff()
+#    data_sma20[ticker]['High_Delta' ] = data[ticker].iloc[:,1].rolling(window=20).diff() 
+#    data_sma20[ticker]['Low_Delta'  ] = data[ticker].iloc[:,2].rolling(window=20).diff() 
+#    data_sma20[ticker]['Close_Delta'] = data[ticker].iloc[:,3].rolling(window=20).diff() 
+#    data_bollinger_low[ticker] = data_sma20[ticker]['Open' ] - data_sma20[ticker]['Open_std']*2
+#    data_bollinger_high[ticker] = data_sma20[ticker]['Open'] + data_sma20[ticker]['Open_std']*2
 
 #plt.plot(data['JPM']['Open'])
 #plt.plot(data_sma20['JPM']['Open'])
