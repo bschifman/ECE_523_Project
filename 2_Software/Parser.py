@@ -44,33 +44,68 @@ data = pickle.load(open('data.pickle', 'rb'))
 #%%REFORMAT DATA 
 for ticker in data:
     data[ticker].drop(['Open', 'High', 'Low', 'Close', 'Volume', 'Ex-Dividend', 'Split Ratio'], axis=1, inplace=True)
-    data[ticker].rename(index=str, columns={"Adj. Open": "Open", "Adj. High": "High", "Adj. Low": "Low", "Adj. Close": "Close"}, inplace=True)
+    data[ticker].rename(index=str, columns={"Adj. Open": "Open", "Adj. High": "High", "Adj. Low": "Low", "Adj. Close":
+        "Close", "Adj. Volume": "Volume"}, inplace=True)
 #%%
-data_sma20 = {}
-data_bollinger_low = {}
-data_bollinger_high = {}
+
+data_new   = {}
+data_open  =  {}
+data_high  =   {}
+data_low   =    {}
+data_close =     {}
+
+#  data_new[ticker]              = ta.SMA(data[ticker].iloc[:,0], timeperiod=20).to_frame()
+#  data_new[ticker]['SMA_High' ] = ta.SMA(data[ticker].iloc[:,1], timeperiod=20)
+#  data_new[ticker]['SMA_Low'  ] = ta.SMA(data[ticker].iloc[:,2], timeperiod=20)
+#  data_new[ticker]['SMA_Close'] = ta.SMA(data[ticker].iloc[:,3], timeperiod=20)
+#  data_new[ticker]['RSI_Open' ] = ta.RSI(data[ticker].iloc[:,0], timeperiod=14)
+#  data_new[ticker]['RSI_High' ] = ta.RSI(data[ticker].iloc[:,1], timeperiod=14)
+#  data_new[ticker]['RSI_Low'  ] = ta.RSI(data[ticker].iloc[:,2], timeperiod=14)
+#  data_new[ticker]['RSI_Close'] = ta.RSI(data[ticker].iloc[:,3], timeperiod=14)
+#  data_new[ticker]['OBV_Open' ] = ta.OBV(data[ticker].iloc[:,0], data[ticker].iloc[:,4])
+#  data_new[ticker]['OBV_High' ] = ta.OBV(data[ticker].iloc[:,1], data[ticker].iloc[:,4])
+#  data_new[ticker]['OBV_Low'  ] = ta.OBV(data[ticker].iloc[:,2], data[ticker].iloc[:,4])
+#  data_new[ticker]['OBV_Close'] = ta.OBV(data[ticker].iloc[:,3], data[ticker].iloc[:,4])
+#  data_open[ticker ]['EMA' ] = ta.EMA(data[ticker].iloc[:,0], timeperiod=20)
+#  data_high[ticker ]['EMA' ] = ta.EMA(data[ticker].iloc[:,1], timeperiod=20)
+#  data_low[ticker  ]['EMA' ] = ta.EMA(data[ticker].iloc[:,2], timeperiod=20)
+#  data_close[ticker]['EMA' ] = ta.EMA(data[ticker].iloc[:,3], timeperiod=20)
+#  data_new[ticker].rename(columns={data_new[ticker].columns[0]: "SMA_Open"}, inplace=True)
 
 for ticker in data:
-    data_sma20[ticker] = data[ticker].iloc[:, 0:4].rolling(window=20).mean()
-    data_sma20[ticker]['Open_std' ] = data[ticker].iloc[:,0].rolling(window=20).std()
-    data_sma20[ticker]['High_std' ] = data[ticker].iloc[:,1].rolling(window=20).std() 
-    data_sma20[ticker]['Low_std'  ] = data[ticker].iloc[:,2].rolling(window=20).std() 
-    data_sma20[ticker]['Close_std'] = data[ticker].iloc[:,3].rolling(window=20).std() 
-    
-    data_sma20[ticker]['RSI_Open' ] = ta.RSI(data[ticker].iloc[:,0], timeperiod=14)
-    data_sma20[ticker]['RSI_High' ] = ta.RSI(data[ticker].iloc[:,1], timeperiod=14)
-    data_sma20[ticker]['RSI_Low'  ] = ta.RSI(data[ticker].iloc[:,2], timeperiod=14)
-    data_sma20[ticker]['RSI_Close'] = ta.RSI(data[ticker].iloc[:,3], timeperiod=14)
-    
-#    data_sma20[ticker]['Open_Delta' ] = data[ticker].iloc[:,0].rolling(window=2).diff()
-#    data_sma20[ticker]['High_Delta' ] = data[ticker].iloc[:,1].rolling(window=20).diff() 
-#    data_sma20[ticker]['Low_Delta'  ] = data[ticker].iloc[:,2].rolling(window=20).diff() 
-#    data_sma20[ticker]['Close_Delta'] = data[ticker].iloc[:,3].rolling(window=20).diff() 
-#    data_bollinger_low[ticker] = data_sma20[ticker]['Open' ] - data_sma20[ticker]['Open_std']*2
-#    data_bollinger_high[ticker] = data_sma20[ticker]['Open'] + data_sma20[ticker]['Open_std']*2
+  data_open[ticker ] = ta.SMA(data[ticker].iloc[:,0], timeperiod=20).to_frame()
+  data_high[ticker ] = ta.SMA(data[ticker].iloc[:,1], timeperiod=20).to_frame()
+  data_low[ticker  ] = ta.SMA(data[ticker].iloc[:,2], timeperiod=20).to_frame()
+  data_close[ticker] = ta.SMA(data[ticker].iloc[:,3], timeperiod=20).to_frame()
+  
+  data_open[ticker ]['RSI' ] = ta.RSI(data[ticker].iloc[:,0], timeperiod=14)
+  data_high[ticker ]['RSI' ] = ta.RSI(data[ticker].iloc[:,1], timeperiod=14)
+  data_low[ticker  ]['RSI' ] = ta.RSI(data[ticker].iloc[:,2], timeperiod=14)
+  data_close[ticker]['RSI' ] = ta.RSI(data[ticker].iloc[:,3], timeperiod=14)
+  	
+  data_open[ticker ]['OBV'  ] = ta.OBV(data[ticker].iloc[:,0], data[ticker].iloc[:,4])
+  data_high[ticker ]['OBV'  ] = ta.OBV(data[ticker].iloc[:,1], data[ticker].iloc[:,4])
+  data_low[ticker  ]['OBV'  ] = ta.OBV(data[ticker].iloc[:,2], data[ticker].iloc[:,4])
+  data_close[ticker]['OBV'  ] = ta.OBV(data[ticker].iloc[:,3], data[ticker].iloc[:,4])
+  
+  data_open[ticker ]['EMA' ] = ta.EMA(data[ticker].iloc[:,0], timeperiod=20)
+  data_high[ticker ]['EMA' ] = ta.EMA(data[ticker].iloc[:,1], timeperiod=20)
+  data_low[ticker  ]['EMA' ] = ta.EMA(data[ticker].iloc[:,2], timeperiod=20)
+  data_close[ticker]['EMA' ] = ta.EMA(data[ticker].iloc[:,3], timeperiod=20)
+  
+  data_open[ticker ]['BBAND_Upper'], data_open[ticker ]['BBAND_Middle' ], data_open[ticker ]['BBAND_Lower' ] = ta.BBANDS(data[ticker].iloc[:,0], timeperiod=20, nbdevup=2, nbdevdn=2, matype=0)
+  data_high[ticker ]['BBAND_Upper'], data_high[ticker ]['BBAND_Middle' ], data_high[ticker ]['BBAND_Lower' ] = ta.BBANDS(data[ticker].iloc[:,1], timeperiod=20, nbdevup=2, nbdevdn=2, matype=0)
+  data_low[ticker  ]['BBAND_Upper'], data_low[ticker  ]['BBAND_Middle' ], data_low[ticker  ]['BBAND_Lower' ] = ta.BBANDS(data[ticker].iloc[:,2], timeperiod=20, nbdevup=2, nbdevdn=2, matype=0)
+  data_close[ticker]['BBAND_Upper'], data_close[ticker]['BBAND_Middle' ], data_close[ticker]['BBAND_Lower' ] = ta.BBANDS(data[ticker].iloc[:,3], timeperiod=20, nbdevup=2, nbdevdn=2, matype=0)  
 
-#plt.plot(data['JPM']['Open'])
-#plt.plot(data_sma20['JPM']['Open'])
-#plt.plot(data_bollinger_low['JPM'])
-#plt.plot(data_bollinger_high['JPM'])
-
+  data_open[ticker ].rename(columns={data_open[ticker ].columns[0]: "SMA"}, inplace=True)
+  data_high[ticker ].rename(columns={data_high[ticker ].columns[0]: "SMA"}, inplace=True)
+  data_low[ticker  ].rename(columns={data_low[ticker  ].columns[0]: "SMA"}, inplace=True)
+  data_close[ticker].rename(columns={data_close[ticker].columns[0]: "SMA"}, inplace=True)
+  
+plt.plot(data['JPM']['Close'])
+plt.plot(data_close['JPM']['BBAND_Upper'])
+plt.plot(data_close['JPM']['BBAND_Middle'])
+plt.plot(data_close['JPM']['BBAND_Lower'])
+  
+  

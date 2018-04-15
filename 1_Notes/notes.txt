@@ -1,6 +1,20 @@
 Alphpa Vantage API Key: 41GU6B4A4GSWCFT6
 Quandl API Key: HwQoB4ePcDi8bFzJ6SJA
 
+To Do:
+1. Finalize list of features to use for ML
+	(SMA, Bollinger Bands, RSI, OBV, 
+2. 
+
+
+
+
+
+
+
+
+
+
 11 Sectors of Stock Market:
 Financials:
 JPM
