@@ -73,6 +73,7 @@ data_close =     {}
 #  data_new[ticker].rename(columns={data_new[ticker].columns[0]: "SMA_Open"}, inplace=True)
 
 for ticker in data:
+#  data[ticker]{'y'}  = (data[ticker].iloc[:,0])
   data_open[ticker ] = ta.SMA(data[ticker].iloc[:,0], timeperiod=20).to_frame()
   data_high[ticker ] = ta.SMA(data[ticker].iloc[:,1], timeperiod=20).to_frame()
   data_low[ticker  ] = ta.SMA(data[ticker].iloc[:,2], timeperiod=20).to_frame()
@@ -98,6 +99,7 @@ for ticker in data:
   data_low[ticker  ]['BBAND_Upper'], data_low[ticker  ]['BBAND_Middle' ], data_low[ticker  ]['BBAND_Lower' ] = ta.BBANDS(data[ticker].iloc[:,2], timeperiod=20, nbdevup=2, nbdevdn=2, matype=0)
   data_close[ticker]['BBAND_Upper'], data_close[ticker]['BBAND_Middle' ], data_close[ticker]['BBAND_Lower' ] = ta.BBANDS(data[ticker].iloc[:,3], timeperiod=20, nbdevup=2, nbdevdn=2, matype=0)  
 
+  
   data_open[ticker ].rename(columns={data_open[ticker ].columns[0]: "SMA"}, inplace=True)
   data_high[ticker ].rename(columns={data_high[ticker ].columns[0]: "SMA"}, inplace=True)
   data_low[ticker  ].rename(columns={data_low[ticker  ].columns[0]: "SMA"}, inplace=True)
