@@ -5,10 +5,10 @@ import talib as ta
 import pickle
 import matplotlib.pyplot as plt
 quandl.ApiConfig.api_key = 'HwQoB4ePcDi8bFzJ6SJA'
+#%% Generate Pickle %##
 # =============================================================================
-# %% Generate Pickle %##
 # start_date = '2006-12-31'
-# end_date = '20017-12-31'
+# end_date = '2017-12-31'
 # database_code = 'WIKI'
 # 
 # #tickers_financials = []
@@ -38,17 +38,16 @@ quandl.ApiConfig.api_key = 'HwQoB4ePcDi8bFzJ6SJA'
 #     for ticker in index:
 #         print(ticker)
 #         data[ticker] = import_data(ticker, start_date, end_date)
-#         
-#     pickle.dump(data, open('data.pickle', 'wb'), protocol=pickle.HIGHEST_PROTOCOL)
+# #%%REFORMAT DATA 
+# for ticker in data:
+#     data[ticker].drop(['Open', 'High', 'Low', 'Close', 'Volume', 'Ex-Dividend', 'Split Ratio'], axis=1, inplace=True)
+#     data[ticker].rename(index=str, columns={"Adj. Open": "Open", "Adj. High": "High", "Adj. Low": "Low", "Adj. Close":
+#         "Close", "Adj. Volume": "Volume"}, inplace=True)
+#     
+# pickle.dump(data, open('data/data.pickle', 'wb'), protocol=pickle.HIGHEST_PROTOCOL)
 # =============================================================================
 #%%
-data = pickle.load(open('data.pickle', 'rb'))
-#%%REFORMAT DATA 
-for ticker in data:
-    data[ticker].drop(['Open', 'High', 'Low', 'Close', 'Volume', 'Ex-Dividend', 'Split Ratio'], axis=1, inplace=True)
-    data[ticker].rename(index=str, columns={"Adj. Open": "Open", "Adj. High": "High", "Adj. Low": "Low", "Adj. Close":
-        "Close", "Adj. Volume": "Volume"}, inplace=True)
-#%%
+data = pickle.load(open('data/data.pickle', 'rb'))
 
 data_new   = {}
 data_open  = {}
@@ -105,15 +104,27 @@ for ticker in data:
   data_low[ticker  ]['BBAND_Upper'], data_low[ticker  ]['BBAND_Middle' ], data_low[ticker  ]['BBAND_Lower' ] = ta.BBANDS(data[ticker].iloc[:,2], timeperiod=20, nbdevup=2, nbdevdn=2, matype=0)
   data_close[ticker]['BBAND_Upper'], data_close[ticker]['BBAND_Middle' ], data_close[ticker]['BBAND_Lower' ] = ta.BBANDS(data[ticker].iloc[:,3], timeperiod=20, nbdevup=2, nbdevdn=2, matype=0)  
 
+  data_open[ticker]['Label']  = 0
+  data_high[ticker]['Label']  = 0
+  data_low[ticker]['Label']   = 0
+  data_close[ticker]['Label'] = 0
   
   data_open[ticker ].rename(columns={data_open[ticker ].columns[0]: "SMA"}, inplace=True)
   data_high[ticker ].rename(columns={data_high[ticker ].columns[0]: "SMA"}, inplace=True)
   data_low[ticker  ].rename(columns={data_low[ticker  ].columns[0]: "SMA"}, inplace=True)
   data_close[ticker].rename(columns={data_close[ticker].columns[0]: "SMA"}, inplace=True)
   
-plt.plot(data['JPM']['Close'])
-plt.plot(data_close['JPM']['BBAND_Upper'])
-plt.plot(data_close['JPM']['BBAND_Middle'])
-plt.plot(data_close['JPM']['BBAND_Lower'])
+  i = 0
+  while(i < (len(data[ticker]) - 1)):
+      data_open[ticker].iloc[i+1,7] = np.sign(data[ticker].iloc[i+1,0] - data[ticker].iloc[i,0])
+      data_high[ticker].iloc[i+1,7] = np.sign(data[ticker].iloc[i+1,1] - data[ticker].iloc[i,1])
+      data_low[ticker].iloc[i+1,7] = np.sign(data[ticker].iloc[i+1,2] - data[ticker].iloc[i,2])
+      data_close[ticker].iloc[i+1,7] = np.sign(data[ticker].iloc[i+1,3] - data[ticker].iloc[i,3])
+      i += 1
+      
+pickle.dump(data_open, open('data/data_open.pickle', 'wb'), protocol=pickle.HIGHEST_PROTOCOL)  
+pickle.dump(data_high, open('data/data_high.pickle', 'wb'), protocol=pickle.HIGHEST_PROTOCOL)  
+pickle.dump(data_low, open('data/data_low.pickle', 'wb'), protocol=pickle.HIGHEST_PROTOCOL)  
+pickle.dump(data_close, open('data/data_close.pickle', 'wb'), protocol=pickle.HIGHEST_PROTOCOL)   
   
   
