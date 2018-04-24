@@ -111,9 +111,9 @@ for ticker in data:
   data_low[ticker  ].rename(columns={data_low[ticker  ].columns[0]: "SMA"}, inplace=True)
   data_close[ticker].rename(columns={data_close[ticker].columns[0]: "SMA"}, inplace=True)
   
-plt.plot(data['JPM']['Close'])
-plt.plot(data_close['JPM']['BBAND_Upper'])
-plt.plot(data_close['JPM']['BBAND_Middle'])
-plt.plot(data_close['JPM']['BBAND_Lower'])
+#plt.plot(data['JPM']['Close'])
+#plt.plot(data_close['JPM']['BBAND_Upper'])
+#plt.plot(data_close['JPM']['BBAND_Middle'])
+#plt.plot(data_close['JPM']['BBAND_Lower'])
   
   
