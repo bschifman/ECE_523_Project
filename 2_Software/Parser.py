@@ -107,11 +107,6 @@ for ticker in data:
     data_low[ticker  ]['BBAND_Upper'], data_low[ticker  ]['BBAND_Middle' ], data_low[ticker  ]['BBAND_Lower' ] = ta.BBANDS(data[ticker].iloc[:,2], timeperiod=20, nbdevup=2, nbdevdn=2, matype=0)
     data_close[ticker]['BBAND_Upper'], data_close[ticker]['BBAND_Middle' ], data_close[ticker]['BBAND_Lower' ] = ta.BBANDS(data[ticker].iloc[:,3], timeperiod=20, nbdevup=2, nbdevdn=2, matype=0)  
 
-    data_open[ticker]['Label']  = 0
-    data_high[ticker]['Label']  = 0
-    data_low[ticker]['Label']   = 0
-    data_close[ticker]['Label'] = 0
-
     data_open[ticker ].rename(columns={data_open[ticker ].columns[0]: "SMA"}, inplace=True)
     data_high[ticker ].rename(columns={data_high[ticker ].columns[0]: "SMA"}, inplace=True)
     data_low[ticker  ].rename(columns={data_low[ticker  ].columns[0]: "SMA"}, inplace=True)
@@ -124,13 +119,10 @@ for ticker in data:
     sign_daily[ticker]['Low']    = pd.DataFrame(np.sign(np.diff(data[ticker].iloc[:,2])))
     sign_daily[ticker]['Close']  = pd.DataFrame(np.sign(np.diff(data[ticker].iloc[:,3])))
 
-# =============================================================================
-# #%%Dump Pickles
-# pickle.dump(data_open, open('data/data_open.pickle', 'wb'), protocol=pickle.HIGHEST_PROTOCOL)  
-# pickle.dump(data_high, open('data/data_high.pickle', 'wb'), protocol=pickle.HIGHEST_PROTOCOL)  
-# pickle.dump(data_low, open('data/data_low.pickle', 'wb'), protocol=pickle.HIGHEST_PROTOCOL)  
-# pickle.dump(data_close, open('data/data_close.pickle', 'wb'), protocol=pickle.HIGHEST_PROTOCOL)
-# 
-# pickle.dump(sign_daily, open('data/sign_daily.pickle', 'wb'), protocol=pickle.HIGHEST_PROTOCOL)
-# 
-# =============================================================================
+#%%Dump Pickles
+pickle.dump(data_open, open('data/data_open.pickle', 'wb'), protocol=pickle.HIGHEST_PROTOCOL)  
+pickle.dump(data_high, open('data/data_high.pickle', 'wb'), protocol=pickle.HIGHEST_PROTOCOL)  
+pickle.dump(data_low, open('data/data_low.pickle', 'wb'), protocol=pickle.HIGHEST_PROTOCOL)  
+pickle.dump(data_close, open('data/data_close.pickle', 'wb'), protocol=pickle.HIGHEST_PROTOCOL)
+
+pickle.dump(sign_daily, open('data/sign_daily.pickle', 'wb'), protocol=pickle.HIGHEST_PROTOCOL)
