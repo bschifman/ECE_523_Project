@@ -122,11 +122,11 @@ def genTA():
         data_close[ticker].rename(columns={data_close[ticker].columns[0]: "SMA"}, inplace=True)
     
         #Daily Labels
-        sign_daily[ticker]           = pd.DataFrame(np.sign(np.diff(data[ticker].iloc[:,0])))
+        sign_daily[ticker]           = pd.DataFrame(np.concatenate((np.array([0.0]),np.sign(np.diff(data[ticker].iloc[:,0])))))
         sign_daily[ticker].rename(columns={sign_daily[ticker ].columns[0]: "Open"}, inplace=True)
-        sign_daily[ticker]['High']   = pd.DataFrame(np.sign(np.diff(data[ticker].iloc[:,1])))
-        sign_daily[ticker]['Low']    = pd.DataFrame(np.sign(np.diff(data[ticker].iloc[:,2])))
-        sign_daily[ticker]['Close']  = pd.DataFrame(np.sign(np.diff(data[ticker].iloc[:,3])))
+        sign_daily[ticker]['High']   = pd.DataFrame(np.concatenate((np.array([0.0]),np.sign(np.diff(data[ticker].iloc[:,1])))))
+        sign_daily[ticker]['Low']    = pd.DataFrame(np.concatenate((np.array([0.0]),np.sign(np.diff(data[ticker].iloc[:,2])))))
+        sign_daily[ticker]['Close']  = pd.DataFrame(np.concatenate((np.array([0.0]),np.sign(np.diff(data[ticker].iloc[:,3])))))
     
     #Dump Pickles
     pickle.dump(data_open, open('data/data_open.pickle', 'wb'), protocol=pickle.HIGHEST_PROTOCOL)  
