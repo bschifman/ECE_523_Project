@@ -1,10 +1,19 @@
+# =============================================================================
+# Packages:
 import quandl
 import pandas as pd
 import numpy as np
 import talib as ta
 import pickle
 quandl.ApiConfig.api_key = 'HwQoB4ePcDi8bFzJ6SJA'
-#%% Generate Pickle %##
+# =============================================================================
+# Functions:
+# ingestData()
+# genTA()
+# loadData()
+# normData()
+# =============================================================================
+# Generate Pickle #
 def ingestData():
     start_date = '2006-12-31'
     end_date = '2017-12-31'
@@ -44,7 +53,7 @@ def ingestData():
             "Close", "Adj. Volume": "Volume"}, inplace=True)
         
         pickle.dump(data, open('data/data.pickle', 'wb'), protocol=pickle.HIGHEST_PROTOCOL)
-#%%
+# =============================================================================
 def genTA():
     data = pickle.load(open('data/data.pickle', 'rb'))
 
@@ -133,8 +142,8 @@ def genTA():
     pickle.dump(data_high, open('data/data_high.pickle', 'wb'), protocol=pickle.HIGHEST_PROTOCOL)  
     pickle.dump(data_low, open('data/data_low.pickle', 'wb'), protocol=pickle.HIGHEST_PROTOCOL)  
     pickle.dump(data_close, open('data/data_close.pickle', 'wb'), protocol=pickle.HIGHEST_PROTOCOL)
-    pickle.dump(sign_daily, open('data/sign_daily.pickle', 'wb'), protocol=pickle.HIGHEST_PROTOCOL)
-#%%    
+    pickle.dump(sign_daily, open('data/sign_daily.pickle', 'wb'), protocol=pickle.HIGHEST_PROTOCOL)    
+# =============================================================================
 def loadData():
     data         = pickle.load(open('data/data.pickle', 'rb'))
     data_open    = pickle.load(open('data/data_open.pickle', 'rb'))
@@ -143,7 +152,22 @@ def loadData():
     data_close   = pickle.load(open('data/data_close.pickle', 'rb'))
     y_sign_daily = pickle.load(open('data/sign_daily.pickle', 'rb'))
     return(data, data_open, data_high, data_low, data_close, y_sign_daily)
-#%%
-#ingestData()
-#genTA()
-#loadData()
+# =============================================================================
+# Regular Normalization depends on a time period. timeperiod = number of indices in period
+# TODO: Determine faster/better way to implement normalization...this takes forever (~20sec)
+# TODO: Throwout first window if not full timeperiod? Last window wasn't calced, but because of init still has old values
+# NaN's are a problem, I think...maybe...maybe not
+# Need to make sure this is working right
+def normData(dataIn, timeperiod):
+    dataOut = dataIn #this is probably a bad way to do this
+    for ticker in dataIn:
+        N = np.size(dataIn[ticker],0)
+        pStartInd = np.arange(0,N,timeperiod)
+        for i in pStartInd:
+            timeInd = np.arange(i,i+timeperiod)
+            if(timeInd[timeperiod-1] <= N):
+                tempMin = np.min(dataIn[ticker].iloc[timeInd,:], axis=0)
+                tempMax = np.max(dataIn[ticker].iloc[timeInd,:], axis=0)
+                dataOut[ticker].iloc[timeInd,:] = (dataIn[ticker].iloc[timeInd,:] - tempMin)/(tempMax - tempMin)
+    return dataOut
+# =============================================================================

@@ -7,6 +7,9 @@ To Do:
 	***Look at features from this article:https://robotwealth.com/machine-learning-financial-prediction-david-aronson/
 2. Generate Classes of Pos, Neg, Neutral Trends
 
+Misc:
+    1. Find faster way to normalize over time window?
+
 
 
 
