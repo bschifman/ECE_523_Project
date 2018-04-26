@@ -155,19 +155,22 @@ def loadData():
 # =============================================================================
 # Regular Normalization depends on a time period. timeperiod = number of indices in period
 # TODO: Determine faster/better way to implement normalization...this takes forever (~20sec)
-# TODO: Throwout first window if not full timeperiod? Last window wasn't calced, but because of init still has old values
 # NaN's are a problem, I think...maybe...maybe not
-# Need to make sure this is working right
+# if length of dataframes don't divide evenly by timeperiod, throws out remainder from the beginning
+# TODO: return start indices for indexing later (and maybe timeperiod used?)
 def normData(dataIn, timeperiod):
-    dataOut = dataIn #this is probably a bad way to do this
+    dataOut = dataIn
+    numCols = np.size(dataIn[list(dataIn.keys())[0]].keys())
     for ticker in dataIn:
         N = np.size(dataIn[ticker],0)
-        pStartInd = np.arange(0,N,timeperiod)
+        r = N%timeperiod
+        rInd = np.arange(0,r)
+        dataOut[ticker].iloc[rInd,:] = np.tile(float('nan'),(r,numCols))
+        pStartInd = np.arange(r,N,timeperiod)
         for i in pStartInd:
             timeInd = np.arange(i,i+timeperiod)
-            if(timeInd[timeperiod-1] <= N):
-                tempMin = np.min(dataIn[ticker].iloc[timeInd,:], axis=0)
-                tempMax = np.max(dataIn[ticker].iloc[timeInd,:], axis=0)
-                dataOut[ticker].iloc[timeInd,:] = (dataIn[ticker].iloc[timeInd,:] - tempMin)/(tempMax - tempMin)
+            tempMin = np.min(dataIn[ticker].iloc[timeInd,:], axis=0)
+            tempMax = np.max(dataIn[ticker].iloc[timeInd,:], axis=0)
+            dataOut[ticker].iloc[timeInd,:] = np.divide(np.array((dataIn[ticker].iloc[timeInd,:] - tempMin)),np.array((tempMax - tempMin)))
     return dataOut
 # =============================================================================
