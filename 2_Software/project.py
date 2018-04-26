@@ -1,10 +1,9 @@
-# =============================================================================
+    # =============================================================================
 # Packages:
 
 # Project Files:
 import dataSetup as ds
 import featureSelection as fs
-import mic #maybe put this in featureSelection?
 # =============================================================================
 # #%% Control Variables %%#
 DEBUG         = True  #Maybe I'm stupid but I needed this to debug norm function
