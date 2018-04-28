@@ -116,8 +116,6 @@ def mine_stats(mine):
 
     
 data, data_open, data_high, data_low, data_close, y_sign_daily = ds.loadData()
-for column in data['JPM'].columns:
-    print(column)
 #genMic(data, data_open, data_high, data_low, data_close, y_sign_daily)
 #mic_open, mic_high, mic_low, mic_close, mic_open_mu, mic_high_mu, mic_low_mu, mic_close_mu= loadMic()
 
