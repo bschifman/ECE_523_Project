@@ -21,6 +21,8 @@
 \usepackage{nicefrac}       % compact symbols for 1/2, etc.
 \usepackage{microtype}      % microtypography
 
+\usepackage{amsmath}
+
 \title{Feature Selection in Finance}
 \usepackage[final]{nips_2016}
 
@@ -35,33 +37,13 @@
 % author name.
 
 \author{
-  Benjamin A. Schifman, Justin J. Siekmann\\
+  Benjamin A. Schifman\\
+  \textbf{Justin J. Siekmann}\\
   Department of Electrical and Computer Engineering\\
   University of Arizona\\
   Tucson, AZ 85719 \\
   \texttt{bschifman@email.arizona.edu} \\
   \texttt{jsiekmannemail.arizona.edu}
-  %% examples of more authors
-  %% \And
-  %% Coauthor \\
-  %% Affiliation \\
-  %% Address \\
-  %% \texttt{email} \\
-  %% \AND
-  %% Coauthor \\
-  %% Affiliation \\
-  %% Address \\
-  %% \texttt{email} \\
-  %% \And
-  %% Coauthor \\
-  %% Affiliation \\
-  %% Address \\
-  %% \texttt{email} \\
-  %% \And
-  %% Coauthor \\
-  %% Affiliation \\
-  %% Address \\
-  %% \texttt{email} \\
 }
 
 \begin{document}
@@ -79,12 +61,24 @@
 \end{abstract}
 
 \section{Introduction}
-\indent We explore different approaches to apply machine learning principles and algorithms to the financial industry. There exist technical indicators traditionally used by analysts to evaluate and predict market and equity performance, as they “can provide a unique perspective on the strength and direction of the underlying price action” ({\bf <--what is this quote from??}). Feature extraction could be used to determine relevant indicators while identifying irrelevant and redundant indicators. Different implementations of algorithms based on these indicators could be used to predict performance of individual equities, sectors, or overall markets. They could also be used to classify and identify the correlation and interdependencies between equities, sectors, and markets. Our goal is to implement these various approaches to determine their efficacy as enablers to financial analysis. The biggest obstacle we face is finding relevant  and ways to accurately test our implementations. This being said, below are extensive datasets on stock market pricing and volume data that will serve as the basis in generating technical indicator features to implement in our machine learning algorithms. From this project we hope to deepen our understanding of the usage cases for applying specific machine learning algorithms as well as expanding upon our technical analysis of the stock market and which indicators play a role in successful market analysis.
+There exist technical analysis indicators traditionally used by analysts to evaluate and predict market and equity performance, as they “can provide a unique perspective on the strength and direction of the underlying price action” ({\bf <--what is this quote from??}). \\
+Feature selection is used to determine relevant indicators while identifying those that are irrelevant and redundant. Different implementations of algorithms based on these indicators could be used to predict performance of individual equities, sectors, or overall markets. They could also be used to classify and identify the correlation and interdependencies between equities, sectors, and markets. Our goal is to implement various approaches to determine efficacy of technical indicators as enablers to financial analysis. A challenge in the implementation of this project was to develop an accurate testing method.
+
+Possibly reword and keep/move:\\
+From this project we hope to deepen our understanding of the usage cases for applying specific machine learning algorithms as well as expanding upon our technical analysis of the stock market and which indicators play a role in successful market analysis.
 
 \section{Related Work}
 This is optional. If wanted, save til last.
 \section{Methods/Approach}
+The following subsections present details and explanations of the methods and functions implemented as part of this project.
 \subsection{Normalization}
+As each technical analysis indicator produces values applicable based on the way the indicator was calculated, normalization of the indicators makes correlations between them during feature selection more accurate and applicable. Each value in a specified time period is normalized using Equation \eqref{eq:norm}. If there is extra data not consisting of a full time period, the extras are thrown out at the beginning of the data as the data near the end may be more relevant.
+
+\begin{equation}\label{eq:norm}
+	\textbf{insert norm equation}
+\end{equation}
+
+
 \subsection{Maximal Information Coefficient}
 The Maximal Information Coefficient (MIC) is "a measure of two-variable dependence designed specifically for rapid exploration of many-dimensional data sets" - http://www.exploredata.net/. A benefit to MIC correlations between two variables is that it can be described regardless of linear or non-linear relationships. The MIC yields a single vale $0 \leq MIC \leq 1$ with a value closer to $1$ representing that the variables are more closely correlated, and a value near $0$ indicates statistically independent variables that have neither linear nor nonlinear relationships. The $minepy$ library was used in python to rank the features according to their MIC with the target variable. The MIC was calculated for each feature in each ticker, and then a final MIC value for each feature was calculated by taking the mean of the values.
 
