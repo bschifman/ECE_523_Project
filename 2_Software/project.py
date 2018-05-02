@@ -3,7 +3,7 @@
 
 # Project Files:
 import dataSetup as ds
-import featureSelection as fs
+import FeatureSelection as fs
 # =============================================================================
 # #%% Control Variables %%#
 DEBUG         = False  #Maybe I'm stupid but I needed this to debug norm function
