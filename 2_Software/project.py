@@ -20,7 +20,7 @@ if(REGENERATE_TA):
     ds.genTA()
 
 #Load data from pickles
-data, data_open, data_high, data_low, data_close, y_sign_daily = ds.loadData()
+data, data_open, data_high, data_low, data_close, y_sign_daily, featureNames = ds.loadData()
 
 #normData work in progress in dataSetup.py
 if(DEBUG):

@@ -1,7 +1,10 @@
 \BOOKMARK [1][-]{section.1}{Introduction}{}% 1
 \BOOKMARK [1][-]{section.2}{Related Work}{}% 2
 \BOOKMARK [1][-]{section.3}{Methods/Approach}{}% 3
-\BOOKMARK [2][-]{subsection.3.1}{Normalization}{section.3}% 4
-\BOOKMARK [2][-]{subsection.3.2}{Maximal Information Coefficient}{section.3}% 5
-\BOOKMARK [1][-]{section.4}{Results}{}% 6
-\BOOKMARK [1][-]{section.5}{Conclusion}{}% 7
+\BOOKMARK [2][-]{subsection.3.1}{Data and Technical Analysis Indicators}{section.3}% 4
+\BOOKMARK [2][-]{subsection.3.2}{Normalization}{section.3}% 5
+\BOOKMARK [2][-]{subsection.3.3}{Maximal Information Coefficient \(MIC\)}{section.3}% 6
+\BOOKMARK [2][-]{subsection.3.4}{Recursive Feature Elimination \(RFE\)}{section.3}% 7
+\BOOKMARK [2][-]{subsection.3.5}{Principle Component Analysis \(PCA\)}{section.3}% 8
+\BOOKMARK [1][-]{section.4}{Results}{}% 9
+\BOOKMARK [1][-]{section.5}{Conclusion}{}% 10

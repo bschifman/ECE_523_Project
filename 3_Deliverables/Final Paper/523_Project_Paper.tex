@@ -22,6 +22,8 @@
 \usepackage{microtype}      % microtypography
 
 \usepackage{amsmath}
+\usepackage{cleveref}
+\usepackage{csvsimple}
 
 \title{Feature Selection in Finance}
 \usepackage[final]{nips_2016}
@@ -62,25 +64,50 @@
 
 \section{Introduction}
 There exist technical analysis indicators traditionally used by analysts to evaluate and predict market and equity performance, as they “can provide a unique perspective on the strength and direction of the underlying price action” ({\bf <--what is this quote from??}). \\
-Feature selection is used to determine relevant indicators while identifying those that are irrelevant and redundant. Different implementations of algorithms based on these indicators could be used to predict performance of individual equities, sectors, or overall markets. They could also be used to classify and identify the correlation and interdependencies between equities, sectors, and markets. Our goal is to implement various approaches to determine efficacy of technical indicators as enablers to financial analysis. A challenge in the implementation of this project was to develop an accurate testing method.
+Feature selection is used to determine relevant indicators while identifying those that are irrelevant and redundant. Different implementations of algorithms based on these indicators could be used to predict performance of individual equities, sectors, or overall markets. They could also be used to classify and identify the correlation and interdependencies between equities, sectors, and markets. Our goal is to implement various approaches to determine efficacy of technical indicators as enablers to financial analysis. This project presented a couple challenges during implementation including developing an accurate testing method as well as handling and computing such large volumes of data.
 
 Possibly reword and keep/move:\\
 From this project we hope to deepen our understanding of the usage cases for applying specific machine learning algorithms as well as expanding upon our technical analysis of the stock market and which indicators play a role in successful market analysis.
 
 \section{Related Work}
 This is optional. If wanted, save til last.
+
 \section{Methods/Approach}
 The following subsections present details and explanations of the methods and functions implemented as part of this project.
+
+\subsection{Data and Technical Analysis Indicators}
+The Quandl platform was used to fetch 11 years of market data from Dec 31, 2006 to Dec 31, 2017 on various identified US tickers across different sectors. Tickers used in the project can be found in \Cref{tab:tick} categorized by sector. As the amount of fetched and calculated data is very large, pickle files were used to save all data to be quickly reimported instead of refetching data through the Quandl platform. TA-Lib: Technical Analysis Library was used to calculate features on the market data for each ticker obtained using Quandl.  The features incorporated into this project are found with in \Cref{tab:inds}.
+
+\begin{table}[h]
+	\centering
+	\csvautotabular{tickers.csv}
+	\caption{Tickers}
+	\label{tab:tick}
+\end{table}
+
+\begin{table}[h]
+	\csvreader[respect all, autotabular]{features.csv}{}{\csvlinetotablerow}
+	\centering
+	\caption{Technical Analysis Indicators}
+	\label{tab:inds}
+\end{table}
+
 \subsection{Normalization}
-As each technical analysis indicator produces values applicable based on the way the indicator was calculated, normalization of the indicators makes correlations between them during feature selection more accurate and applicable. Each value in a specified time period is normalized using Equation \eqref{eq:norm}. If there is extra data not consisting of a full time period, the extras are thrown out at the beginning of the data as the data near the end may be more relevant.
+As each technical analysis indicator produces values applicable based on the way the indicator was calculated, normalization of the indicators makes correlations between them during feature selection more accurate and applicable. Each value in a specified time period is normalized using Equation \eqref{eq:norm}. If there is extra data not consisting of a full time period, the extras are thrown out at the beginning of the data as data near the end may be more relevant and thus more desirable to keep. The start indices are computed for each ticker and return to ease future handling.
 
 \begin{equation}\label{eq:norm}
-	\textbf{insert norm equation}
+	x_n = \frac{x - min}{max - min}
 \end{equation}
 
 
-\subsection{Maximal Information Coefficient}
-The Maximal Information Coefficient (MIC) is "a measure of two-variable dependence designed specifically for rapid exploration of many-dimensional data sets" - http://www.exploredata.net/. A benefit to MIC correlations between two variables is that it can be described regardless of linear or non-linear relationships. The MIC yields a single vale $0 \leq MIC \leq 1$ with a value closer to $1$ representing that the variables are more closely correlated, and a value near $0$ indicates statistically independent variables that have neither linear nor nonlinear relationships. The $minepy$ library was used in python to rank the features according to their MIC with the target variable. The MIC was calculated for each feature in each ticker, and then a final MIC value for each feature was calculated by taking the mean of the values.
+\subsection{Maximal Information Coefficient (MIC)}
+The Maximal Information Coefficient is "a measure of two-variable dependence designed specifically for rapid exploration of many-dimensional data sets" - http://www.exploredata.net/. A benefit to MIC correlations between two variables is that it can be described regardless of linear or non-linear relationships. The MIC yields a single vale $0 \leq MIC \leq 1$ with a value closer to $1$ representing that the variables are more closely correlated, and a value near $0$ indicates statistically independent variables that have neither linear nor nonlinear relationships. The $minepy$ library was used in python to rank the features according to their MIC with the target variable. The MIC was calculated for each feature in each ticker, and then a final MIC value for each feature was calculated by taking the mean of the values.
+
+\subsection{Recursive Feature Elimination (RFE)}
+
+
+\subsection{Principle Component Analysis (PCA)}
+
 
 \section{Results}
 \section{Conclusion}

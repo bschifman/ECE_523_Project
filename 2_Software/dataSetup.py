@@ -34,7 +34,15 @@ def ingestData():
     tickers_technology = ['AAPL', 'GOOGL', 'MSFT', 'FB', 'INTC', 'CSCO', 'ORCL', 'IBM', 'NVDA']
     tickers_realestate = ['ECL', 'DWDP', 'FMC', 'IP', 'PPG', 'VMC', 'BMS']
     tickers = [tickers_financials, tickers_utilities, tickers_energy, tickers_healthcare, tickers_technology, tickers_realestate]
-        
+    
+    temp = {'Financials': tickers_financials,
+        'Utilities': tickers_utilities,
+        'Energy': tickers_energy,
+        'Healthcare':tickers_healthcare,
+        'Technology':tickers_technology,
+        'Real Estate': tickers_realestate}
+    pd.DataFrame.from_dict(temp, orient='index').transpose().to_csv('../3_Deliverables/Final Paper/tickers.csv', index=False)
+    
     data = {}
     
     #data = quandl.get('WIKI/' + tickers, start_date=start_date, end_date=end_date)
@@ -65,7 +73,6 @@ def genTA():
     
     #labels
     sign_daily = {}
-    
     
     # =============================================================================
     #   #Data all in data_new
@@ -151,7 +158,11 @@ def loadData():
     data_low     = pickle.load(open('data/data_low.pickle', 'rb'))
     data_close   = pickle.load(open('data/data_close.pickle', 'rb'))
     y_sign_daily = pickle.load(open('data/sign_daily.pickle', 'rb'))
-    return(data, data_open, data_high, data_low, data_close, y_sign_daily)
+    
+    featureNames = {'Indicators':list(data_close[list(data_close.keys())[0]].columns.values)}
+    pd.DataFrame.from_dict(featureNames).to_csv('../3_Deliverables/Final Paper/features.csv', index=False)
+    
+    return(data, data_open, data_high, data_low, data_close, y_sign_daily, featureNames)
 # =============================================================================
 # Regular Normalization depends on a time period. timeperiod = number of indices in period
 # TODO: Determine faster/better way to implement normalization...this takes forever (~20sec)
