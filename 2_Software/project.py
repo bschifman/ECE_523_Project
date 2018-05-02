@@ -6,7 +6,7 @@ import dataSetup as ds
 import featureSelection as fs
 # =============================================================================
 # #%% Control Variables %%#
-DEBUG         = True  #Maybe I'm stupid but I needed this to debug norm function
+DEBUG         = False  #Maybe I'm stupid but I needed this to debug norm function
 REINGEST_DATA = False #imports data from quandl, dumps data to data.pickle
 REGENERATE_TA = False #recalc features on open, high, low, close ... dumps each to data_<x>.pickle
 #Add more control here
