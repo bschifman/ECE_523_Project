@@ -14,7 +14,7 @@
 
 \usepackage[utf8]{inputenc} % allow utf-8 input
 \usepackage[T1]{fontenc}    % use 8-bit T1 fonts
-\usepackage{hyperref}       % hyperlinks
+\usepackage[hidelinks]{hyperref}       % hyperlinks
 \usepackage{url}            % simple URL typesetting
 \usepackage{booktabs}       % professional-quality tables
 \usepackage{amsfonts}       % blackboard math symbols
@@ -76,7 +76,7 @@ This is optional. If wanted, save til last.
 The following subsections present details and explanations of the methods and functions implemented as part of this project.
 
 \subsection{Data and Technical Analysis Indicators}
-The Quandl platform was used to fetch 11 years of market data from Dec 31, 2006 to Dec 31, 2017 on various identified US tickers across different sectors. Tickers used in the project can be found in \Cref{tab:tick} categorized by sector. As the amount of fetched and calculated data is very large, pickle files were used to save all data to be quickly reimported instead of refetching data through the Quandl platform. TA-Lib: Technical Analysis Library was used to calculate features on the market data for each ticker obtained using Quandl. <insert stuff about TA-lib having various types of features>. The features incorporated into this project are found with in \Cref{tab:inds}.
+The Quandl platform was used to fetch 11 years of market data from Dec 31, 2006 to Dec 31, 2017 on various identified US tickers across different sectors. Tickers used in the project can be found in Table \ref{tab:tick} categorized by sector. As the amount of fetched and calculated data is very large, pickle files were used to save all data to be quickly reimported instead of refetching data through the Quandl platform. TA-Lib: Technical Analysis Library was used to calculate features on the market data for each ticker obtained using Quandl. <insert stuff about TA-lib having various types of features>. The features incorporated into this project are found with in \Cref{tab:inds}.
 
 \begin{table}[h]
 	\centering
@@ -99,6 +99,8 @@ As each technical analysis indicator produces values applicable based on the way
 	x_n = \frac{x - min}{max - min}
 \end{equation}
 
+\subsection{Feature Correlation}
+Removing highly correlated features allows for the optimization of the classification algorithms by reducing the feature space. Features that are highly correlated most likely offer no additional data and they are an extra expense in computation time. 
 
 \subsection{Maximal Information Coefficient (MIC)}
 The Maximal Information Coefficient is "a measure of two-variable dependence designed specifically for rapid exploration of many-dimensional data sets" - http://www.exploredata.net/. A benefit to MIC correlations between two variables is that it can be described regardless of linear or non-linear relationships. The MIC yields a single vale $0 \leq MIC \leq 1$ with a value closer to $1$ representing that the variables are more closely correlated, and a value near $0$ indicates statistically independent variables that have neither linear nor nonlinear relationships. The $minepy$ library was used in python to rank the features according to their MIC with the target variable. The MIC was calculated for each feature in each ticker, and then a final MIC value for each feature was calculated by taking the mean of the values.

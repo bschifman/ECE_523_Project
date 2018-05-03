@@ -1,19 +1,11 @@
 from keras.models import Sequential
 from keras.layers import Dense
 from keras.utils import np_utils
-from sklearn import datasets
 from sklearn.model_selection import train_test_split
 import numpy
 
-
-from keras.datasets import mnist
-(X, y), (trash1, trash_2) = mnist.load_data()
-X = X.reshape(60000, 784)
-X = X.astype('float32')
-X /= 255
-
 def MLP(X, y):
-    num_classes = 10
+    num_classes = 3
     epochs = 150
     numpy.random.seed(7)
     
@@ -36,5 +28,8 @@ def MLP(X, y):
     # evaluate the model
     scores = model.evaluate(X_test, y_test)
     print("\n%s: %.2f%%" % (model.metrics_names[1], scores[1]*100))
-    
-MLP(X, y)    
+     
+X = data_open_norm['JPM']
+y = y['JPM']
+
+MLP(X, y)
