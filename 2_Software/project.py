@@ -18,7 +18,9 @@ elif(TIMEPERIODNUM == 2):
     T = 25 #5 weeks
 elif(TIMEPERIODNUM == 3):
     T = 5 #1 week
-
+else:
+    print('Pick a valid TIMEPERIODNUM')
+    exit()
 
 #Reimport data from quandl
 if(REINGEST_DATA):
@@ -30,7 +32,7 @@ else:
 #Regenerate feature pickle files
 if(REGENERATE_TA):
     data_open_norm, data_high_norm, data_low_norm, data_close_norm, y = ds.genTA(data, t=T)
-    
+        
     #Dump Pickles
     ds.dumpData(data_open_norm,  'data_open_normT' +str(TIMEPERIODNUM))
     ds.dumpData(data_high_norm,  'data_high_normT' +str(TIMEPERIODNUM))
@@ -39,5 +41,5 @@ if(REGENERATE_TA):
     ds.dumpData(y, 'y')
 else: #Load data from pickles
     data_open_norm, data_high_norm, data_low_norm, data_close_norm, y = ds.loadTAdata(tNum=TIMEPERIODNUM)
-
+    x_open, x_high, x_low, x_close, y_all = ds.reformat(data_open_norm, data_high_norm, data_low_norm, data_close_norm, y)
 #if(DEBUG):

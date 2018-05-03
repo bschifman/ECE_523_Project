@@ -124,16 +124,18 @@ def genTA(data, t): #t is timeperiod
         data_high[ticker ].drop(data_high[ticker ].index[np.arange(0,t-1)], inplace=True)
         data_low[ticker  ].drop(data_low[ticker  ].index[np.arange(0,t-1)], inplace=True)
         data_close[ticker].drop(data_close[ticker].index[np.arange(0,t-1)], inplace=True)
-        sign_daily[ticker].drop(sign_daily[ticker].index[np.arange(0,t-1)], inplace=True)
         
     norm_timeperiod = 60
     data_open_norm  = normData(data_open , norm_timeperiod)
     data_high_norm  = normData(data_high , norm_timeperiod)
     data_low_norm   = normData(data_low  , norm_timeperiod)
     data_close_norm = normData(data_close, norm_timeperiod)
+    
+    for ticker in sign_daily:
+        N = np.size(sign_daily[ticker],0) - np.size(data_open_norm[ticker],0)
+        sign_daily[ticker].drop(sign_daily[ticker].index[np.arange(0,N)], inplace=True)
         
     return data_open_norm, data_high_norm, data_low_norm, data_close_norm, sign_daily
-    #return data_open, data_high, data_low, data_close
 
 # =============================================================================
 def loadQdata():
@@ -181,3 +183,17 @@ def normData(dataIn, norm_window):
         
     return dataOut
 # =============================================================================
+def reformat(data_open, data_high, data_low, data_close, y):
+    data_open_new  = pd.DataFrame()
+    data_high_new  = pd.DataFrame()
+    data_low_new   = pd.DataFrame()
+    data_close_new = pd.DataFrame()
+    y_new          = pd.DataFrame()
+    for ticker in y:
+        data_open_new  = data_open_new.append(data_open[ticker])
+        data_high_new  = data_high_new.append(data_high[ticker])
+        data_low_new   = data_low_new.append(data_low[ticker])
+        data_close_new = data_close_new.append(data_close[ticker])
+        y_new          = y_new.append(y[ticker])
+    return data_open_new, data_high_new, data_low_new, data_close_new, y_new
+    
