@@ -60,12 +60,9 @@ def ingestData():
         data[ticker].rename(index=str, columns={"Adj. Open": "Open", "Adj. High": "High", "Adj. Low": "Low", "Adj. Close":
             "Close", "Adj. Volume": "Volume"}, inplace=True)
         
-        pickle.dump(data, open('data/data.pickle', 'wb'), protocol=pickle.HIGHEST_PROTOCOL)
+    return data
 # =============================================================================
-def genTA():
-    data = pickle.load(open('data/data.pickle', 'rb'))
-
-#    data_new   = {}
+def genTA(data, t): #t is timeperiod
     data_open  = {}
     data_high  = {}
     data_low   = {}
@@ -73,115 +70,114 @@ def genTA():
     
     #labels
     sign_daily = {}
-    
-    # =============================================================================
-    #   #Data all in data_new
-    #   data_new[ticker]              = ta.SMA(data[ticker].iloc[:,0], timeperiod=20).to_frame()
-    #   data_new[ticker]['SMA_High' ] = ta.SMA(data[ticker].iloc[:,1], timeperiod=20)
-    #   data_new[ticker]['SMA_Low'  ] = ta.SMA(data[ticker].iloc[:,2], timeperiod=20)
-    #   data_new[ticker]['SMA_Close'] = ta.SMA(data[ticker].iloc[:,3], timeperiod=20)
-    #   data_new[ticker]['RSI_Open' ] = ta.RSI(data[ticker].iloc[:,0], timeperiod=14)
-    #   data_new[ticker]['RSI_High' ] = ta.RSI(data[ticker].iloc[:,1], timeperiod=14)
-    #   data_new[ticker]['RSI_Low'  ] = ta.RSI(data[ticker].iloc[:,2], timeperiod=14)
-    #   data_new[ticker]['RSI_Close'] = ta.RSI(data[ticker].iloc[:,3], timeperiod=14)
-    #   data_new[ticker]['OBV_Open' ] = ta.OBV(data[ticker].iloc[:,0], data[ticker].iloc[:,4])
-    #   data_new[ticker]['OBV_High' ] = ta.OBV(data[ticker].iloc[:,1], data[ticker].iloc[:,4])
-    #   data_new[ticker]['OBV_Low'  ] = ta.OBV(data[ticker].iloc[:,2], data[ticker].iloc[:,4])
-    #   data_new[ticker]['OBV_Close'] = ta.OBV(data[ticker].iloc[:,3], data[ticker].iloc[:,4])
-    #   data_open[ticker ]['EMA' ] = ta.EMA(data[ticker].iloc[:,0], timeperiod=20)
-    #   data_high[ticker ]['EMA' ] = ta.EMA(data[ticker].iloc[:,1], timeperiod=20)
-    #   data_low[ticker  ]['EMA' ] = ta.EMA(data[ticker].iloc[:,2], timeperiod=20)
-    #   data_close[ticker]['EMA' ] = ta.EMA(data[ticker].iloc[:,3], timeperiod=20)
-    #   data_new[ticker].rename(columns={data_new[ticker].columns[0]: "SMA_Open"}, inplace=True)
-    # =============================================================================
-    
+   
     for ticker in data:
-        #data[ticker]{'y'}  = (data[ticker].iloc[:,0])
-        data_open[ticker ] = ta.SMA(data[ticker].iloc[:,0], timeperiod=20).to_frame()
-        data_high[ticker ] = ta.SMA(data[ticker].iloc[:,1], timeperiod=20).to_frame()
-        data_low[ticker  ] = ta.SMA(data[ticker].iloc[:,2], timeperiod=20).to_frame()
-        data_close[ticker] = ta.SMA(data[ticker].iloc[:,3], timeperiod=20).to_frame()
+        data_open[ticker ] = ta.SMA(data[ticker].iloc[:,0], timeperiod=t).to_frame()
+        data_high[ticker ] = ta.SMA(data[ticker].iloc[:,1], timeperiod=t).to_frame()
+        data_low[ticker  ] = ta.SMA(data[ticker].iloc[:,2], timeperiod=t).to_frame()
+        data_close[ticker] = ta.SMA(data[ticker].iloc[:,3], timeperiod=t).to_frame()
     
-        data_open[ticker ]['RSI' ] = ta.RSI(data[ticker].iloc[:,0], timeperiod=14)
-        data_high[ticker ]['RSI' ] = ta.RSI(data[ticker].iloc[:,1], timeperiod=14)
-        data_low[ticker  ]['RSI' ] = ta.RSI(data[ticker].iloc[:,2], timeperiod=14)
-        data_close[ticker]['RSI' ] = ta.RSI(data[ticker].iloc[:,3], timeperiod=14)
+        data_open[ticker ]['RSI'] = ta.RSI(data[ticker].iloc[:,0], timeperiod=(t-1))
+        data_high[ticker ]['RSI'] = ta.RSI(data[ticker].iloc[:,1], timeperiod=(t-1))
+        data_low[ticker  ]['RSI'] = ta.RSI(data[ticker].iloc[:,2], timeperiod=(t-1))
+        data_close[ticker]['RSI'] = ta.RSI(data[ticker].iloc[:,3], timeperiod=(t-1))
     
-        data_open[ticker ]['OBV'  ] = ta.OBV(data[ticker].iloc[:,0], data[ticker].iloc[:,4])
-        data_high[ticker ]['OBV'  ] = ta.OBV(data[ticker].iloc[:,1], data[ticker].iloc[:,4])
-        data_low[ticker  ]['OBV'  ] = ta.OBV(data[ticker].iloc[:,2], data[ticker].iloc[:,4])
-        data_close[ticker]['OBV'  ] = ta.OBV(data[ticker].iloc[:,3], data[ticker].iloc[:,4])
+        data_open[ticker ]['OBV'] = ta.OBV(data[ticker].iloc[:,0], data[ticker].iloc[:,4])
+        data_high[ticker ]['OBV'] = ta.OBV(data[ticker].iloc[:,1], data[ticker].iloc[:,4])
+        data_low[ticker  ]['OBV'] = ta.OBV(data[ticker].iloc[:,2], data[ticker].iloc[:,4])
+        data_close[ticker]['OBV'] = ta.OBV(data[ticker].iloc[:,3], data[ticker].iloc[:,4])
     
-        data_open[ticker ]['EMA' ] = ta.EMA(data[ticker].iloc[:,0], timeperiod=20)
-        data_high[ticker ]['EMA' ] = ta.EMA(data[ticker].iloc[:,1], timeperiod=20)
-        data_low[ticker  ]['EMA' ] = ta.EMA(data[ticker].iloc[:,2], timeperiod=20)
-        data_close[ticker]['EMA' ] = ta.EMA(data[ticker].iloc[:,3], timeperiod=20)
+        data_open[ticker ]['EMA'] = ta.EMA(data[ticker].iloc[:,0], timeperiod=t)
+        data_high[ticker ]['EMA'] = ta.EMA(data[ticker].iloc[:,1], timeperiod=t)
+        data_low[ticker  ]['EMA'] = ta.EMA(data[ticker].iloc[:,2], timeperiod=t)
+        data_close[ticker]['EMA'] = ta.EMA(data[ticker].iloc[:,3], timeperiod=t)
     
-        data_open[ticker ]['BBAND_Upper'], data_open[ticker ]['BBAND_Middle' ], data_open[ticker ]['BBAND_Lower' ] = ta.BBANDS(data[ticker].iloc[:,0], timeperiod=20, nbdevup=2, nbdevdn=2, matype=0)
-        data_high[ticker ]['BBAND_Upper'], data_high[ticker ]['BBAND_Middle' ], data_high[ticker ]['BBAND_Lower' ] = ta.BBANDS(data[ticker].iloc[:,1], timeperiod=20, nbdevup=2, nbdevdn=2, matype=0)
-        data_low[ticker  ]['BBAND_Upper'], data_low[ticker  ]['BBAND_Middle' ], data_low[ticker  ]['BBAND_Lower' ] = ta.BBANDS(data[ticker].iloc[:,2], timeperiod=20, nbdevup=2, nbdevdn=2, matype=0)
-        data_close[ticker]['BBAND_Upper'], data_close[ticker]['BBAND_Middle' ], data_close[ticker]['BBAND_Lower' ] = ta.BBANDS(data[ticker].iloc[:,3], timeperiod=20, nbdevup=2, nbdevdn=2, matype=0)  
+        data_open[ticker ]['BBAND_Upper'], data_open[ticker ]['BBAND_Middle' ], data_open[ticker ]['BBAND_Lower' ] = ta.BBANDS(data[ticker].iloc[:,0], timeperiod=t, nbdevup=2, nbdevdn=2, matype=0)
+        data_high[ticker ]['BBAND_Upper'], data_high[ticker ]['BBAND_Middle' ], data_high[ticker ]['BBAND_Lower' ] = ta.BBANDS(data[ticker].iloc[:,1], timeperiod=t, nbdevup=2, nbdevdn=2, matype=0)
+        data_low[ticker  ]['BBAND_Upper'], data_low[ticker  ]['BBAND_Middle' ], data_low[ticker  ]['BBAND_Lower' ] = ta.BBANDS(data[ticker].iloc[:,2], timeperiod=t, nbdevup=2, nbdevdn=2, matype=0)
+        data_close[ticker]['BBAND_Upper'], data_close[ticker]['BBAND_Middle' ], data_close[ticker]['BBAND_Lower' ] = ta.BBANDS(data[ticker].iloc[:,3], timeperiod=t, nbdevup=2, nbdevdn=2, matype=0)  
     
-        data_open[ticker ]['ATR' ] = ta.ATR(data[ticker].iloc[:,1], data[ticker].iloc[:,2], data[ticker].iloc[:,3],  timeperiod=100)
-        data_high[ticker ]['ATR' ] = ta.ATR(data[ticker].iloc[:,1], data[ticker].iloc[:,2], data[ticker].iloc[:,3],  timeperiod=100)
-        data_low[ticker  ]['ATR' ] = ta.ATR(data[ticker].iloc[:,1], data[ticker].iloc[:,2], data[ticker].iloc[:,3],  timeperiod=100)
-        data_close[ticker]['ATR' ] = ta.ATR(data[ticker].iloc[:,1], data[ticker].iloc[:,2], data[ticker].iloc[:,3],  timeperiod=100)
+        data_open[ticker ]['ATR'] = ta.ATR(data[ticker].iloc[:,1], data[ticker].iloc[:,2], data[ticker].iloc[:,3],  timeperiod=(t-1))
+        data_high[ticker ]['ATR'] = ta.ATR(data[ticker].iloc[:,1], data[ticker].iloc[:,2], data[ticker].iloc[:,3],  timeperiod=(t-1))
+        data_low[ticker  ]['ATR'] = ta.ATR(data[ticker].iloc[:,1], data[ticker].iloc[:,2], data[ticker].iloc[:,3],  timeperiod=(t-1))
+        data_close[ticker]['ATR'] = ta.ATR(data[ticker].iloc[:,1], data[ticker].iloc[:,2], data[ticker].iloc[:,3],  timeperiod=(t-1))
         
-        data_open[ticker ]['MOM' ] = ta.MOM(data[ticker].iloc[:,0], timeperiod=10)
-        data_high[ticker ]['MOM' ] = ta.MOM(data[ticker].iloc[:,1], timeperiod=10)
-        data_low[ticker  ]['MOM' ] = ta.MOM(data[ticker].iloc[:,2], timeperiod=10)
-        data_close[ticker]['MOM' ] = ta.MOM(data[ticker].iloc[:,3], timeperiod=10)
+        data_open[ticker ]['MOM'] = ta.MOM(data[ticker].iloc[:,0], timeperiod=(t-1))
+        data_high[ticker ]['MOM'] = ta.MOM(data[ticker].iloc[:,1], timeperiod=(t-1))
+        data_low[ticker  ]['MOM'] = ta.MOM(data[ticker].iloc[:,2], timeperiod=(t-1))
+        data_close[ticker]['MOM'] = ta.MOM(data[ticker].iloc[:,3], timeperiod=(t-1))
         
         data_open[ticker ].rename(columns={data_open[ticker ].columns[0]: "SMA"}, inplace=True)
         data_high[ticker ].rename(columns={data_high[ticker ].columns[0]: "SMA"}, inplace=True)
         data_low[ticker  ].rename(columns={data_low[ticker  ].columns[0]: "SMA"}, inplace=True)
         data_close[ticker].rename(columns={data_close[ticker].columns[0]: "SMA"}, inplace=True)
-    
+        
         #Daily Labels
         sign_daily[ticker]           = pd.DataFrame(np.concatenate((np.array([0.0]),np.sign(np.diff(data[ticker].iloc[:,0])))))
         sign_daily[ticker].rename(columns={sign_daily[ticker ].columns[0]: "Open"}, inplace=True)
         sign_daily[ticker]['High']   = pd.DataFrame(np.concatenate((np.array([0.0]),np.sign(np.diff(data[ticker].iloc[:,1])))))
         sign_daily[ticker]['Low']    = pd.DataFrame(np.concatenate((np.array([0.0]),np.sign(np.diff(data[ticker].iloc[:,2])))))
         sign_daily[ticker]['Close']  = pd.DataFrame(np.concatenate((np.array([0.0]),np.sign(np.diff(data[ticker].iloc[:,3])))))
-    
-    #Dump Pickles
-    pickle.dump(data_open, open('data/data_open.pickle', 'wb'), protocol=pickle.HIGHEST_PROTOCOL)  
-    pickle.dump(data_high, open('data/data_high.pickle', 'wb'), protocol=pickle.HIGHEST_PROTOCOL)  
-    pickle.dump(data_low, open('data/data_low.pickle', 'wb'), protocol=pickle.HIGHEST_PROTOCOL)  
-    pickle.dump(data_close, open('data/data_close.pickle', 'wb'), protocol=pickle.HIGHEST_PROTOCOL)
-    pickle.dump(sign_daily, open('data/sign_daily.pickle', 'wb'), protocol=pickle.HIGHEST_PROTOCOL)    
+        
+        #drop 'nan' values
+        data_open[ticker ].drop(data_open[ticker ].index[np.arange(0,t-1)], inplace=True)
+        data_high[ticker ].drop(data_high[ticker ].index[np.arange(0,t-1)], inplace=True)
+        data_low[ticker  ].drop(data_low[ticker  ].index[np.arange(0,t-1)], inplace=True)
+        data_close[ticker].drop(data_close[ticker].index[np.arange(0,t-1)], inplace=True)
+        sign_daily[ticker].drop(sign_daily[ticker].index[np.arange(0,t-1)], inplace=True)
+        
+    norm_timeperiod = 60
+    data_open_norm  = normData(data_open , norm_timeperiod)
+    data_high_norm  = normData(data_high , norm_timeperiod)
+    data_low_norm   = normData(data_low  , norm_timeperiod)
+    data_close_norm = normData(data_close, norm_timeperiod)
+        
+    return data_open_norm, data_high_norm, data_low_norm, data_close_norm, sign_daily
+    #return data_open, data_high, data_low, data_close
+
 # =============================================================================
-def loadData():
-    data         = pickle.load(open('data/data.pickle', 'rb'))
-    data_open    = pickle.load(open('data/data_open.pickle', 'rb'))
-    data_high    = pickle.load(open('data/data_high.pickle', 'rb'))
-    data_low     = pickle.load(open('data/data_low.pickle', 'rb'))
-    data_close   = pickle.load(open('data/data_close.pickle', 'rb'))
-    y_sign_daily = pickle.load(open('data/sign_daily.pickle', 'rb'))
+def loadQdata():
+    data = pickle.load(open('data/data.pickle', 'rb'))
+    return data
+# =============================================================================
+def loadTAdata(tNum): # tNum = 1 or 2 or 3 (int)
+    if(tNum != 1 and tNum != 2 and tNum != 3):
+        print('loadData:tNum must be integer 1, 2, or 3')
+        exit()
+        
+    tNum_str = str(tNum)
+        
+    data_open    = pickle.load(open('data/data_open_normT'+tNum_str+'.pickle', 'rb'))
+    data_high    = pickle.load(open('data/data_high_normT'+tNum_str+'.pickle', 'rb'))
+    data_low     = pickle.load(open('data/data_low_normT'+tNum_str+'.pickle', 'rb'))
+    data_close   = pickle.load(open('data/data_close_normT'+tNum_str+'.pickle', 'rb'))
+    y            = pickle.load(open('data/y.pickle', 'rb'))
     
     featureNames = {'Indicators':list(data_close[list(data_close.keys())[0]].columns.values)}
     pd.DataFrame.from_dict(featureNames).to_csv('../3_Deliverables/Final Paper/features.csv', index=False)
     
-    return(data, data_open, data_high, data_low, data_close, y_sign_daily, featureNames)
+    return(data_open, data_high, data_low, data_close, y)
 # =============================================================================
-# Regular Normalization depends on a time period. timeperiod = number of indices in period
-# TODO: Determine faster/better way to implement normalization...this takes forever (~20sec)
-# NaN's are a problem, I think...maybe...maybe not
+def dumpData(data, name_str): #name_str = (str) name of pickle file, ex: name_str='data_open_normT1'
+    pickle.dump(data,  open('data/'+name_str+'.pickle',  'wb'), protocol=pickle.HIGHEST_PROTOCOL)
+# =============================================================================
+# Regular Normalization depends on a time period. norm_window = number of indices in period
 # if length of dataframes don't divide evenly by timeperiod, throws out remainder from the beginning
-# TODO: return start indices for indexing later (and maybe timeperiod used?)
-def normData(dataIn, timeperiod):
+def normData(dataIn, norm_window):
     dataOut = dataIn
     numCols = np.size(dataIn[list(dataIn.keys())[0]].keys())
     for ticker in dataIn:
         N = np.size(dataIn[ticker],0)
-        r = N%timeperiod
+        r = N%norm_window
         rInd = np.arange(0,r)
         dataOut[ticker].iloc[rInd,:] = np.tile(float('nan'),(r,numCols))
-        pStartInd = np.arange(r,N,timeperiod)
+        pStartInd = np.arange(r,N,norm_window)
         for i in pStartInd:
-            timeInd = np.arange(i,i+timeperiod)
+            timeInd = np.arange(i,i+norm_window)
             tempMin = np.min(dataIn[ticker].iloc[timeInd,:], axis=0)
             tempMax = np.max(dataIn[ticker].iloc[timeInd,:], axis=0)
             dataOut[ticker].iloc[timeInd,:] = np.divide(np.array((dataIn[ticker].iloc[timeInd,:] - tempMin)),np.array((tempMax - tempMin)))
+        dataOut[ticker ].drop(dataOut[ticker ].index[rInd], inplace=True)
+        
     return dataOut
 # =============================================================================
