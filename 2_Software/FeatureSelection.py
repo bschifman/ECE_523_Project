@@ -2,9 +2,31 @@ import numpy as np
 import pandas as pd
 import minepy as mp
 import dataSetup as ds
+import matplotlib.pyplot as plt
 import time
 import pickle
+import seaborn as sns
 
+
+
+def crossCorr(data_open, data_high, data_low, data_close):
+    size = data_open['JPM'].shape[1]
+    corr = data_open['JPM'].corr()
+    for i in corr:
+    
+        
+    fig, ax = plt.subplots(figsize=(size, size))
+    
+#    ax.matshow(corr)
+#    plt.xticks(range(len(corr.columns)), corr.columns)
+#    plt.yticks(range(len(corr.columns)), corr.columns)
+    
+    sns.heatmap(corr, xticklabels=corr.columns.values, yticklabels=corr.columns.values)
+    
+    
+    
+    
+    
 #THIS TAKES 365seconds
 def genMic(data, data_open, data_high, data_low, data_close, y_sign_daily):
 #    start_time = time.clock()
@@ -116,6 +138,7 @@ def mine_stats(mine):
 
     
 data, data_open, data_high, data_low, data_close, y_sign_daily, featureNames = ds.loadData()
+crossCorr(data_open, data_high, data_low, data_close)
 #genMic(data, data_open, data_high, data_low, data_close, y_sign_daily)
 #mic_open, mic_high, mic_low, mic_close, mic_open_mu, mic_high_mu, mic_low_mu, mic_close_mu= loadMic()
 
