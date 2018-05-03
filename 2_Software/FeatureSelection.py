@@ -9,22 +9,22 @@ import seaborn as sns
 
 
 
-def crossCorr(data_open, data_high, data_low, data_close):
-    size = data_open['JPM'].shape[1]
-    corr = data_open['JPM'].corr()
-    for i in corr:
+def crossCorr(data_open_norm, data_high_norm, data_low_norm, data_close_norm):
+    total_corr = data_open_norm[list(data_open_norm.keys())[0]].corr()
+    total_corr[:] = 0
+    for ticker in data_open_norm:
+        corr = data_open_norm[ticker].corr()
+        total_corr = total_corr.add(corr, fill_value=0) 
     
-        
-    fig, ax = plt.subplots(figsize=(size, size))
+    total_corr = total_corr.divide(len(data_open_norm.keys()))
     
-#    ax.matshow(corr)
-#    plt.xticks(range(len(corr.columns)), corr.columns)
-#    plt.yticks(range(len(corr.columns)), corr.columns)
-    
-    sns.heatmap(corr, xticklabels=corr.columns.values, yticklabels=corr.columns.values)
-    
-    
-    
+    for i in range(total_corr.shape[0]):
+            for j in range(total_corr.shape[0]):
+                if(i < j):
+                    total_corr.iloc[i,j] = -1  
+    plt.figure()
+    plt.title('Correlation Heat Map')
+    sns.heatmap(total_corr, xticklabels=corr.columns.values, yticklabels=corr.columns.values, cmap='gray')
     
     
 #THIS TAKES 365seconds
@@ -137,8 +137,8 @@ def mine_stats(mine):
     return(mine_features)
 
 
-#data, data_open, data_high, data_low, data_close, y_sign_daily, featureNames = ds.loadData()
-crossCorr(data_open, data_high, data_low, data_close)
+data_open_norm, data_high_norm, data_low_norm, data_close_norm, y = ds.loadTAdata(tNum=1)
+crossCorr(data_open_norm, data_high_norm, data_low_norm, data_close_norm)
 #genMic(data, data_open, data_high, data_low, data_close, y_sign_daily)
 #mic_open, mic_high, mic_low, mic_close, mic_open_mu, mic_high_mu, mic_low_mu, mic_close_mu= loadMic()
 
