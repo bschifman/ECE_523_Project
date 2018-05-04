@@ -3,13 +3,13 @@
 
 # Project Files:
 import dataSetup as ds
-import FeatureSelection as fs
+#import FeatureSelection as fs
 # =============================================================================
 # #%% Control Variables %%#
-DEBUG         = False #Maybe I'm stupid but I needed this to debug norm function
+DEBUG         = False 
 REINGEST_DATA = False #imports data from quandl, dumps data to data.pickle
-REGENERATE_TA = False #recalc features on open, high, low, close ... dumps each to data_<x>.pickle
-TIMEPERIODNUM    = 1
+REGENERATE_TA = True #recalc features, dumps to indicators_norm.pickle
+TIMEPERIODNUM    = 3
 #Add more control here
 # =============================================================================
 if(TIMEPERIODNUM == 1):
@@ -31,15 +31,11 @@ else:
 
 #Regenerate feature pickle files
 if(REGENERATE_TA):
-    data_open_norm, data_high_norm, data_low_norm, data_close_norm, y = ds.genTA(data, t=T)
+    indicators_norm, y = ds.genTA(data, t=T)
         
     #Dump Pickles
-    ds.dumpData(data_open_norm,  'data_open_normT' +str(TIMEPERIODNUM))
-    ds.dumpData(data_high_norm,  'data_high_normT' +str(TIMEPERIODNUM))
-    ds.dumpData(data_low_norm,   'data_low_normT'  +str(TIMEPERIODNUM))
-    ds.dumpData(data_close_norm, 'data_close_normT'+str(TIMEPERIODNUM))
+    ds.dumpData(indicators_norm,  'indicators_normT' +str(TIMEPERIODNUM))
     ds.dumpData(y, 'y')
 else: #Load data from pickles
-    data_open_norm, data_high_norm, data_low_norm, data_close_norm, y = ds.loadTAdata(tNum=TIMEPERIODNUM)
-    x_open, x_high, x_low, x_close, y_all = ds.reformat(data_open_norm, data_high_norm, data_low_norm, data_close_norm, y)
-#if(DEBUG):
+    indicators_norm, y = ds.loadTAdata(tNum=TIMEPERIODNUM)
+    x_all, y_all = ds.reformat(indicators_norm, y)

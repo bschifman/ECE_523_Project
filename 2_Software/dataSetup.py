@@ -12,6 +12,7 @@ quandl.ApiConfig.api_key = 'HwQoB4ePcDi8bFzJ6SJA'
 # genTA()
 # loadData()
 # normData()
+# reformat()
 # =============================================================================
 # Generate Pickle #
 def ingestData():
@@ -144,18 +145,15 @@ def loadTAdata(tNum): # tNum = 1 or 2 or 3 (int)
         
     tNum_str = str(tNum)
         
-    data_open    = pickle.load(open('data/data_open_normT'+tNum_str+'.pickle', 'rb'))
-    data_high    = pickle.load(open('data/data_high_normT'+tNum_str+'.pickle', 'rb'))
-    data_low     = pickle.load(open('data/data_low_normT'+tNum_str+'.pickle', 'rb'))
-    data_close   = pickle.load(open('data/data_close_normT'+tNum_str+'.pickle', 'rb'))
+    indicators   = pickle.load(open('data/indicators_normT'+tNum_str+'.pickle', 'rb'))
     y            = pickle.load(open('data/y.pickle', 'rb'))
     
-    featureNames = {'Indicators':list(data_close[list(data_close.keys())[0]].columns.values)}
+    featureNames = {'Indicators':list(indicators[list(indicators.keys())[0]].columns.values)}
     pd.DataFrame.from_dict(featureNames).to_csv('../3_Deliverables/Final Paper/features.csv', index=False)
     
-    return(data_open, data_high, data_low, data_close, y)
+    return(indicators, y)
 # =============================================================================
-def dumpData(data, name_str): #name_str = (str) name of pickle file, ex: name_str='data_open_normT1'
+def dumpData(data, name_str): #name_str = (str) name of pickle file, ex: name_str='indicators_normT1'
     pickle.dump(data,  open('data/'+name_str+'.pickle',  'wb'), protocol=pickle.HIGHEST_PROTOCOL)
 # =============================================================================
 # Regular Normalization depends on a time period. norm_window = number of indices in period
@@ -178,17 +176,11 @@ def normData(dataIn, norm_window):
         
     return dataOut
 # =============================================================================
-def reformat(data_open, data_high, data_low, data_close, y):
-    data_open_new  = pd.DataFrame()
-    data_high_new  = pd.DataFrame()
-    data_low_new   = pd.DataFrame()
-    data_close_new = pd.DataFrame()
-    y_new          = pd.DataFrame()
+def reformat(indicators, y):
+    indicators_new  = pd.DataFrame()
+    y_new           = pd.DataFrame()
     for ticker in y:
-        data_open_new  = data_open_new.append(data_open[ticker])
-        data_high_new  = data_high_new.append(data_high[ticker])
-        data_low_new   = data_low_new.append(data_low[ticker])
-        data_close_new = data_close_new.append(data_close[ticker])
+        indicators_new = indicators_new.append(indicators[ticker])
         y_new          = y_new.append(y[ticker])
-    return data_open_new, data_high_new, data_low_new, data_close_new, y_new
+    return indicators_new, y_new
     
