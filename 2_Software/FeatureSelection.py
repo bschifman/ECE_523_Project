@@ -11,21 +11,68 @@ import seaborn as sns
 
 
 def crossCorr(data_open_norm, data_high_norm, data_low_norm, data_close_norm):
-    total_corr = data_open_norm[list(data_open_norm.keys())[0]].corr()
-    total_corr[:] = 0
+    Threshold = 0.8
+    total_open_corr = data_open_norm[list(data_open_norm.keys())[0]].corr()
+    total_open_corr[:] = 0
+    total_high_corr  = total_open_corr.copy()
+    total_low_corr   = total_open_corr.copy()
+    total_close_corr = total_open_corr.copy()
     for ticker in data_open_norm:
-        corr = data_open_norm[ticker].corr()
-        total_corr = total_corr.add(corr, fill_value=0) 
+        corr_open  = data_open_norm[ticker].corr()
+        corr_high  = data_high_norm[ticker].corr()
+        corr_low   = data_low_norm[ticker].corr()
+        corr_close = data_close_norm[ticker].corr()
+        
+        total_open_corr  = total_open_corr.add(corr_open, fill_value=0) 
+        total_high_corr  = total_high_corr.add(corr_high, fill_value=0) 
+        total_low_corr   = total_low_corr.add(corr_low, fill_value=0) 
+        total_close_corr = total_close_corr.add(corr_close, fill_value=0) 
     
-    total_corr = total_corr.divide(len(data_open_norm.keys()))
+    total_open_corr  = total_open_corr.divide(len(data_open_norm.keys()))
+    total_high_corr  = total_high_corr.divide(len(data_open_norm.keys()))
+    total_low_corr   = total_low_corr.divide(len(data_open_norm.keys()))
+    total_close_corr = total_close_corr.divide(len(data_open_norm.keys()))
     
-    for i in range(total_corr.shape[0]):
-            for j in range(total_corr.shape[0]):
+    open_corr_list  = []
+    high_corr_list  = []
+    low_corr_list   = []
+    close_corr_list = []
+    for i in range(total_open_corr.shape[0]):
+            for j in range(total_open_corr.shape[0]):
                 if(i < j):
-                    total_corr.iloc[i,j] = -1  
+                    total_open_corr.iloc[i,j]  = -1
+                    total_high_corr.iloc[i,j]  = -1
+                    total_low_corr.iloc[i,j]   = -1
+                    total_close_corr.iloc[i,j] = -1
+                elif(i > j):
+                    if(total_open_corr.iloc[i,j]  > Threshold):                        
+                        open_corr_list.append((total_open_corr.index[i] + ':' + total_open_corr.columns[j]))
+                    if(total_high_corr.iloc[i,j]  > Threshold):
+                        high_corr_list.append((total_high_corr.index[i] + ':' + total_high_corr.columns[j]))
+                    if(total_low_corr.iloc[i,j]   > Threshold):
+                       low_corr_list.append((total_low_corr.index[i] + ':' + total_low_corr.columns[j]))
+                    if(total_close_corr.iloc[i,j] > Threshold):
+                        close_corr_list.append((total_close_corr.index[i] + ':' + total_close_corr.columns[j]))
+    print('Correlated Open Features: ', open_corr_list, '\n')
+    print('Correlated High Features: ', high_corr_list, '\n')
+    print('Correlated Low Features: ', low_corr_list, '\n')
+    print('Correlated Close Features: ', close_corr_list, '\n')     
+                              
     plt.figure()
-    plt.title('Correlation Heat Map')
-    sns.heatmap(total_corr, xticklabels=corr.columns.values, yticklabels=corr.columns.values, cmap='gray')
+    plt.title('Correlation Open Heat Map')
+    sns.heatmap(total_open_corr, xticklabels=total_open_corr.columns.values, yticklabels=total_open_corr.columns.values, cmap='gray')
+    
+    plt.figure()
+    plt.title('Correlation High Heat Map')
+    sns.heatmap(total_high_corr, xticklabels=total_high_corr.columns.values, yticklabels=total_high_corr.columns.values, cmap='gray')
+    
+    plt.figure()
+    plt.title('Correlation Low Heat Map')
+    sns.heatmap(total_low_corr, xticklabels=total_low_corr.columns.values, yticklabels=total_low_corr.columns.values, cmap='gray')
+    
+    plt.figure()
+    plt.title('Correlation Close Heat Map')
+    sns.heatmap(total_close_corr, xticklabels=total_close_corr.columns.values, yticklabels=total_close_corr.columns.values, cmap='gray')
     
     
 #THIS TAKES 365seconds
