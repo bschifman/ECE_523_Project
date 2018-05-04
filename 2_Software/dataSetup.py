@@ -63,79 +63,74 @@ def ingestData():
     return data
 # =============================================================================
 def genTA(data, t): #t is timeperiod
-    data_open  = {}
-    data_high  = {}
-    data_low   = {}
-    data_close = {}
+    indicators  = {}
     
     #labels
     sign_daily = {}
    
     for ticker in data:
-        data_open[ticker ] = ta.SMA(data[ticker].iloc[:,0], timeperiod=t).to_frame()
-        data_high[ticker ] = ta.SMA(data[ticker].iloc[:,1], timeperiod=t).to_frame()
-        data_low[ticker  ] = ta.SMA(data[ticker].iloc[:,2], timeperiod=t).to_frame()
-        data_close[ticker] = ta.SMA(data[ticker].iloc[:,3], timeperiod=t).to_frame()
-    
-        data_open[ticker ]['RSI'] = ta.RSI(data[ticker].iloc[:,0], timeperiod=(t-1))
-        data_high[ticker ]['RSI'] = ta.RSI(data[ticker].iloc[:,1], timeperiod=(t-1))
-        data_low[ticker  ]['RSI'] = ta.RSI(data[ticker].iloc[:,2], timeperiod=(t-1))
-        data_close[ticker]['RSI'] = ta.RSI(data[ticker].iloc[:,3], timeperiod=(t-1))
-    
-        data_open[ticker ]['OBV'] = ta.OBV(data[ticker].iloc[:,0], data[ticker].iloc[:,4])
-        data_high[ticker ]['OBV'] = ta.OBV(data[ticker].iloc[:,1], data[ticker].iloc[:,4])
-        data_low[ticker  ]['OBV'] = ta.OBV(data[ticker].iloc[:,2], data[ticker].iloc[:,4])
-        data_close[ticker]['OBV'] = ta.OBV(data[ticker].iloc[:,3], data[ticker].iloc[:,4])
-    
-        data_open[ticker ]['EMA'] = ta.EMA(data[ticker].iloc[:,0], timeperiod=t)
-        data_high[ticker ]['EMA'] = ta.EMA(data[ticker].iloc[:,1], timeperiod=t)
-        data_low[ticker  ]['EMA'] = ta.EMA(data[ticker].iloc[:,2], timeperiod=t)
-        data_close[ticker]['EMA'] = ta.EMA(data[ticker].iloc[:,3], timeperiod=t)
-    
-        data_open[ticker ]['BBAND_Upper'], data_open[ticker ]['BBAND_Middle' ], data_open[ticker ]['BBAND_Lower' ] = ta.BBANDS(data[ticker].iloc[:,0], timeperiod=t, nbdevup=2, nbdevdn=2, matype=0)
-        data_high[ticker ]['BBAND_Upper'], data_high[ticker ]['BBAND_Middle' ], data_high[ticker ]['BBAND_Lower' ] = ta.BBANDS(data[ticker].iloc[:,1], timeperiod=t, nbdevup=2, nbdevdn=2, matype=0)
-        data_low[ticker  ]['BBAND_Upper'], data_low[ticker  ]['BBAND_Middle' ], data_low[ticker  ]['BBAND_Lower' ] = ta.BBANDS(data[ticker].iloc[:,2], timeperiod=t, nbdevup=2, nbdevdn=2, matype=0)
-        data_close[ticker]['BBAND_Upper'], data_close[ticker]['BBAND_Middle' ], data_close[ticker]['BBAND_Lower' ] = ta.BBANDS(data[ticker].iloc[:,3], timeperiod=t, nbdevup=2, nbdevdn=2, matype=0)  
-    
-        data_open[ticker ]['ATR'] = ta.ATR(data[ticker].iloc[:,1], data[ticker].iloc[:,2], data[ticker].iloc[:,3],  timeperiod=(t-1))
-        data_high[ticker ]['ATR'] = ta.ATR(data[ticker].iloc[:,1], data[ticker].iloc[:,2], data[ticker].iloc[:,3],  timeperiod=(t-1))
-        data_low[ticker  ]['ATR'] = ta.ATR(data[ticker].iloc[:,1], data[ticker].iloc[:,2], data[ticker].iloc[:,3],  timeperiod=(t-1))
-        data_close[ticker]['ATR'] = ta.ATR(data[ticker].iloc[:,1], data[ticker].iloc[:,2], data[ticker].iloc[:,3],  timeperiod=(t-1))
+    ## Overlap
+        indicators[ticker] = ta.SMA(data[ticker].iloc[:,3], timeperiod=t).to_frame()        
+        indicators[ticker]['EMA'] = ta.EMA(data[ticker].iloc[:,3], timeperiod=t)       
+        indicators[ticker]['BBAND_Upper'], indicators[ticker]['BBAND_Middle' ], indicators[ticker]['BBAND_Lower' ] = ta.BBANDS(data[ticker].iloc[:,3], timeperiod=t, nbdevup=2, nbdevdn=2, matype=0)         
+        indicators[ticker]['HT_TRENDLINE'] = ta.HT_TRENDLINE(data[ticker].iloc[:,3])
+        indicators[ticker]['SAR'] = ta.SAR(data[ticker].iloc[:,1], data[ticker].iloc[:,2], acceleration=0, maximum=0)
+        #rename SMA column
+        indicators[ticker].rename(columns={indicators[ticker].columns[0]: "SMA"}, inplace=True)
+    ## Momentum
+        indicators[ticker]['RSI'] = ta.RSI(data[ticker].iloc[:,3], timeperiod=(t-1))
+        indicators[ticker]['MOM'] = ta.MOM(data[ticker].iloc[:,3], timeperiod=(t-1))
+        indicators[ticker]['ROC'] = ta.ROC(data[ticker].iloc[:,3], timeperiod=(t))
+        indicators[ticker]['ROCP']= ta.ROCP(data[ticker].iloc[:,3],timeperiod=(t))
+        #Skipping STOCH for now needs slow and fast period
+        #Skipping MACD for now needs slow, fast, and signal period
         
-        data_open[ticker ]['MOM'] = ta.MOM(data[ticker].iloc[:,0], timeperiod=(t-1))
-        data_high[ticker ]['MOM'] = ta.MOM(data[ticker].iloc[:,1], timeperiod=(t-1))
-        data_low[ticker  ]['MOM'] = ta.MOM(data[ticker].iloc[:,2], timeperiod=(t-1))
-        data_close[ticker]['MOM'] = ta.MOM(data[ticker].iloc[:,3], timeperiod=(t-1))
+    ## Volume
+        indicators[ticker]['OBV'] = ta.OBV(data[ticker].iloc[:,3], data[ticker].iloc[:,4])
+        indicators[ticker]['AD'] = ta.AD(data[ticker].iloc[:,1], data[ticker].iloc[:,2], data[ticker].iloc[:,3], data[ticker].iloc[:,4])
+        #Skipping ADOSC for now needs slow and fast period
         
-        data_open[ticker ].rename(columns={data_open[ticker ].columns[0]: "SMA"}, inplace=True)
-        data_high[ticker ].rename(columns={data_high[ticker ].columns[0]: "SMA"}, inplace=True)
-        data_low[ticker  ].rename(columns={data_low[ticker  ].columns[0]: "SMA"}, inplace=True)
-        data_close[ticker].rename(columns={data_close[ticker].columns[0]: "SMA"}, inplace=True)
+    ## Cycle
+        indicators[ticker]['HT_DCPERIOD'] = ta.HT_DCPERIOD(data[ticker].iloc[:,3])
+        indicators[ticker]['HT_TRENDMODE']= ta.HT_TRENDMODE(data[ticker].iloc[:,3])
+    
+    ## Price
+        indicators[ticker]['AVGPRICE'] = ta.AVGPRICE(data[ticker].iloc[:,0], data[ticker].iloc[:,1], data[ticker].iloc[:,2], data[ticker].iloc[:,3])
+        indicators[ticker]['TYPPRICE'] = ta.TYPPRICE(data[ticker].iloc[:,1], data[ticker].iloc[:,2], data[ticker].iloc[:,3])
+    
+    ## Volatility
+        indicators[ticker]['ATR'] = ta.ATR(data[ticker].iloc[:,1], data[ticker].iloc[:,2], data[ticker].iloc[:,3],  timeperiod=(t-1))
+    
+    ## Statistics
+        indicators[ticker]['BETA'] = ta.BETA(data[ticker].iloc[:,1], data[ticker].iloc[:,2], timeperiod=t)
+        indicators[ticker]['LINEARREG'] = ta.LINEARREG(data[ticker].iloc[:,3], timeperiod=t)
+        indicators[ticker]['VAR'] = ta.VAR(data[ticker].iloc[:,3], timeperiod=t, nbdev=1)
+    
+    ## Math Transform
+        indicators[ticker]['EXP'] = ta.EXP(data[ticker].iloc[:,3])
+        indicators[ticker]['LN'] = ta.LN(data[ticker].iloc[:,3])
+    
+    ## Patterns (returns integers - but norming might not really do anything but wondering if they should be normed)
+        indicators[ticker]['CDLBREAKAWAY'] = ta.CDLBREAKAWAY(data[ticker].iloc[:,0], data[ticker].iloc[:,1], data[ticker].iloc[:,2], data[ticker].iloc[:,3])
+        indicators[ticker]['CDLDOJI']      = ta.CDLDOJI(data[ticker].iloc[:,0], data[ticker].iloc[:,1], data[ticker].iloc[:,2], data[ticker].iloc[:,3])
+        indicators[ticker]['CDLHAMMER']    = ta.CDLHAMMER(data[ticker].iloc[:,0], data[ticker].iloc[:,1], data[ticker].iloc[:,2], data[ticker].iloc[:,3])
+        indicators[ticker]['CDLHANGINGMAN']= ta.CDLHANGINGMAN(data[ticker].iloc[:,0], data[ticker].iloc[:,1], data[ticker].iloc[:,2], data[ticker].iloc[:,3])
         
-        #Daily Labels
-        sign_daily[ticker]           = pd.DataFrame(np.concatenate((np.array([0.0]),np.sign(np.diff(data[ticker].iloc[:,0])))))
-        sign_daily[ticker].rename(columns={sign_daily[ticker ].columns[0]: "Open"}, inplace=True)
-        sign_daily[ticker]['High']   = pd.DataFrame(np.concatenate((np.array([0.0]),np.sign(np.diff(data[ticker].iloc[:,1])))))
-        sign_daily[ticker]['Low']    = pd.DataFrame(np.concatenate((np.array([0.0]),np.sign(np.diff(data[ticker].iloc[:,2])))))
-        sign_daily[ticker]['Close']  = pd.DataFrame(np.concatenate((np.array([0.0]),np.sign(np.diff(data[ticker].iloc[:,3])))))
+    #Daily Labels
+        sign_daily[ticker] = pd.DataFrame(np.concatenate((np.array([0.0]),np.sign(np.diff(data[ticker].iloc[:,3])))))
         
-        #drop 'nan' values
-        data_open[ticker ].drop(data_open[ticker ].index[np.arange(0,t-1)], inplace=True)
-        data_high[ticker ].drop(data_high[ticker ].index[np.arange(0,t-1)], inplace=True)
-        data_low[ticker  ].drop(data_low[ticker  ].index[np.arange(0,t-1)], inplace=True)
-        data_close[ticker].drop(data_close[ticker].index[np.arange(0,t-1)], inplace=True)
+    #drop 'nan' values
+        indicators[ticker].drop(indicators[ticker].index[np.arange(0,t-1)], inplace=True)
         
-    norm_timeperiod = 60
-    data_open_norm  = normData(data_open , norm_timeperiod)
-    data_high_norm  = normData(data_high , norm_timeperiod)
-    data_low_norm   = normData(data_low  , norm_timeperiod)
-    data_close_norm = normData(data_close, norm_timeperiod)
+    #Normalize Features
+    norm_timeperiod = 60 #Normalize over 3 month windows
+    indicators_norm = normData(indicators, norm_timeperiod)
     
     for ticker in sign_daily:
-        N = np.size(sign_daily[ticker],0) - np.size(data_open_norm[ticker],0)
+        N = np.size(sign_daily[ticker],0) - np.size(indicators_norm[ticker],0)
         sign_daily[ticker].drop(sign_daily[ticker].index[np.arange(0,N)], inplace=True)
         
-    return data_open_norm, data_high_norm, data_low_norm, data_close_norm, sign_daily
+    return indicators_norm, sign_daily
 
 # =============================================================================
 def loadQdata():
