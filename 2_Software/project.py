@@ -9,7 +9,7 @@ import prediction as pred
 # #%% Control Variables %%#
 DEBUG           = False 
 REINGEST_DATA   = False #imports data from quandl, dumps data to data.pickle
-REGENERATE_TA   = False #recalc features, dumps to indicators_norm.pickle
+REGENERATE_TA   = True #recalc features, dumps to indicators_norm.pickle
 REGENERATE_MIC  = False #recalc mic, dumps to mic.pickle 
 PLOT_CORR       = False #calc corr, plot heat map
 PREDICT         = False #run prediction algs.
@@ -42,7 +42,7 @@ if(REGENERATE_TA):
     #Dump Pickles
     ds.dumpData(indicators_norm,  'indicators_normT'+str(TIMEPERIODNUM))
     ds.dumpData(indicators,  'indicatorsT'+str(TIMEPERIODNUM))
-    ds.dumpData(y_ind, 'yT'+str(TIMEPERIODNUM))
+    ds.dumpData(y_ind, 'y_indT'+str(TIMEPERIODNUM))
 else: #Load data from pickles
     indicators_norm, indicators, y_ind = ds.loadTAdata(tNum=TIMEPERIODNUM)
     x_all, y_all = ds.reformat(indicators_norm, y_ind)
