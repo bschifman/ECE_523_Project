@@ -3,17 +3,17 @@
 
 # Project Files:
 import dataSetup as ds
-import featureSelection as fs
+import FeatureSelection as fs
 import prediction as pred
 # =============================================================================
 # #%% Control Variables %%#
 DEBUG           = False 
 REINGEST_DATA   = False #imports data from quandl, dumps data to data.pickle
-REGENERATE_TA   = False #recalc features, dumps to indicators_norm.pickle
-REGENERATE_MIC  = True #recalc mic, dumps to mic.pickle 
+REGENERATE_TA   = True #recalc features, dumps to indicators_norm.pickle
+REGENERATE_MIC  = False #recalc mic, dumps to mic.pickle 
 PLOT_CORR       = False #calc corr, plot heat map
 PREDICT         = False #run prediction algs.
-TIMEPERIODNUM    = 3
+TIMEPERIODNUM    = 1
 #Add more control here
 # =============================================================================
 if(TIMEPERIODNUM == 1):
@@ -35,25 +35,26 @@ else:
 # =============================================================================
 #Regenerate feature pickle files
 if(REGENERATE_TA):
-    indicators_norm, y = ds.genTA(data, t=T)
-    x_all, y_all = ds.reformat(indicators_norm, y)
+    indicators_norm, y_norm, indicators, y = ds.genTA(data, t=T)
     
     #Dump Pickles
-    ds.dumpData(indicators_norm,  'indicators_normT' +str(TIMEPERIODNUM))
-    ds.dumpData(y, 'y')
+    ds.dumpData(indicators_norm,  'indicators_normT'+str(TIMEPERIODNUM))
+    ds.dumpData(y_norm,  'y_normT'+str(TIMEPERIODNUM))
+    ds.dumpData(indicators,  'indicatorsT'+str(TIMEPERIODNUM))
+    ds.dumpData(y, 'yT'+str(TIMEPERIODNUM))
 else: #Load data from pickles
-    indicators_norm, y = ds.loadTAdata(tNum=TIMEPERIODNUM)
-    x_all, y_all = ds.reformat(indicators_norm, y)
+    indicators_norm, y_norm, indicators, y = ds.loadTAdata(tNum=TIMEPERIODNUM)
+    x_all, y_all = ds.reformat(indicators_norm, y_norm)
 # =============================================================================    
 if(PREDICT):
     pred.MLP(x_all, y_all)
 # =============================================================================
 #Regnerate mic pickle ***NEED TO FIX THE DIMENSIONS OF DATA AND Y IN ORDER TO MATCH***
 if(REGENERATE_MIC):
-    mic = fs.genMIC(indicators_norm, y)
+    mic = fs.genMIC(indicators_norm, y_norm)
     
-else:
-    mic = fs.loadMic()
+#else:
+#    mic = fs.loadMIC()
 # =============================================================================    
 #Plot corr
 if(PLOT_CORR):
