@@ -3,13 +3,13 @@
 
 # Project Files:
 import dataSetup as ds
-import FeatureSelection as fs
+import featureSelection as fs
 import prediction as pred
 # =============================================================================
 # #%% Control Variables %%#
 DEBUG           = False 
 REINGEST_DATA   = False #imports data from quandl, dumps data to data.pickle
-REGENERATE_TA   = True #recalc features, dumps to indicators_norm.pickle
+REGENERATE_TA   = False #recalc features, dumps to indicators_norm.pickle
 REGENERATE_MIC  = False #recalc mic, dumps to mic.pickle 
 PLOT_CORR       = False #calc corr, plot heat map
 PREDICT         = False #run prediction algs.
@@ -36,6 +36,7 @@ else:
 #Regenerate feature pickle files
 if(REGENERATE_TA):
     indicators_norm, y_norm, indicators, y = ds.genTA(data, t=T)
+    x_all, y_all = ds.reformat(indicators_norm, y_norm)
     
     #Dump Pickles
     ds.dumpData(indicators_norm,  'indicators_normT'+str(TIMEPERIODNUM))
@@ -49,18 +50,14 @@ else: #Load data from pickles
 if(PREDICT):
     pred.MLP(x_all, y_all)
 # =============================================================================
-#Regnerate mic pickle ***NEED TO FIX THE DIMENSIONS OF DATA AND Y IN ORDER TO MATCH***
+#Regnerate mic pickle files
 if(REGENERATE_MIC):
-<<<<<<< HEAD
-    import time
-    s = time.clock()
-    mic = fs.genMIC(indicators_norm, y)
-    print(time.clock() - s)
-    
-else:
-    mic = fs.loadMIC()
+    mic = fs.genMIC(indicators, y)
+    ds.dumpData(mic, 'micT'+str(TIMEPERIODNUM))
+else: #Load mic from pickle
+    mic = fs.loadMIC(tNum=TIMEPERIODNUM)
 # =============================================================================    
 #Plot corr
 if(PLOT_CORR):
-    fs.crossCorr(indicators_norm)
+    fs.crossCorr(indicators_norm, t=T)
     

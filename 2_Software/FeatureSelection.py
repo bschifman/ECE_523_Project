@@ -7,13 +7,13 @@ import pickle
 import seaborn as sns
 # =============================================================================
 # Functions:
-# crossCorr(indicators)
+# crossCorr(indicators, tNum)
 # genMIC(x, y)
-# loadMIC()
+# loadMIC(tNum)
 # mine_stats(mine)
 # printMineStats(mine)
 # =============================================================================
-def crossCorr(indicators):
+def crossCorr(indicators, t):
     Threshold = 0.85
     total_corr = indicators[list(indicators.keys())[0]].corr()
     total_corr[:] = 0
@@ -32,14 +32,14 @@ def crossCorr(indicators):
                         corr_list.append((total_corr.index[i]
                         + ':' + total_corr.columns[j]))
                         
-    print('Highly Correlated Features (+0.85): ', corr_list, '\n')
+    print('\n Highly Correlated Features (+0.85): ', corr_list, '\n')
     plt.figure()
     plt.title('Correlation Heat Map')
     sns_plot = sns.heatmap(total_corr, xticklabels=total_corr.columns.values,
                 yticklabels=total_corr.columns.values, cmap='gray')
     fig = sns_plot.get_figure()
-    fig.savefig('../3_Deliverables/Final Paper/data/heatmap.png')
-    total_corr.to_csv('../3_Deliverables/Final Paper/data/corr.csv') 
+    fig.savefig('../3_Deliverables/Final Paper/data/heatmapT'+str(t)+'.png')
+    total_corr.to_csv('../3_Deliverables/Final Paper/data/corrT'+str(t)+'.csv') 
     
 # =============================================================================    
 def genMIC(x, y):
@@ -61,16 +61,16 @@ def genMIC(x, y):
                 mic[ticker][feature_name] = mine_stats(mine)
                 
         mic_mean  += mic[ticker]            
-    mic_mean  /= len(x)
-      
-    #Dump Pickles
-    pickle.dump(mic_mean, open('data/mic.pickle', 'wb'), protocol=pickle.HIGHEST_PROTOCOL) 
-    
+    mic_mean  /= len(x)    
     return(mic_mean)
 # =============================================================================    
-def loadMIC():
-    mic = pickle.load(open('data/mic.pickle', 'rb'))
-    return(mic)
+def loadMIC(tNum):
+    if(tNum != 1 and tNum != 2 and tNum != 3):
+        print('loadMIC:tNum must be integer 1, 2, or 3')
+        exit()
+    tNum_str = str(tNum)
+    mic = pickle.load(open('data/micT'+tNum_str+'.pickle', 'rb'))
+    return(mic)    
 # ============================================================================= 
 def mine_stats(mine):
     mine_features = np.zeros(0)

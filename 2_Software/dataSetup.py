@@ -150,8 +150,8 @@ def loadTAdata(tNum): # tNum = 1 or 2 or 3 (int)
         
     indicators   = pickle.load(open('data/indicators_normT'+tNum_str+'.pickle', 'rb'))
     y_norm       = pickle.load(open('data/y_normT'+tNum_str+'.pickle', 'rb'))
-    indicators   = pickle.load(open('data/indicators.pickle', 'rb'))
-    y            = pickle.load(open('data/y.pickle', 'rb'))
+    indicators   = pickle.load(open('data/indicatorsT'+tNum_str+'.pickle', 'rb'))
+    y            = pickle.load(open('data/yT'+tNum_str+'.pickle', 'rb'))
     
     featureNames = {'Indicators':list(indicators[list(indicators.keys())[0]].columns.values)}
     pd.DataFrame.from_dict(featureNames).to_csv('../3_Deliverables/Final Paper/data/features.csv', index=False)
