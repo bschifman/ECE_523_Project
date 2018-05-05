@@ -3,7 +3,7 @@
 
 # Project Files:
 import dataSetup as ds
-import FeatureSelection as fs
+import featureSelection as fs
 import prediction as pred
 # =============================================================================
 # #%% Control Variables %%#
@@ -50,17 +50,14 @@ else: #Load data from pickles
 if(PREDICT):
     pred.MLP(x_all, y_all)
 # =============================================================================
-#Regnerate mic pickle ***NEED TO FIX THE DIMENSIONS OF DATA AND Y IN ORDER TO MATCH***
+#Regnerate mic pickle files
 if(REGENERATE_MIC):
-    import time
-    s = time.clock()
-    mic = fs.genMIC(indicators_norm, y)
-    print(time.clock() - s)
-    
-else:
-    mic = fs.loadMIC()
+    mic = fs.genMIC(indicators, y)
+    ds.dumpData(mic, 'micT'+str(TIMEPERIODNUM))
+else: #Load mic from pickle
+    mic = fs.loadMIC(tNum=TIMEPERIODNUM)
 # =============================================================================    
 #Plot corr
 if(PLOT_CORR):
-    fs.crossCorr(indicators_norm)
+    fs.crossCorr(indicators_norm, t=T)
     

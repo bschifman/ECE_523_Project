@@ -38,7 +38,10 @@ def MLP(x, y):
     
     # Compile model
     model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
-    plot_model(model, to_file='../3_Deliverables/Final Paper/data/keras_model.png')
+    #NEED HELP!!!!!
+# =============================================================================
+#     plot_model(model, to_file='../3_Deliverables/Final Paper/data/keras_model.png')
+# =============================================================================
     
     # Port Keras Framework into SK-Learn
     k_model  = KerasClassifier(build_fn=model, epochs=epochs, batch_size=bs, verbose=0)
@@ -51,7 +54,7 @@ def MLP(x, y):
 #    print("\n%s: %.2f%%" % (indicators.metrics_names[1], scores[1]*100))
     
     e_time = time.clock()
-    print('Total Time: ', e_time-s_time)
+    print('\n Total Time: ', e_time-s_time)
 # =============================================================================
 def adaBoost(x, y):
     temp = 1
