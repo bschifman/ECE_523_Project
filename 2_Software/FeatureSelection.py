@@ -69,7 +69,7 @@ def loadMIC():
 def mine_stats(mine):
     mine_features = np.zeros(0)
     mine_features = np.append(mine_features, mine.mic())
-    mine_features = pd.dataFrame(mine_features)
+    mine_features = pd.DataFrame(mine_features)
     return(mine_features)
 # =============================================================================     
 def printMineStats(mine):
