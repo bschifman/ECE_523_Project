@@ -9,7 +9,7 @@ import prediction as pred
 # #%% Control Variables %%#
 DEBUG           = False 
 REINGEST_DATA   = False #imports data from quandl, dumps data to data.pickle
-REGENERATE_TA   = True #recalc features, dumps to indicators_norm.pickle
+REGENERATE_TA   = False #recalc features, dumps to indicators_norm.pickle
 REGENERATE_MIC  = False #recalc mic, dumps to mic.pickle 
 PLOT_CORR       = False #calc corr, plot heat map
 PREDICT         = False #run prediction algs.
@@ -28,30 +28,31 @@ else:
 # =============================================================================
 #Reimport data from quandl
 if(REINGEST_DATA):
-    data = ds.ingestData()
+    data, y = ds.ingestData()
     ds.dumpData(data, 'data')
+    ds.dumpData(y, 'y')
 else:
-    data = ds.loadQdata()
+    data, y = ds.loadQdata()
 # =============================================================================
 #Regenerate feature pickle files
 if(REGENERATE_TA):
-    indicators_norm, y_norm, indicators, y = ds.genTA(data, t=T)
+    indicators_norm, indicators, y_ind = ds.genTA(data, y, t=T)
+    x_all, y_all = ds.reformat(indicators_norm, y_ind)
     
     #Dump Pickles
     ds.dumpData(indicators_norm,  'indicators_normT'+str(TIMEPERIODNUM))
-    ds.dumpData(y_norm,  'y_normT'+str(TIMEPERIODNUM))
     ds.dumpData(indicators,  'indicatorsT'+str(TIMEPERIODNUM))
-    ds.dumpData(y, 'yT'+str(TIMEPERIODNUM))
+    ds.dumpData(y_ind, 'yT'+str(TIMEPERIODNUM))
 else: #Load data from pickles
-    indicators_norm, y_norm, indicators, y = ds.loadTAdata(tNum=TIMEPERIODNUM)
-    x_all, y_all = ds.reformat(indicators_norm, y_norm)
+    indicators_norm, indicators, y_ind = ds.loadTAdata(tNum=TIMEPERIODNUM)
+    x_all, y_all = ds.reformat(indicators_norm, y_ind)
 # =============================================================================    
 if(PREDICT):
     pred.MLP(x_all, y_all)
 # =============================================================================
 #Regnerate mic pickle ***NEED TO FIX THE DIMENSIONS OF DATA AND Y IN ORDER TO MATCH***
 if(REGENERATE_MIC):
-    mic = fs.genMIC(indicators_norm, y_norm)
+    mic = fs.genMIC(indicators_norm, y_ind)
     
 #else:
 #    mic = fs.loadMIC()
