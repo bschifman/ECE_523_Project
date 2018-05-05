@@ -1,8 +1,9 @@
 # =============================================================================
 from keras.models import Sequential
 from keras.layers import Dense
-from keras.utils import np_utils
+from keras.utils import np_utils, plot_model
 from sklearn.model_selection import train_test_split
+from sklearn.ensemble import AdaBoostClassifier as ABC
 from keras.wrappers.scikit_learn import KerasClassifier
 from sklearn.feature_selection import RFE
 import numpy as np
@@ -37,12 +38,13 @@ def MLP(x, y):
     
     # Compile model
     model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+    plot_model(model, to_file='../3_Deliverables/Final Paper/data/keras_model.png')
     
     # Port Keras Framework into SK-Learn
     k_model  = KerasClassifier(build_fn=model, epochs=epochs, batch_size=bs, verbose=0)
     temp = k_model
     selector = RFE(temp, step=1)
-    out = selector.fit(x_train, y_train[:,0])
+#    out = selector.fit(x_train, y_train[:,0])
 
     # evaluate the model
 #    scores = model.evaluate(x_test,  y_test)
@@ -51,7 +53,6 @@ def MLP(x, y):
     e_time = time.clock()
     print('Total Time: ', e_time-s_time)
 # =============================================================================
-
-
-
+def adaBoost(x, y):
+    temp = 1
 # =============================================================================

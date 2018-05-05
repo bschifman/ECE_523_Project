@@ -52,10 +52,13 @@ if(PREDICT):
 # =============================================================================
 #Regnerate mic pickle ***NEED TO FIX THE DIMENSIONS OF DATA AND Y IN ORDER TO MATCH***
 if(REGENERATE_MIC):
-    mic = fs.genMIC(indicators_norm, y_ind)
+    import time
+    s = time.clock()
+    mic = fs.genMIC(indicators_norm, y)
+    print(time.clock() - s)
     
-#else:
-#    mic = fs.loadMIC()
+else:
+    mic = fs.loadMIC()
 # =============================================================================    
 #Plot corr
 if(PLOT_CORR):
