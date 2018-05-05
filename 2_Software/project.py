@@ -28,24 +28,24 @@ else:
 # =============================================================================
 #Reimport data from quandl
 if(REINGEST_DATA):
-    data = ds.ingestData()
+    data, y = ds.ingestData()
     ds.dumpData(data, 'data')
+    ds.dumpData(y, 'y')
 else:
-    data = ds.loadQdata()
+    data, y = ds.loadQdata()
 # =============================================================================
 #Regenerate feature pickle files
 if(REGENERATE_TA):
-    indicators_norm, y_norm, indicators, y = ds.genTA(data, t=T)
-    x_all, y_all = ds.reformat(indicators_norm, y_norm)
+    indicators_norm, indicators, y_ind = ds.genTA(data, y, t=T)
+    x_all, y_all = ds.reformat(indicators_norm, y_ind)
     
     #Dump Pickles
     ds.dumpData(indicators_norm,  'indicators_normT'+str(TIMEPERIODNUM))
-    ds.dumpData(y_norm,  'y_normT'+str(TIMEPERIODNUM))
     ds.dumpData(indicators,  'indicatorsT'+str(TIMEPERIODNUM))
-    ds.dumpData(y, 'yT'+str(TIMEPERIODNUM))
+    ds.dumpData(y_ind, 'yT'+str(TIMEPERIODNUM))
 else: #Load data from pickles
-    indicators_norm, y_norm, indicators, y = ds.loadTAdata(tNum=TIMEPERIODNUM)
-    x_all, y_all = ds.reformat(indicators_norm, y_norm)
+    indicators_norm, indicators, y_ind = ds.loadTAdata(tNum=TIMEPERIODNUM)
+    x_all, y_all = ds.reformat(indicators_norm, y_ind)
 # =============================================================================    
 if(PREDICT):
     pred.MLP(x_all, y_all)

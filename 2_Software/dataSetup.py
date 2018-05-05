@@ -34,7 +34,7 @@ def ingestData():
     tickers_energy = ['XOM', 'CVX', 'BP', 'GE', 'SLB']
     tickers_healthcare = ['JNJ', 'UNH', 'PFE', 'MRK', 'ABBV', 'MMM', 'AMGN', 'MDT']
     tickers_technology = ['AAPL', 'GOOGL', 'MSFT', 'FB', 'INTC', 'CSCO', 'ORCL', 'IBM', 'NVDA']
-    tickers_realestate = ['ECL', 'DWDP', 'FMC', 'IP', 'PPG', 'VMC', 'BMS']
+    tickers_realestate = ['ECL', 'FMC', 'IP', 'VMC', 'BMS']
     tickers = [tickers_financials, tickers_utilities, tickers_energy, tickers_healthcare, tickers_technology, tickers_realestate]
     
     temp = {'Financials': tickers_financials,
@@ -62,13 +62,16 @@ def ingestData():
         data[ticker].rename(index=str, columns={"Adj. Open": "Open", "Adj. High": "High", "Adj. Low": "Low", "Adj. Close":
             "Close", "Adj. Volume": "Volume"}, inplace=True)
         
-    return data
-# =============================================================================
-def genTA(data, t): #t is timeperiod
-    indicators  = {}
-    
     #labels
-    sign_daily = {}
+    y = {}
+    for ticker in data:
+        y[ticker] = pd.DataFrame(np.concatenate((np.array([0.0]),np.sign(np.diff(data[ticker].iloc[:,3])))))
+    
+    return data, y
+# =============================================================================
+def genTA(data, y, t): #t is timeperiod
+    indicators  = {}
+    y_ind = copy.deepcopy(y)
    
     for ticker in data:
     ## Overlap
@@ -118,28 +121,20 @@ def genTA(data, t): #t is timeperiod
         indicators[ticker]['CDLHAMMER']    = ta.CDLHAMMER(data[ticker].iloc[:,0], data[ticker].iloc[:,1], data[ticker].iloc[:,2], data[ticker].iloc[:,3])
         indicators[ticker]['CDLHANGINGMAN']= ta.CDLHANGINGMAN(data[ticker].iloc[:,0], data[ticker].iloc[:,1], data[ticker].iloc[:,2], data[ticker].iloc[:,3])
         
-    #Daily Labels
-        sign_daily[ticker] = pd.DataFrame(np.concatenate((np.array([0.0]),np.sign(np.diff(data[ticker].iloc[:,3])))))
-        
     #drop 'nan' values
-        indicators[ticker].drop(indicators[ticker].index[np.arange(0,t-1)], inplace=True)
-        sign_daily[ticker].drop(sign_daily[ticker].index[np.arange(0,t-1)], inplace=True)
+        indicators[ticker].drop(indicators[ticker].index[np.arange(0,63)], inplace=True)
+        y_ind[ticker].drop(y_ind[ticker].index[np.arange(0,63)], inplace=True)
         
     #Normalize Features
-    norm_timeperiod = 60 #Normalize over 3 month windows
-    indicators_norm = normData(indicators, norm_timeperiod)
-    
-    y_norm = copy.deepcopy(sign_daily)
-    for ticker in y_norm:
-        N = np.size(y_norm[ticker],0) - np.size(indicators_norm[ticker],0)
-        y_norm[ticker].drop(y_norm[ticker].index[np.arange(0,N)], inplace=True)
+    indicators_norm = normData(indicators)
         
-    return indicators_norm, y_norm, indicators, sign_daily
+    return indicators_norm, indicators, y_ind
 
 # =============================================================================
 def loadQdata():
     data = pickle.load(open('data/data.pickle', 'rb'))
-    return data
+    y    = pickle.load(open('data/y.pickle', 'rb'))
+    return data, y
 # =============================================================================
 def loadTAdata(tNum): # tNum = 1 or 2 or 3 (int)
     if(tNum != 1 and tNum != 2 and tNum != 3):
@@ -148,44 +143,33 @@ def loadTAdata(tNum): # tNum = 1 or 2 or 3 (int)
         
     tNum_str = str(tNum)
         
-    indicators   = pickle.load(open('data/indicators_normT'+tNum_str+'.pickle', 'rb'))
-    y_norm       = pickle.load(open('data/y_normT'+tNum_str+'.pickle', 'rb'))
-    indicators   = pickle.load(open('data/indicatorsT'+tNum_str+'.pickle', 'rb'))
-    y            = pickle.load(open('data/yT'+tNum_str+'.pickle', 'rb'))
+    indicators_norm   = pickle.load(open('data/indicators_normT'+tNum_str+'.pickle', 'rb'))
+    indicators        = pickle.load(open('data/indicatorsT'+tNum_str+'.pickle', 'rb'))
+    y_ind             = pickle.load(open('data/y_indT'+tNum_str+'.pickle', 'rb'))
     
     featureNames = {'Indicators':list(indicators[list(indicators.keys())[0]].columns.values)}
     pd.DataFrame.from_dict(featureNames).to_csv('../3_Deliverables/Final Paper/data/features.csv', index=False)
     
-    return(indicators, y_norm, indicators, y)
+    return(indicators_norm, indicators, y_ind)
 # =============================================================================
 def dumpData(data, name_str): #name_str = (str) name of pickle file, ex: name_str='indicators_normT1'
     pickle.dump(data,  open('data/'+name_str+'.pickle',  'wb'), protocol=pickle.HIGHEST_PROTOCOL)
 # =============================================================================
-# Regular Normalization depends on a time period. norm_window = number of indices in period
-# if length of dataframes don't divide evenly by timeperiod, throws out remainder from the beginning
-def normData(dataIn, norm_window):
+def normData(dataIn):
     dataOut = copy.deepcopy(dataIn)
-    numCols = np.size(dataIn[list(dataIn.keys())[0]].keys())
     for ticker in dataIn:
-        N = np.size(dataIn[ticker],0)
-        r = N%norm_window
-        rInd = np.arange(0,r)
-        dataOut[ticker].iloc[rInd,:] = np.tile(float('nan'),(r,numCols))
-        pStartInd = np.arange(r,N,norm_window)
-        for i in pStartInd:
-            timeInd = np.arange(i,i+norm_window)
-            tempMin = np.min(dataIn[ticker].iloc[timeInd,:], axis=0)
-            tempMax = np.max(dataIn[ticker].iloc[timeInd,:], axis=0)
-            dataOut[ticker].iloc[timeInd,:] = np.divide(np.array((dataIn[ticker].iloc[timeInd,:] - tempMin)),np.array((tempMax - tempMin)))
-        dataOut[ticker].drop(dataOut[ticker ].index[rInd], inplace=True)
-        
+        columnNames = list(dataOut[ticker].columns.values)
+        indexNames = list(dataOut[ticker].index.values)
+        tempMin = np.min(dataIn[ticker], axis=0)
+        tempMax = np.max(dataIn[ticker], axis=0)
+        dataOut[ticker] = pd.DataFrame(np.divide(np.array((dataIn[ticker] - tempMin)),np.array((tempMax - tempMin))), index=indexNames, columns=columnNames)        
     return dataOut
 # =============================================================================
-def reformat(indicators, y):
-    indicators_new  = pd.DataFrame()
-    y_new           = pd.DataFrame()
+def reformat(x, y):
+    x_new = pd.DataFrame()
+    y_new = pd.DataFrame()
     for ticker in y:
-        indicators_new = indicators_new.append(indicators[ticker])
-        y_new          = y_new.append(y[ticker])
-    return indicators_new, y_new
+        x_new = x_new.append(x[ticker])
+        y_new = y_new.append(y[ticker])
+    return x_new, y_new
     
