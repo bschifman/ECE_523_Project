@@ -42,7 +42,7 @@ def ingestData():
         'Healthcare':tickers_healthcare,
         'Technology':tickers_technology,
         'Real Estate': tickers_realestate}
-    pd.DataFrame.from_dict(temp, orient='index').transpose().to_csv('../3_Deliverables/Final Paper/tickers.csv', index=False)
+    pd.DataFrame.from_dict(temp, orient='index').transpose().to_csv('../3_Deliverables/Final Paper/data/tickers.csv', index=False)
     
     data = {}
     
@@ -149,7 +149,7 @@ def loadTAdata(tNum): # tNum = 1 or 2 or 3 (int)
     y            = pickle.load(open('data/y.pickle', 'rb'))
     
     featureNames = {'Indicators':list(indicators[list(indicators.keys())[0]].columns.values)}
-    pd.DataFrame.from_dict(featureNames).to_csv('../3_Deliverables/Final Paper/features.csv', index=False)
+    pd.DataFrame.from_dict(featureNames).to_csv('../3_Deliverables/Final Paper/data/features.csv', index=False)
     
     return(indicators, y)
 # =============================================================================

@@ -35,8 +35,12 @@ def crossCorr(indicators):
     print('Highly Correlated Features (+0.85): ', corr_list, '\n')
     plt.figure()
     plt.title('Correlation Heat Map')
-    sns.heatmap(total_corr, xticklabels=total_corr.columns.values,
+    sns_plot = sns.heatmap(total_corr, xticklabels=total_corr.columns.values,
                 yticklabels=total_corr.columns.values, cmap='gray')
+    fig = sns_plot.get_figure()
+    fig.savefig('../3_Deliverables/Final Paper/data/heatmap.png')
+    total_corr.to_csv('../3_Deliverables/Final Paper/data/corr.csv') 
+    
 # =============================================================================    
 def genMIC(x, y):
     mic  = {}
@@ -60,7 +64,9 @@ def genMIC(x, y):
     mic_mean  /= len(x)
       
     #Dump Pickles
-    pickle.dump(mic_mean, open('data/mic.pickle', 'wb'), protocol=pickle.HIGHEST_PROTOCOL)    
+    pickle.dump(mic_mean, open('data/mic.pickle', 'wb'), protocol=pickle.HIGHEST_PROTOCOL) 
+    
+    return(mic_mean)
 # =============================================================================    
 def loadMIC():
     mic = pickle.load(open('data/mic.pickle', 'rb'))

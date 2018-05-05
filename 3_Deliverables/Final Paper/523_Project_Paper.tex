@@ -20,10 +20,10 @@
 \usepackage{amsfonts}       % blackboard math symbols
 \usepackage{nicefrac}       % compact symbols for 1/2, etc.
 \usepackage{microtype}      % microtypography
-
 \usepackage{amsmath}
 \usepackage{cleveref}
 \usepackage{csvsimple}
+\usepackage{graphicx}
 
 \title{Feature Selection in Finance}
 \usepackage[final]{nips_2016}
@@ -80,13 +80,13 @@ The Quandl platform was used to fetch 11 years of market data from Dec 31, 2006 
 
 \begin{table}[h]
 	\centering
-	\csvautotabular{tickers.csv}
+	\csvautotabular{data/tickers.csv}
 	\caption{Tickers}
 	\label{tab:tick}
 \end{table}
 
 \begin{table}[h]
-	\csvreader[respect all, autotabular]{features.csv}{}{\csvlinetotablerow}
+	\csvreader[respect all, autotabular]{data/features.csv}{}{\csvlinetotablerow}
 	\centering
 	\caption{Technical Analysis Indicators}
 	\label{tab:inds}
@@ -100,12 +100,20 @@ As each technical analysis indicator produces values applicable based on the way
 \end{equation}
 
 \subsection{Feature Correlation}
-Removing highly correlated features allows for the optimization of the classification algorithms by reducing the feature space. Features that are highly correlated most likely offer no additional data and they are an extra expense in computation time. 
+Removing highly correlated features allows for the optimization of the classification algorithms by reducing the feature space. Features that are highly correlated most likely offer no additional data and they are an extra expense in computation time. The pairwise correlation of columns was computed, and columns that were correlated above a certain threshold were marked to be removed from future classification algorithms. The following Figure~\ref{fig:corr_heatmap}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\linewidth]{data/heatmap.png}
+	\caption{Heat Map of Correlated Variables}
+	\label{fig:corr_heatmap}
+\end{figure}
 
 \subsection{Maximal Information Coefficient (MIC)}
 The Maximal Information Coefficient is "a measure of two-variable dependence designed specifically for rapid exploration of many-dimensional data sets" - http://www.exploredata.net/. A benefit to MIC correlations between two variables is that it can be described regardless of linear or non-linear relationships. The MIC yields a single vale $0 \leq MIC \leq 1$ with a value closer to $1$ representing that the variables are more closely correlated, and a value near $0$ indicates statistically independent variables that have neither linear nor nonlinear relationships. The $minepy$ library was used in python to rank the features according to their MIC with the target variable. The MIC was calculated for each feature in each ticker, and then a final MIC value for each feature was calculated by taking the mean of the values.
 
 \subsection{Recursive Feature Elimination (RFE)}
+Given an external estimator
 
 
 \subsection{Principle Component Analysis (PCA)}
@@ -116,28 +124,5 @@ The Maximal Information Coefficient is "a measure of two-variable dependence des
 
 \section*{References}
 
-References follow the acknowledgments. Use unnumbered first-level
-heading for the references. Any choice of citation style is acceptable
-as long as you are consistent. It is permissible to reduce the font
-size to \verb+small+ (9 point) when listing the references. {\bf
-  Remember that you can use a ninth page as long as it contains
-  \emph{only} cited references.}
-\medskip
-
-\small
-
-[1] Alexander, J.A.\ \& Mozer, M.C.\ (1995) Template-based algorithms
-for connectionist rule extraction. In G.\ Tesauro, D.S.\ Touretzky and
-T.K.\ Leen (eds.), {\it Advances in Neural Information Processing
-  Systems 7}, pp.\ 609--616. Cambridge, MA: MIT Press.
-
-[2] Bower, J.M.\ \& Beeman, D.\ (1995) {\it The Book of GENESIS:
-  Exploring Realistic Neural Models with the GEneral NEural SImulation
-  System.}  New York: TELOS/Springer--Verlag.
-
-[3] Hasselmo, M.E., Schnell, E.\ \& Barkai, E.\ (1995) Dynamics of
-learning and recall at excitatory recurrent synapses and cholinergic
-modulation in rat hippocampal region CA3. {\it Journal of
-  Neuroscience} {\bf 15}(7):5249-5262.
 
 \end{document}

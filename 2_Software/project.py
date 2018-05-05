@@ -10,9 +10,9 @@ import prediction as pred
 DEBUG           = False 
 REINGEST_DATA   = False #imports data from quandl, dumps data to data.pickle
 REGENERATE_TA   = False #recalc features, dumps to indicators_norm.pickle
-REGENERATE_MIC  = True #recalc mic, dumps to mic.pickle 
+REGENERATE_MIC  = False #recalc mic, dumps to mic.pickle 
 PLOT_CORR       = False #calc corr, plot heat map
-PREDICT         = False #run prediction algs.
+PREDICT         = True #run prediction algs.
 TIMEPERIODNUM    = 3
 #Add more control here
 # =============================================================================
@@ -50,10 +50,13 @@ if(PREDICT):
 # =============================================================================
 #Regnerate mic pickle ***NEED TO FIX THE DIMENSIONS OF DATA AND Y IN ORDER TO MATCH***
 if(REGENERATE_MIC):
+    import time
+    s = time.clock()
     mic = fs.genMIC(indicators_norm, y)
+    print(time.clock() - s)
     
 else:
-    mic = fs.loadMic()
+    mic = fs.loadMIC()
 # =============================================================================    
 #Plot corr
 if(PLOT_CORR):
