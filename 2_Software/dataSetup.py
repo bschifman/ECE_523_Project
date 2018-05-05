@@ -129,9 +129,9 @@ def genTA(data, t): #t is timeperiod
     
     for ticker in sign_daily:
         N = np.size(sign_daily[ticker],0) - np.size(indicators_norm[ticker],0)
-        sign_daily[ticker].drop(sign_daily[ticker].index[np.arange(0,N)], inplace=True)
+        y_new = sign_daily[ticker].drop(sign_daily[ticker].index[np.arange(0,N)])
         
-    return indicators_norm, sign_daily
+    return indicators_norm, sign_daily, y_new
 
 # =============================================================================
 def loadQdata():

@@ -8,7 +8,7 @@ import dataSetup as ds
 # #%% Control Variables %%#
 DEBUG         = False 
 REINGEST_DATA = False #imports data from quandl, dumps data to data.pickle
-REGENERATE_TA = True #recalc features, dumps to indicators_norm.pickle
+REGENERATE_TA = False #recalc features, dumps to indicators_norm.pickle
 TIMEPERIODNUM    = 3
 #Add more control here
 # =============================================================================
