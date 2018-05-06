@@ -146,7 +146,7 @@ def RFE_AdaBoost(x, y, numFeats):
 # =============================================================================
 def plotRFE(rfeSvmAcc1, rfeSvmAcc2, rfeAdaAcc1, rfeAdaAcc2):
     numFeats = [5,10,15]
-    plt.figure()
+    fig, ax1 = plt.subplots(figsize=(22.0, 14.0)) 
     plt.plot(numFeats, rfeSvmAcc1, '--o', label='SVM1')
     plt.plot(numFeats, rfeSvmAcc2, '--o', label='SVM2')
     plt.plot(numFeats, rfeAdaAcc1, '--o', label='Ada1')
