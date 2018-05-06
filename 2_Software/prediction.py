@@ -72,6 +72,9 @@ def randomForest(x, y, switch, t):
         f_names = list(x.columns.values)
         f_importances = pd.DataFrame(np.round(RFC.feature_importances_, 2)).transpose()
         f_importances.columns = f_names
+        plot = f_importances.plot.bar(figsize=(22.0, 14.0))
+        fig  = plot.get_figure()
+        fig.savefig('../3_Deliverables/Final Paper/data/RFC_importancesT'+str(t)+'.png')
         f_importances.to_csv('../3_Deliverables/Final Paper/data/RFC_importancesT'+str(t)+'.csv', index=False)
     else:
         return(score)

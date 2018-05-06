@@ -40,8 +40,8 @@ def crossCorr(indicators, t):
                         + ':' + total_corr.columns[j]))
                         
 #    print('\n Highly Correlated Features (+0.85): ', corr_list, '\n')
-    plt.figure()
-    plt.title('Correlation Heat Map')
+    plt.figure(figsize=(22.0, 14.0))
+#    plt.title('Correlation Heat Map')
     sns_plot = sns.heatmap(total_corr, xticklabels=total_corr.columns.values,
                 yticklabels=total_corr.columns.values, cmap='gray')
     plt.xticks(rotation=90)
@@ -50,10 +50,10 @@ def crossCorr(indicators, t):
     fig.savefig('../3_Deliverables/Final Paper/data/heatmapT'+str(t)+'.png')
     total_corr.to_csv('../3_Deliverables/Final Paper/data/corrT'+str(t)+'.csv')    
 # =============================================================================    
-def genMIC(x, y):
+def genMIC(x, y, t):
     mic  = {}
     mic_mean  = np.zeros((1, x[list(x.keys())[0]].shape[1]))
-    f_names = list(x.columns.values)
+    f_names = list(x[list(x.keys())[0]].columns.values)
     mine = mp.MINE(alpha=0.6, c=15, est="mic_approx")
     
     for ticker in x:
@@ -70,11 +70,14 @@ def genMIC(x, y):
                 
         mic_mean  += mic[ticker]            
     mic_mean  /= len(x) 
-     
-    plt.bar(y_pos, performance, align='center', alpha=0.5)
-    plt.xticks(y_pos, objects)
-    plt.ylabel('Usage')
-    plt.title('Programming language usage')
+    
+    mic_mean = pd.DataFrame(mic_mean) 
+    mic_mean.columns = f_names
+    
+    plot = mic_mean.plot.bar(figsize=(22.0, 14.0))
+    fig  = plot.get_figure()
+    fig.savefig('../3_Deliverables/Final Paper/data/MICT'+str(t)+'.png')
+
     return(mic_mean)
 # =============================================================================    
 def loadMIC(tNum):
@@ -82,7 +85,7 @@ def loadMIC(tNum):
         print('loadMIC:tNum must be integer 1, 2, or 3')
         exit()
     tNum_str = str(tNum)
-    mic = pickle.load(open('data/micT'+tNum_str+'.pickle', 'rb'))
+    mic = pickle.load(open('data/MICT'+tNum_str+'.pickle', 'rb'))
     return(mic)    
 # ============================================================================= 
 def mine_stats(mine):
