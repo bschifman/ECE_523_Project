@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2016.12.8)  5 MAY 2018 21:53
+=======
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2016.12.9)  5 MAY 2018 19:43
+>>>>>>> f9b2dfab9232deac9bf248943bf6685e86b1cd54
 entering extended mode
 **./523_Project_Paper.tex
 (523_Project_Paper.tex
@@ -638,6 +642,7 @@ File: pdftex.def 2016/07/10 v0.06j Graphics/color for pdfTeX
 \Gin@req@height=\dimen130
 \Gin@req@width=\dimen131
 )
+<<<<<<< HEAD
 ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\color.sty"
 Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
 
@@ -647,28 +652,85 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 Package color Info: Driver file: pdftex.def on input line 147.
 )
 (nips_2016.sty
+=======
+("C:\Program Files\MiKTeX 2.9\tex\latex\adjustbox\adjustbox.sty"
+Package: adjustbox 2018/04/08 v1.1 Adjusting TeX boxes (trim, clip, ...)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\xkeyval\xkeyval.sty"
+Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\xkeyval\xkeyval.tex"
+("C:\Program Files\MiKTeX 2.9\tex\generic\xkeyval\xkvutils.tex"
+\XKV@toks=\toks27
+\XKV@tempa@toks=\toks28
+)
+\XKV@depth=\count120
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\adjustbox\adjcalc.sty"
+Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back
+-ends (calc, etex, pgfmath)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\adjustbox\trimclip.sty"
+Package: trimclip 2018/04/08 v1.1 Trim and clip general TeX material
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\collectbox\collectbox.sty"
+Package: collectbox 2012/05/17 v0.4b Collect macro arguments as boxes
+\collectedbox=\box28
+)
+\tc@llx=\dimen132
+\tc@lly=\dimen133
+\tc@urx=\dimen134
+\tc@ury=\dimen135
+Package trimclip Info: Using driver 'tc-pdftex.def'.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\adjustbox\tc-pdftex.def"
+File: tc-pdftex.def 2018/04/08 v2.1 Clipping driver for pdftex
+))
+\adjbox@Width=\dimen136
+\adjbox@Height=\dimen137
+\adjbox@Depth=\dimen138
+\adjbox@Totalheight=\dimen139
+\adjbox@pwidth=\dimen140
+\adjbox@pheight=\dimen141
+\adjbox@pdepth=\dimen142
+\adjbox@ptotalheight=\dimen143
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\ifoddpage\ifoddpage.sty"
+Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
+\c@checkoddpage=\count121
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\ltxmisc\varwidth.sty"
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box29
+\sift@deathcycles=\count122
+\@vwid@loff=\dimen144
+\@vwid@roff=\dimen145
+)) (nips_2016.sty
+>>>>>>> f9b2dfab9232deac9bf248943bf6685e86b1cd54
 Package: nips_2016 2016/08/08 NIPS 2016 submission/camera-ready style file
- ("C:\Program Files\MiKTeX 2.9\tex\latex\natbib\natbib.sty"
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\natbib\natbib.sty"
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip51
 \bibsep=\skip52
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count120
+\c@NAT@ctr=\count123
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.sty"
 Package: geometry 2010/09/12 v5.6 Page Geometry
-\Gm@cnth=\count121
-\Gm@cntv=\count122
-\c@Gm@tempcnt=\count123
-\Gm@bindingoffset=\dimen132
-\Gm@wd@mp=\dimen133
-\Gm@odd@mp=\dimen134
-\Gm@even@mp=\dimen135
-\Gm@layoutwidth=\dimen136
-\Gm@layoutheight=\dimen137
-\Gm@layouthoffset=\dimen138
-\Gm@layoutvoffset=\dimen139
-\Gm@dimlist=\toks27
+\Gm@cnth=\count124
+\Gm@cntv=\count125
+\c@Gm@tempcnt=\count126
+\Gm@bindingoffset=\dimen146
+\Gm@wd@mp=\dimen147
+\Gm@odd@mp=\dimen148
+\Gm@even@mp=\dimen149
+\Gm@layoutwidth=\dimen150
+\Gm@layoutheight=\dimen151
+\Gm@layouthoffset=\dimen152
+\Gm@layoutvoffset=\dimen153
+\Gm@dimlist=\toks29
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.cfg"))
 \@nipsabovecaptionskip=\skip53
@@ -695,7 +757,11 @@ LaTeX Font Info:    Try loading font information for T1+ptm on input line 52.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\t1ptm.fd"
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
+<<<<<<< HEAD
 \AtBeginShipoutBox=\box28
+=======
+\AtBeginShipoutBox=\box30
+>>>>>>> f9b2dfab9232deac9bf248943bf6685e86b1cd54
 Package hyperref Info: Link coloring OFF on input line 52.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -703,7 +769,7 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count124
+\c@section@level=\count127
 )
 LaTeX Info: Redefining \ref on input line 52.
 LaTeX Info: Redefining \pageref on input line 52.
@@ -729,17 +795,17 @@ File: mt-ptm.cfg 2006/04/20 v1.7 microtype config. file: Times (RS)
 )
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count125
-\scratchdimen=\dimen140
-\scratchbox=\box29
-\nofMPsegments=\count126
-\nofMParguments=\count127
-\everyMPshowfont=\toks28
-\MPscratchCnt=\count128
-\MPscratchDim=\dimen141
-\MPnumerator=\count129
-\makeMPintoPDFobject=\count130
-\everyMPtoPDFconversion=\toks29
+\scratchcounter=\count128
+\scratchdimen=\dimen154
+\scratchbox=\box31
+\nofMPsegments=\count129
+\nofMParguments=\count130
+\everyMPshowfont=\toks30
+\MPscratchCnt=\count131
+\MPscratchDim=\dimen155
+\MPnumerator=\count132
+\makeMPintoPDFobject=\count133
+\everyMPtoPDFconversion=\toks31
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -854,6 +920,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 57.
+<<<<<<< HEAD
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
@@ -889,6 +956,25 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [4]
 [5]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 144.
+=======
+ [1
+
+
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
+<data/heatmapT10.png, id=60, 462.528pt x 346.896pt>
+File: data/heatmapT10.png Graphic file (type png)
+ <use data/heatmapT10.png>
+Package pdftex.def Info: data/heatmapT10.png used on input line 107.
+(pdftex.def)             Requested size: 397.48499pt x 298.12889pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[2]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 128.
+ [3 <./data/heatmapT10.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 128.
+>>>>>>> f9b2dfab9232deac9bf248943bf6685e86b1cd54
  (523_Project_Paper.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 144.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 144.
@@ -897,6 +983,7 @@ Package rerunfilecheck Info: File `523_Project_Paper.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 144.
  ) 
 Here is how much of TeX's memory you used:
+<<<<<<< HEAD
  11551 strings out of 493333
  191765 string characters out of 3139171
  337583 words of memory out of 3000000
@@ -917,4 +1004,26 @@ PDF statistics:
  142 PDF objects out of 1000 (max. 8388607)
  24 named destinations out of 1000 (max. 500000)
  14950 words of extra memory for PDF output out of 17280 (max. 10000000)
+=======
+ 12440 strings out of 493333
+ 206594 string characters out of 3139194
+ 366267 words of memory out of 3000000
+ 15691 multiletter control sequences out of 15000+200000
+ 29398 words of font info for 86 fonts, out of 3000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 40i,8n,46p,922b,471s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\Users\jsiek\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\
+ectt1000.pk>{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Progra
+m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.
+9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw
+/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb
+>
+Output written on 523_Project_Paper.pdf (3 pages, 130120 bytes).
+PDF statistics:
+ 129 PDF objects out of 1000 (max. 8388607)
+ 20 named destinations out of 1000 (max. 500000)
+ 14942 words of extra memory for PDF output out of 17280 (max. 10000000)
+>>>>>>> f9b2dfab9232deac9bf248943bf6685e86b1cd54
 

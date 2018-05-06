@@ -24,7 +24,11 @@
 \usepackage{cleveref}
 \usepackage{csvsimple}
 \usepackage{graphicx}
+<<<<<<< HEAD
 \usepackage{color}
+=======
+\usepackage{adjustbox}
+>>>>>>> f9b2dfab9232deac9bf248943bf6685e86b1cd54
 
 \title{Feature Selection in Finance, It is Delicious}
 \usepackage[final]{nips_2016}
@@ -88,8 +92,7 @@ The Quandl platform was used to fetch 11 years of market data from Dec 31, 2006 
 \end{table}
 
 \begin{table}[h]
-	\csvreader[respect all, autotabular]{data/features.csv}{}{\csvlinetotablerow}
-	\centering
+	\csvreader[respect all, autotabular, before reading=\begin{adjustbox}{max width=\columnwidth},after reading=\end{adjustbox}]{data/features_final.csv}{}{\csvlinetotablerow}
 	\caption{Technical Analysis Indicators}
 	\label{tab:inds}
 \end{table}
