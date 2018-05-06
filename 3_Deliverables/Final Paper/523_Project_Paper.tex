@@ -113,7 +113,12 @@ Removing highly correlated features allows for the optimization of the classific
 \subsection{Maximal Information Coefficient (MIC)}
 The MIC is "a measure of two-variable dependence designed specifically for rapid exploration of many-dimensional data sets" - http://www.exploredata.net/. A benefit to MIC correlations between two variables is that it can be described regardless of linear or non-linear relationships. The MIC yields a single vale $0 \leq MIC \leq 1$ with a value closer to $1$ representing that the variables are more closely correlated, and a value near $0$ indicates statistically independent variables that have neither linear nor nonlinear relationships. The $minepy$ library was used in python to rank the features according to their MIC with the target variable. The MIC was calculated for each feature in each ticker, and then a final MIC value for each feature was calculated by taking the mean of the values.
 
-\textbf{\color{red}ADD TABLE OF MIC RESULTS!}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\linewidth]{data/MICT1.png}
+	\caption{MIC}
+	\label{fig:MIC}
+\end{figure}
 
 \subsection{\color{red}Recursive Feature Elimination (RFE)}
 Given an external estimator 

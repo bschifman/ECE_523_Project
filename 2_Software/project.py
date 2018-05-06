@@ -10,11 +10,11 @@ import prediction as pred
 DEBUG           = False 
 REINGEST_DATA   = False #imports data from quandl, dumps data to data.pickle
 REGENERATE_TA   = False #recalc features, dumps to indicators_norm.pickle
-REGENERATE_MIC  = False #recalc mic, dumps to mic.pickle 
+REGENERATE_MIC  = True  #recalc mic, dumps to mic.pickle 
 PLOT_CORR       = False #calc corr, plot heat map
 PREDICT         = False #run prediction algs.
 RUN_MLP         = False
-RUN_RFE         = True
+RUN_RFE         = False
 TIMEPERIODNUM    = 1
 #Add more control here
 # =============================================================================
@@ -68,10 +68,10 @@ if(PREDICT):
 # =============================================================================
 #Regnerate mic pickle files
 if(REGENERATE_MIC):
-    mic = fs.genMIC(indicators, y_ind)
-    ds.dumpData(mic, 'micT'+str(TIMEPERIODNUM))
-#else: #Load mic from pickle
-#    mic = fs.loadMIC(tNum=TIMEPERIODNUM)
-# =============================================================================    
+    mic = fs.genMIC(indicators, y_ind, t=TIMEPERIODNUM)
+    ds.dumpData(mic, 'MICT'+str(TIMEPERIODNUM))
+else: #Load mic from pickle
+    mic = fs.loadMIC(tNum=TIMEPERIODNUM)
+#=============================================================================    
 
     
