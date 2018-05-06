@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2016.12.8)  6 MAY 2018 15:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2016.12.8)  6 MAY 2018 15:27
 entering extended mode
 **./523_Project_Paper.tex
 (523_Project_Paper.tex
@@ -699,7 +699,15 @@ Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \sift@deathcycles=\count122
 \@vwid@loff=\dimen144
 \@vwid@roff=\dimen145
-)) (nips_2016.sty
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\float\float.sty"
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count123
+\float@exts=\toks29
+\float@box=\box30
+\@float@everytoks=\toks30
+\@floatcapt=\box31
+) (nips_2016.sty
 Package: nips_2016 2016/08/08 NIPS 2016 submission/camera-ready style file
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\natbib\natbib.sty"
@@ -707,13 +715,13 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip51
 \bibsep=\skip52
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count123
+\c@NAT@ctr=\count124
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.sty"
 Package: geometry 2010/09/12 v5.6 Page Geometry
-\Gm@cnth=\count124
-\Gm@cntv=\count125
-\c@Gm@tempcnt=\count126
+\Gm@cnth=\count125
+\Gm@cntv=\count126
+\c@Gm@tempcnt=\count127
 \Gm@bindingoffset=\dimen146
 \Gm@wd@mp=\dimen147
 \Gm@odd@mp=\dimen148
@@ -722,7 +730,7 @@ Package: geometry 2010/09/12 v5.6 Page Geometry
 \Gm@layoutheight=\dimen151
 \Gm@layouthoffset=\dimen152
 \Gm@layoutvoffset=\dimen153
-\Gm@dimlist=\toks29
+\Gm@dimlist=\toks31
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.cfg"))
 \@nipsabovecaptionskip=\skip53
@@ -731,43 +739,43 @@ Package: geometry 2010/09/12 v5.6 Page Geometry
 (523_Project_Paper.aux)
 \openout1 = `523_Project_Paper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Try loading font information for T1+ptm on input line 53.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 54.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\t1ptm.fd"
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
-\AtBeginShipoutBox=\box30
-Package hyperref Info: Link coloring OFF on input line 53.
+\AtBeginShipoutBox=\box32
+Package hyperref Info: Link coloring OFF on input line 54.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count127
+\c@section@level=\count128
 )
-LaTeX Info: Redefining \ref on input line 53.
-LaTeX Info: Redefining \pageref on input line 53.
-LaTeX Info: Redefining \nameref on input line 53.
+LaTeX Info: Redefining \ref on input line 54.
+LaTeX Info: Redefining \pageref on input line 54.
+LaTeX Info: Redefining \nameref on input line 54.
 
 (523_Project_Paper.out) (523_Project_Paper.out)
 \@outlinefile=\write4
 \openout4 = `523_Project_Paper.out'.
 
-LaTeX Info: Redefining \microtypecontext on input line 53.
+LaTeX Info: Redefining \microtypecontext on input line 54.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -783,17 +791,17 @@ File: mt-ptm.cfg 2006/04/20 v1.7 microtype config. file: Times (RS)
 )
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count128
+\scratchcounter=\count129
 \scratchdimen=\dimen154
-\scratchbox=\box31
-\nofMPsegments=\count129
-\nofMParguments=\count130
-\everyMPshowfont=\toks30
-\MPscratchCnt=\count131
+\scratchbox=\box33
+\nofMPsegments=\count130
+\nofMParguments=\count131
+\everyMPshowfont=\toks32
+\MPscratchCnt=\count132
 \MPscratchDim=\dimen155
-\MPnumerator=\count132
-\makeMPintoPDFobject=\count133
-\everyMPtoPDFconversion=\toks31
+\MPnumerator=\count133
+\makeMPintoPDFobject=\count134
+\everyMPtoPDFconversion=\toks33
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -874,12 +882,12 @@ G,.JBIG2,.JB2,.eps]
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <17.28> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 56.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 57.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\microtype\mt-cmr.cfg"
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 56.
+LaTeX Font Info:    Try loading font information for U+msa on input line 57.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -887,7 +895,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ("C:\Program Files\MiKTeX 2.9\tex\latex\microtype\mt-msa.cfg"
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 56.
+LaTeX Font Info:    Try loading font information for U+msb on input line 57.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -896,8 +904,8 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 56.
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 56.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 57.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 57.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1cmtt.fd"
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
@@ -907,11 +915,11 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 58.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 59.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@ifnextchar' on input line 68.
+(hyperref)                removing `\@ifnextchar' on input line 69.
 
 [1
 
@@ -920,53 +928,90 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 <data/heatmapT1.png, id=68, 1589.94pt x 1011.78pt>
 File: data/heatmapT1.png Graphic file (type png)
  <use data/heatmapT1.png>
-Package pdftex.def Info: data/heatmapT1.png used on input line 119.
+Package pdftex.def Info: data/heatmapT1.png used on input line 120.
 (pdftex.def)             Requested size: 397.48499pt x 252.94438pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[2] <data/MICT1.png, id=82, 1589.94pt x 1011.78pt>
+[2pdfTeX warning (ext4): destination with the same identifier (name{table.1}) h
+as been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.127 
+      pdfTeX warning (ext4): destination with the same identifier (name{table.2
+}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.127 
+      ] <data/MICT1.png, id=82, 1589.94pt x 1011.78pt>
 File: data/MICT1.png Graphic file (type png)
  <use data/MICT1.png>
-Package pdftex.def Info: data/MICT1.png used on input line 129.
+Package pdftex.def Info: data/MICT1.png used on input line 130.
 (pdftex.def)             Requested size: 397.48499pt x 252.94438pt.
 
+[3pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) 
+has been already used, duplicate ignored
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.134 
+       <./data/heatmapT1.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@ifnextchar' on input line 138.
+(hyperref)                removing `\@ifnextchar' on input line 139.
 
-<data/RFC_importancesT1.png, id=85, 1589.94pt x 1011.78pt>
+<data/RFC_importancesT1.png, id=91, 1589.94pt x 1011.78pt>
 File: data/RFC_importancesT1.png Graphic file (type png)
 
 <use data/RFC_importancesT1.png>
-Package pdftex.def Info: data/RFC_importancesT1.png used on input line 143.
+Package pdftex.def Info: data/RFC_importancesT1.png used on input line 144.
 (pdftex.def)             Requested size: 397.48499pt x 252.94438pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [3 <./data/heatmapT1.png>] [4 <./data/MICT1.png> <./data/RFC_importancesT1.png
->]
-<data/PCAT1.png, id=102, 462.528pt x 346.896pt>
+<data/PCAT1.png, id=93, 462.528pt x 346.896pt>
 File: data/PCAT1.png Graphic file (type png)
  <use data/PCAT1.png>
-Package pdftex.def Info: data/PCAT1.png used on input line 153.
+Package pdftex.def Info: data/PCAT1.png used on input line 154.
 (pdftex.def)             Requested size: 397.48499pt x 298.12889pt.
 
-(523_Project_Paper.bbl)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 166.
- [5 <./data/PCAT1.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 166.
- (523_Project_Paper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 166.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 166.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+(523_Project_Paper.bbl [4pdfTeX warning (ext4): destination with the same ident
+ifier (name{figure.2}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.9 
+     <./data/MICT1.png>]
+
+LaTeX Warning: Text page 5 contains only floats.
+
+[5pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) 
+has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.9 
+    pdfTeX warning (ext4): destination with the same identifier (name{figure.4}
+) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.9 
+     <./data/RFC_importancesT1.png> <./data/PCAT1.png>])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 173.
+ [6]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 173.
+
+(523_Project_Paper.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 173.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 173.
 
 
 Package rerunfilecheck Warning: File `523_Project_Paper.out' has changed.
@@ -974,18 +1019,18 @@ Package rerunfilecheck Warning: File `523_Project_Paper.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `523_Project_Paper.out':
-(rerunfilecheck)             Before: D5E18A000C6286CDAFA54D6CAB1193E1;894
-(rerunfilecheck)             After:  16162AEA512D28210A6015406DEE04E6;891.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 166.
+(rerunfilecheck)             Before: 16162AEA512D28210A6015406DEE04E6;891
+(rerunfilecheck)             After:  F7269DA7862782048C6F99516CCEE883;1309.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 173.
  ) 
 Here is how much of TeX's memory you used:
- 12554 strings out of 493333
- 208323 string characters out of 3139171
- 367163 words of memory out of 3000000
- 15760 multiletter control sequences out of 15000+200000
- 33441 words of font info for 102 fonts, out of 3000000 for 9000
+ 12615 strings out of 493333
+ 209126 string characters out of 3139171
+ 368503 words of memory out of 3000000
+ 15814 multiletter control sequences out of 15000+200000
+ 33311 words of font info for 100 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 40i,9n,46p,1077b,482s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 40i,9n,46p,1077b,486s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc} <C:\Users\Schifman 
 Ben\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ectt1000.pk><C:
 /Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program
@@ -994,9 +1039,9 @@ KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/
 fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
 pe1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utm
 r8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on 523_Project_Paper.pdf (5 pages, 400375 bytes).
+Output written on 523_Project_Paper.pdf (6 pages, 401578 bytes).
 PDF statistics:
- 166 PDF objects out of 1000 (max. 8388607)
- 30 named destinations out of 1000 (max. 500000)
+ 176 PDF objects out of 1000 (max. 8388607)
+ 36 named destinations out of 1000 (max. 500000)
  19069 words of extra memory for PDF output out of 20736 (max. 10000000)
 
