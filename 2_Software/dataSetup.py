@@ -18,9 +18,9 @@ quandl.ApiConfig.api_key = 'HwQoB4ePcDi8bFzJ6SJA'
 # Generate Pickle #
 def ingestData():
     start_date = '2006-12-31'
-    end_date = '2017-12-31'
-#    start_date = '2017-01-01' :More test data, never train
-#    end_date = '2018-03-28'
+    end_date = '2016-12-31'
+    start_dateTEST = '2017-01-01' #More test data, never use except for test
+    end_dateTEST = '2018-03-27'
     database_code = 'WIKI'
     
     #tickers_financials = []
@@ -48,6 +48,7 @@ def ingestData():
     pd.DataFrame.from_dict(temp, orient='index').transpose().to_csv('../3_Deliverables/Final Paper/data/tickers.csv', index=False)
     
     data = {}
+    dataTEST = {}
     
     #data = quandl.get('WIKI/' + tickers, start_date=start_date, end_date=end_date)
     
@@ -58,18 +59,24 @@ def ingestData():
         for ticker in index:
             print(ticker)
             data[ticker] = import_data(ticker, start_date, end_date)
+            dataTEST[ticker] = import_data(ticker, start_dateTEST, end_dateTEST)
     #REFORMAT DATA 
     for ticker in data:
         data[ticker].drop(['Open', 'High', 'Low', 'Close', 'Volume', 'Ex-Dividend', 'Split Ratio'], axis=1, inplace=True)
         data[ticker].rename(index=str, columns={"Adj. Open": "Open", "Adj. High": "High", "Adj. Low": "Low", "Adj. Close":
             "Close", "Adj. Volume": "Volume"}, inplace=True)
+        dataTEST[ticker].drop(['Open', 'High', 'Low', 'Close', 'Volume', 'Ex-Dividend', 'Split Ratio'], axis=1, inplace=True)
+        dataTEST[ticker].rename(index=str, columns={"Adj. Open": "Open", "Adj. High": "High", "Adj. Low": "Low", "Adj. Close":
+            "Close", "Adj. Volume": "Volume"}, inplace=True)
         
     #labels
     y = {}
+    yTEST = {}
     for ticker in data:
         y[ticker] = pd.DataFrame(np.concatenate((np.array([0.0]),np.sign(np.diff(data[ticker].iloc[:,3])))))
+        yTEST[ticker] = pd.DataFrame(np.concatenate((np.array([0.0]),np.sign(np.diff(dataTEST[ticker].iloc[:,3])))))
     
-    return data, y
+    return data, y, dataTEST, yTEST
 # =============================================================================
 def genTA(data, y, t): #t is timeperiod
     indicators  = {}
@@ -136,23 +143,24 @@ def genTA(data, y, t): #t is timeperiod
 def loadQdata():
     data = pickle.load(open('data/data.pickle', 'rb'))
     y    = pickle.load(open('data/y.pickle', 'rb'))
-    return data, y
+    dataTEST = pickle.load(open('data/dataTEST.pickle', 'rb'))
+    yTEST    = pickle.load(open('data/yTEST.pickle', 'rb'))
+    return data, y, dataTEST, yTEST
 # =============================================================================
-def loadTAdata(tNum): # tNum = 1 or 2 or 3 (int)
-    if(tNum != 1 and tNum != 2 and tNum != 3):
-        print('loadData:tNum must be integer 1, 2, or 3')
-        exit()
-        
+def loadTAdata(tNum):        
     tNum_str = str(tNum)
         
     indicators_norm   = pickle.load(open('data/indicators_normT'+tNum_str+'.pickle', 'rb'))
     indicators        = pickle.load(open('data/indicatorsT'+tNum_str+'.pickle', 'rb'))
     y_ind             = pickle.load(open('data/y_indT'+tNum_str+'.pickle', 'rb'))
+    xTestNorm         = pickle.load(open('data/indicators_normT'+tNum_str+'TEST.pickle', 'rb'))
+    xTest             = pickle.load(open('data/indicatorsT'+tNum_str+'TEST.pickle', 'rb'))
+    yTest             = pickle.load(open('data/y_indT'+tNum_str+'TEST.pickle', 'rb'))
     
     featureNames = {'Indicators':list(indicators[list(indicators.keys())[0]].columns.values)}
     pd.DataFrame.from_dict(featureNames).to_csv('../3_Deliverables/Final Paper/data/features.csv', index=False)
     
-    return(indicators_norm, indicators, y_ind)
+    return(indicators_norm, indicators, y_ind, xTestNorm, xTest, yTest)
 # =============================================================================
 def dumpData(data, name_str): #name_str = (str) name of pickle file, ex: name_str='indicators_normT1'
     pickle.dump(data,  open('data/'+name_str+'.pickle',  'wb'), protocol=pickle.HIGHEST_PROTOCOL)
