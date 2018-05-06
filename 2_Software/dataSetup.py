@@ -87,13 +87,13 @@ def genTA(data, y, t): #t is timeperiod
         indicators[ticker]['MOM'] = ta.MOM(data[ticker].iloc[:,3], timeperiod=(t-1))
         indicators[ticker]['ROC'] = ta.ROC(data[ticker].iloc[:,3], timeperiod=(t-1))
         indicators[ticker]['ROCP']= ta.ROCP(data[ticker].iloc[:,3],timeperiod=(t-1))
-        #Skipping STOCH for now needs slow and fast period
-        #Skipping MACD for now needs slow, fast, and signal period
+        indicators[ticker]['STOCH_SLOWK'], indicators[ticker]['STOCH_SLOWD'] = ta.STOCH(data[ticker].iloc[:,1], data[ticker].iloc[:,2], data[ticker].iloc[:,3], fastk_period=t, slowk_period=int(.6*t), slowk_matype=0, slowd_period=int(.6*t), slowd_matype=0)
+        indicators[ticker]['MACD'], indicators[ticker]['MACDSIGNAL'], indicators[ticker]['MACDHIST'] = ta.MACD(data[ticker].iloc[:,3], fastperiod=t,slowperiod=2*t,signalperiod=int(.7*t))
         
     ## Volume
         indicators[ticker]['OBV'] = ta.OBV(data[ticker].iloc[:,3], data[ticker].iloc[:,4])
         indicators[ticker]['AD'] = ta.AD(data[ticker].iloc[:,1], data[ticker].iloc[:,2], data[ticker].iloc[:,3], data[ticker].iloc[:,4])
-        #Skipping ADOSC for now needs slow and fast period
+        indicators[ticker]['ADOSC'] = ta.ADOSC(data[ticker].iloc[:,1], data[ticker].iloc[:,2], data[ticker].iloc[:,3], data[ticker].iloc[:,4], fastperiod=int(.3*t), slowperiod=t)
         
     ## Cycle
         indicators[ticker]['HT_DCPERIOD'] = ta.HT_DCPERIOD(data[ticker].iloc[:,3])
@@ -162,7 +162,9 @@ def normData(dataIn):
         indexNames = list(dataOut[ticker].index.values)
         tempMin = np.min(dataIn[ticker], axis=0)
         tempMax = np.max(dataIn[ticker], axis=0)
-        dataOut[ticker] = pd.DataFrame(np.divide(np.array((dataIn[ticker] - tempMin)),np.array((tempMax - tempMin))), index=indexNames, columns=columnNames)        
+        np.seterr(all='warn', divide='ignore', invalid='ignore')
+        temp = np.divide(np.array((dataIn[ticker] - tempMin)),np.array((tempMax - tempMin))) 
+        dataOut[ticker] = pd.DataFrame(np.nan_to_num(temp), index=indexNames, columns=columnNames)
     return dataOut
 # =============================================================================
 def reformat(x, y):
