@@ -148,11 +148,14 @@ def loadTAdata(tNum): # tNum = 1 or 2 or 3 (int)
     indicators_norm   = pickle.load(open('data/indicators_normT'+tNum_str+'.pickle', 'rb'))
     indicators        = pickle.load(open('data/indicatorsT'+tNum_str+'.pickle', 'rb'))
     y_ind             = pickle.load(open('data/y_indT'+tNum_str+'.pickle', 'rb'))
+    xTestNorm         = pickle.load(open('data/indicators_normT'+tNum_str+'TEST.pickle', 'rb'))
+    xTest             = pickle.load(open('data/indicatorsT'+tNum_str+'TEST.pickle', 'rb'))
+    yTest             = pickle.load(open('data/y_indT'+tNum_str+'TEST.pickle', 'rb'))
     
     featureNames = {'Indicators':list(indicators[list(indicators.keys())[0]].columns.values)}
     pd.DataFrame.from_dict(featureNames).to_csv('../3_Deliverables/Final Paper/data/features.csv', index=False)
     
-    return(indicators_norm, indicators, y_ind)
+    return(indicators_norm, indicators, y_ind, xTestNorm, xTest, yTest)
 # =============================================================================
 def dumpData(data, name_str): #name_str = (str) name of pickle file, ex: name_str='indicators_normT1'
     pickle.dump(data,  open('data/'+name_str+'.pickle',  'wb'), protocol=pickle.HIGHEST_PROTOCOL)

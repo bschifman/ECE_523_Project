@@ -44,8 +44,9 @@ if(REGENERATE_TA):
     ds.dumpData(indicators,  'indicatorsT'+str(TIMEPERIODNUM))
     ds.dumpData(y_ind, 'y_indT'+str(TIMEPERIODNUM))
 else: #Load data from pickles
-    indicators_norm, indicators, y_ind = ds.loadTAdata(tNum=TIMEPERIODNUM)
+    indicators_norm, indicators, y_ind, xTestNorm, xTest, yTest = ds.loadTAdata(tNum=TIMEPERIODNUM)
     x_all, y_all = ds.reformat(indicators_norm, y_ind)
+    x_test, y_test = ds.reformat(xTestNorm, yTest)
 # =============================================================================    
 if(PREDICT):
     pred.MLP(x_all, y_all)
