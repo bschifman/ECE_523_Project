@@ -5,6 +5,11 @@ import minepy as mp
 import matplotlib.pyplot as plt
 import pickle
 import seaborn as sns
+from sklearn.ensemble import AdaBoostClassifier
+from sklearn.svm import SVC
+from sklearn.feature_selection import RFE
+from sklearn.model_selection import train_test_split
+import time
 # =============================================================================
 # Functions:
 # crossCorr(indicators, tNum)
@@ -12,6 +17,8 @@ import seaborn as sns
 # loadMIC(tNum)
 # mine_stats(mine)
 # printMineStats(mine)
+# RFE_SVM(x, y)
+# RFE_AdaBoost(x, y)
 # =============================================================================
 def crossCorr(indicators, t):
     Threshold = 0.85
@@ -92,6 +99,44 @@ def printMineStats(mine):
     print( "MCN (eps=1-MIC)", mine.mcn_general())
     print( "GMIC", mine.gmic())
     print( "TIC", mine.tic())
-        
-
-#%%
+    
+# =============================================================================
+def RFE_SVM(x, y, xTest, yTest):
+    np.random.seed(7)
+    
+    x_train,  x_test,  y_train,  y_test  = train_test_split(x, y, test_size=0.33)
+    
+    clf = SVC(kernel='linear',probability=True, max_iter=200)
+    selector = RFE(estimator=clf, n_features_to_select=5, step=5)
+    
+    s_time = time.clock()
+    
+    selector.fit(x_train, y_train.iloc[:,0])
+    
+    selectedFeatures = selector.ranking_
+    acc = selector.score(x_test, y_test.iloc[:,0])
+    
+    e_time = time.clock()
+    print('\n Total Time: ', e_time-s_time)
+    print(' Accuracy:', acc)
+    return selectedFeatures, acc
+# =============================================================================
+def RFE_AdaBoost(x, y, xTest, yTest):
+    np.random.seed(7)
+    
+    x_train,  x_test,  y_train,  y_test  = train_test_split(x, y, test_size=0.33)
+    
+    clf = AdaBoostClassifier(base_estimator=None, n_estimators=50, learning_rate=1.0)
+    selector = RFE(estimator=clf, n_features_to_select=5, step=5)
+    
+    s_time = time.clock()
+    
+    selector.fit(x_train, y_train.iloc[:,0])
+    
+    selectedFeatures = selector.ranking_
+    acc = selector.score(x_test, y_test.iloc[:,0])
+    
+    e_time = time.clock()
+    print('\n Total Time: ', e_time-s_time)
+    print(' Accuracy:', acc)
+    return selectedFeatures, acc
