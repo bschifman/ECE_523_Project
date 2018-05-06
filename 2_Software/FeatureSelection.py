@@ -141,3 +141,13 @@ def RFE_AdaBoost(x, y, numFeats):
     print('\n Total Time: ', e_time-s_time)
     print(' Accuracy:', acc)
     return selector, acc
+# =============================================================================
+def plotRFE(rfeSvmAcc1, rfeSvmAcc2, rfeAdaAcc1, rfeAdaAcc2):
+    numFeats = [5,10,15]
+    plt.figure()
+    plt.plot(numFeats, rfeSvmAcc1, '--o', label='SVM1')
+    plt.plot(numFeats, rfeSvmAcc2, '--o', label='SVM2')
+    plt.plot(numFeats, rfeAdaAcc1, '--o', label='Ada1')
+    plt.plot(numFeats, rfeAdaAcc2, '--o', label='Ada2')
+    plt.legend(fontsize=18)
+    fig.savefig('../3_Deliverables/Final Paper/data/RFE.png')

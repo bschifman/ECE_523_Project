@@ -105,14 +105,14 @@ The Quandl platform was used to fetch 11 years of market data in total from Dec 
 \\Pattern Recognition indicators look for patterns in the prices of a ticker traders have identified are indicative of future outcomes.
 
 \subsection{Normalization}
-As each technical analysis indicator produces values applicable based on how the indicator was calculated, normalization of the indicators makes correlations between them during feature selection more accurate and applicable. Each value in a specified time period is normalized using Equation \eqref{eq:norm}. If there is extra data not consisting of a full time period, the extras are thrown out at the beginning of the data as data near the end may be more relevant and thus more desirable to keep. The start indices are computed for each ticker and return to ease future handling.
+As each technical analysis indicator produces values applicable based on how the indicator was calculated, normalization of the indicators makes correlations between them during feature selection more accurate and applicable. Each value is normalized using Equation \eqref{eq:norm}.
 
 \begin{equation}\label{eq:norm}
 	x_n = \frac{x - min}{max - min}
 \end{equation}
 
 \subsection{Feature Correlation}
-Removing highly correlated features allows for the optimization of the classification algorithms by reducing the feature space. Features that are highly correlated most likely offer no additional data and they are an extra expense in computation time. The pairwise correlation of columns was computed, and columns that were correlated above a certain threshold were marked to be removed from future classification algorithms. The following Figure~\ref{fig:corr_heatmap}
+Removing highly correlated features allows for the optimization of the classification algorithms by reducing the feature space. Features that are highly correlated most likely offer no additional data and they are an extra expense in computation time. The pairwise correlation of columns was computed, Figure~\ref{fig:corr_heatmap}.
 
 \begin{figure}[h!]
 	\centering
@@ -132,7 +132,7 @@ The MIC is a measure of two-variable dependence designed specifically for rapid 
 \end{figure}
 
 \subsection{\color{red}Recursive Feature Elimination (RFE)}
-Given an external estimator 
+Given a base classifier, recursive feature elimination can be performed by retraining copies of the base classifier using a certain number of dropped features per iteration until the specified number of features to keep has been hit. RFE was implemented independently with two different base classifiers, SVM and Adaboosted Decision Trees.
 
 
 \subsection{\color{red}Random Forest Classifier (RFC)}

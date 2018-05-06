@@ -17,8 +17,9 @@ REGENERATE_MIC  = False  #recalc mic, dumps to mic.pickle
 LOAD_MIC        = False
 PLOT_CORR       = False #calc corr, plot heat map
 PREDICT         = False #run prediction algs.
-RUN_MLP         = True
+RUN_MLP         = False
 RUN_RFE         = False
+PLOT_RFE        = True
 TIMEPERIODNUM    = 1
 #Add more control here
 # =============================================================================
@@ -62,13 +63,37 @@ if(PLOT_CORR):
     fs.crossCorr(indicators_norm, t=TIMEPERIODNUM)  
 # =============================================================================
 if(RUN_MLP):
-    mlp, mplAcc = pred.MLP(x_all, y_all)
     y_test_keras = np_utils.to_categorical(y_test, 3)
-    mlpAcc2 = mlp.evaluate(x_test, y_test_keras)[1]
+    #All Features
+#    mlp, mlpAcc = pred.MLP(x_all, y_all)
+#    mlpAcc2 = mlp.evaluate(x_test, y_test_keras)[1]
+    #Handpicked
+    x_hand = x_all[['RSI', 'MACD', 'ATR', 'SAR', 'OBV']].copy()
+    x_handTest = x_test[['RSI', 'MACD', 'ATR', 'SAR', 'OBV']].copy()
+    mlpHand, mlpHandAcc = pred.MLP(x_hand, y_all)
+    mlpHandAcc2 = mlpHand.evaluate(x_handTest, y_test_keras)[1]
 if(RUN_RFE):
     #Normalized
-    selSVM, selF_SVM_Acc = fs.RFE_SVM(x_all, y_all, 5)
-    selAda, selF_Ada_Acc = fs.RFE_AdaBoost(x_all, y_all, 5)
+    selSVM5, selF_SVM5_Acc = fs.RFE_SVM(x_all, y_all, 5)
+    selSVM10, selF_SVM10_Acc = fs.RFE_SVM(x_all, y_all, 10)
+    selSVM15, selF_SVM15_Acc = fs.RFE_SVM(x_all, y_all, 15)
+    
+    selAda5, selF_Ada5_Acc = fs.RFE_AdaBoost(x_all, y_all, 5)
+    selAda10, selF_Ada10_Acc = fs.RFE_AdaBoost(x_all, y_all, 10)
+    selAda15, selF_Ada15_Acc = fs.RFE_AdaBoost(x_all, y_all, 15)
+if(PLOT_RFE):
+    selF_SVM5_Acc2 = selSVM5.score(x_test, y_test)
+    selF_SVM10_Acc2 = selSVM10.score(x_test, y_test)
+    selF_SVM15_Acc2 = selSVM15.score(x_test, y_test)
+    selF_Ada5_Acc2 = selAda5.score(x_test, y_test)
+    selF_Ada10_Acc2 = selAda10.score(x_test, y_test)
+    selF_Ada15_Acc2 = selAda15.score(x_test, y_test)
+    
+    rfeSvmAcc1 = [selF_SVM5_Acc, selF_SVM10_Acc, selF_SVM15_Acc]
+    rfeSvmAcc2 = [selF_SVM5_Acc2, selF_SVM10_Acc2, selF_SVM15_Acc2]
+    rfeAdaAcc1 = [selF_Ada5_Acc, selF_Ada10_Acc, selF_Ada15_Acc]
+    rfeAdaAcc2 = [selF_Ada5_Acc2, selF_Ada10_Acc2, selF_Ada15_Acc2]
+    fs.plotRFE(rfeSvmAcc1, rfeSvmAcc2, rfeAdaAcc1, rfeAdaAcc2)
 if(PREDICT):
 #    pred.randomForest(x_all, y_all, switch=1, t=TIMEPERIODNUM)
     pred.pca(x_all, y_all, t=TIMEPERIODNUM)
