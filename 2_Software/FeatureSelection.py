@@ -75,8 +75,9 @@ def genMIC(x, y, t):
     mic_mean.columns = f_names
     
     plot = mic_mean.plot.bar(figsize=(22.0, 14.0))
-    plot.set_xlabel('Features', fontsize=18)
-    plot.set_ylabel('MIC', fontsize=18)
+    plot.set_xlabel('Features', fontsize=24)
+    plot.set_ylabel('MIC', fontsize=24)
+    plot.tick_params(labelsize=24)
     fig  = plot.get_figure()
     fig.savefig('../3_Deliverables/Final Paper/data/MICT'+str(t)+'.png')
 
@@ -146,7 +147,7 @@ def RFE_AdaBoost(x, y, numFeats):
 # =============================================================================
 def plotRFE(rfeSvmAcc1, rfeSvmAcc2, rfeAdaAcc1, rfeAdaAcc2):
     numFeats = [5,10,15]
-    plt.figure()
+    fig, ax1 = plt.subplots(figsize=(22.0, 14.0)) 
     plt.plot(numFeats, rfeSvmAcc1, '--o', label='SVM1')
     plt.plot(numFeats, rfeSvmAcc2, '--o', label='SVM2')
     plt.plot(numFeats, rfeAdaAcc1, '--o', label='Ada1')

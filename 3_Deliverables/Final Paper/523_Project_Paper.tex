@@ -67,7 +67,7 @@
 \end{abstract}
 
 \section{\color{red}Introduction}
-There exist technical analysis indicators traditionally used by analysts to evaluate and predict market and equity performance. These indicators provide a unique perspective on the strength and direction of the underlying price action in market data. Feature selection is used to determine relevant indicators while identifying those that are irrelevant and redundant. Different implementations of algorithms based on these indicators could be used to predict performance of individual equities, sectors, or overall markets. They could also be used to classify and identify the correlation and interdependencies between equities, sectors, and markets. The goal of this paper is to implement various approaches to determine the efficacy of technical indicators as enablers to financial analysis. For analyzing features This project presented a couple challenges during implementation including developing an accurate testing method as well as handling and computing such large volumes of data.
+There exist technical analysis indicators traditionally used by analysts to evaluate and predict market and equity performance. These indicators provide a unique perspective on the strength and direction of the underlying price action in market data. Feature selection is used to determine relevant indicators while identifying those that are irrelevant and redundant. This paper analyzes multiple implementations and approaches of feature selection in the form of: Feature Correlation, Maximal Information Coefficient, Recursive Feature Elimination, Different implementations of algorithms based on these indicators could be used to predict performance of individual equities, sectors, or overall markets. They could also be used to classify and identify the correlation and interdependencies between equities, sectors, and markets. The goal of this paper is to implement various approaches to determine the efficacy of technical indicators as enablers to financial analysis. For analyzing features This project presented a couple challenges during implementation including developing an accurate testing method as well as handling and computing such large volumes of data.
 
 Possibly reword and keep/move:\\
 From this project we hope to deepen our understanding of the usage cases for applying specific machine learning algorithms as well as expanding upon our technical analysis of the stock market and which indicators play a role in successful market analysis.
@@ -125,16 +125,9 @@ Removing highly correlated features allows for the optimization of the classific
 \subsection{Maximal Information Coefficient (MIC)}\raggedbottom
 The MIC is a measure of two-variable dependence designed specifically for rapid exploration of many-dimensional data sets \cite{reshef2011detecting}. A benefit to MIC correlations between two variables is that it can be described regardless of linear or non-linear relationships. The MIC yields a single vale $0 \leq MIC \leq 1$ with a value closer to $1$ representing that the variables are more closely correlated, and a value near $0$ indicates statistically independent variables that have neither linear nor nonlinear relationships. The $minepy$ library was used in python to rank the features according to their MIC with the target variable. The MIC was calculated for each feature in each ticker, yielding 33 MIC values for each ticker, and then a final set of MIC values were calculated by taking the ticker-wise mean over the MIC values.
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=\linewidth]{data/MICT1.png}
-	\caption{Maximal Information Coefficient}
-	\label{fig:MIC}
-\end{figure}
-
 \subsection{Recursive Feature Elimination (RFE)}
 RFE is a method of recursively selecting smaller subsets of the larger feature set to then be used in an external classifier. The goal of RFE is to reduce the feature set into the smallest set of relevant and valuable features which yield the greatest accuracy. The time to run of the external classifier is reduced due to the fact that there are fewer features analyzed in the classification.
-Given a base classifier, recursive feature elimination can be performed by retraining copies of the base classifier using a certain number of dropped features per iteration until the specified number of features to keep has been hit. RFE was implemented independently with two different base classifiers, SVM and Adaboosted Decision Trees.
+Given a base classifier, recursive feature elimination can be performed by re-training copies of the base classifier using a certain number of dropped features per iteration until the specified number of features to keep has been hit. RFE was implemented independently with two different base classifiers, SVM and Adaboosted Decision Trees.
 
 \subsection{\color{red}Random Forest Classifier (RFC)}
 The RFC is an ensemble algorithm implementing a combination of decision trees classifiers where the majority vote of all trees are used to classify the input feature vector \cite{pal2005random}. This RFC bagging method was used in order classify the input data, while also intrinsically implementing feature selection to return a vector of feature importances as depicted in Figure \ref{fig:RFC}. 
@@ -159,9 +152,24 @@ PCA orthogonally transforms a set of features into a set of linearly uncorrelate
 \section{Results}
 \subsection{Feature Correlation}
 \subsection{Maximal Information Coefficient (MIC)}
+The results from the MIC algorithm are depicted in the following Figure \ref{fig:MIC}. From observing this outputted MIC data it would appear that the following technical indicators: SAR, HT\textunderscore TREND, CDLENGULFING, CDLDOJI, CDLHAMMER, and CDLHANGINGMAN carry minimal importance in regards to the MIC, where as all of the other technical indicators have a relatively similar resulting MIC value. This conclusion holds very little relevance when examining 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{data/MICT1.png}
+	\caption{Maximal Information Coefficient}
+	\label{fig:MIC}
+\end{figure}
 
 \subsection{Recursive Feature Elimination (RFE)}
-\subsection{Random Forest Classifier (RFE)}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\linewidth]{data/RFE.png}
+	\caption{Recursive Feature Elimation Accuracies}
+	\label{fig:RFE}
+\end{figure}
+\subsection{Random Forest Classifier (RFC)}
 \subsection{Principal Component Analysis (PCA)}
 
 \section{Conclusion}
