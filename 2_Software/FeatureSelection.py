@@ -53,7 +53,7 @@ def crossCorr(indicators, t):
 def genMIC(x, y):
     mic  = {}
     mic_mean  = np.zeros((1, x[list(x.keys())[0]].shape[1]))
-    
+    f_names = list(x.columns.values)
     mine = mp.MINE(alpha=0.6, c=15, est="mic_approx")
     
     for ticker in x:
@@ -69,7 +69,12 @@ def genMIC(x, y):
                 mic[ticker][feature_name] = mine_stats(mine)
                 
         mic_mean  += mic[ticker]            
-    mic_mean  /= len(x)    
+    mic_mean  /= len(x) 
+     
+    plt.bar(y_pos, performance, align='center', alpha=0.5)
+    plt.xticks(y_pos, objects)
+    plt.ylabel('Usage')
+    plt.title('Programming language usage')
     return(mic_mean)
 # =============================================================================    
 def loadMIC(tNum):

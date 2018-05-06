@@ -17,7 +17,6 @@ import matplotlib.pyplot as plt
 # =============================================================================
 def MLP(x, y):
     s_time = time.clock()
-
     num_features = np.array((5,10,15))
     num_classes = 3
     epochs = 1
