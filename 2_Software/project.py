@@ -60,8 +60,9 @@ if(PLOT_CORR):
 if(RUN_MLP):
     pred.MLP(x_all, y_all)
 if(RUN_RFE):
-    selF_SVM, selF_SVM_Acc = fs.RFE_SVM(x_all, y_all, x_test, y_test)
-    selF_Ada, selF_Ada_Acc = fs.RFE_AdaBoost(x_all, y_all, x_test, y_test)
+    #Normalized
+    selSVM, selF_SVM_Acc = fs.RFE_SVM(x_all, y_all)
+    selAda, selF_Ada_Acc = fs.RFE_AdaBoost(x_all, y_all)    
 if(PREDICT):
 #    pred.randomForest(x_all, y_all, switch=1, t=TIMEPERIODNUM)
     pred.pca(x_all, y_all, t=TIMEPERIODNUM)
@@ -73,5 +74,3 @@ if(REGENERATE_MIC):
 #else: #Load mic from pickle
 #    mic = fs.loadMIC(tNum=TIMEPERIODNUM)
 # =============================================================================    
-
-    
