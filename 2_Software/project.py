@@ -14,7 +14,7 @@ REGENERATE_MIC  = False #recalc mic, dumps to mic.pickle
 PLOT_CORR       = False #calc corr, plot heat map
 PREDICT         = False #run prediction algs.
 RUN_MLP         = False
-RUN_RFE         = False
+RUN_RFE         = True
 TIMEPERIODNUM    = 1
 #Add more control here
 # =============================================================================
@@ -60,8 +60,8 @@ if(PLOT_CORR):
 if(RUN_MLP):
     pred.MLP(x_all, y_all)
 if(RUN_RFE):
-#    selF_SVM, selF_SVM_Acc = pred.RFE_SVM(x_all, y_all)
-    selF_Ada, selF_Ada_Acc = pred.RFE_AdaBoost(x_all, y_all)
+    selF_SVM, selF_SVM_Acc = fs.RFE_SVM(x_all, y_all, x_test, y_test)
+    selF_Ada, selF_Ada_Acc = fs.RFE_AdaBoost(x_all, y_all, x_test, y_test)
 if(PREDICT):
 #    pred.randomForest(x_all, y_all, switch=1, t=TIMEPERIODNUM)
     pred.pca(x_all, y_all, t=TIMEPERIODNUM)
