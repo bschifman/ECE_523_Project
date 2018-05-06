@@ -8,6 +8,11 @@
 \BOOKMARK [2][-]{subsection.3.4}{Maximal Information Coefficient \(MIC\)}{section.3}% 8
 \BOOKMARK [2][-]{subsection.3.5}{Recursive Feature Elimination \(RFE\)}{section.3}% 9
 \BOOKMARK [2][-]{subsection.3.6}{redRandom Forest Classifier \(RFC\)}{section.3}% 10
-\BOOKMARK [2][-]{subsection.3.7}{Principle Component Analysis \(PCA\)}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.7}{Principal Component Analysis \(PCA\)}{section.3}% 11
 \BOOKMARK [1][-]{section.4}{Results}{}% 12
-\BOOKMARK [1][-]{section.5}{Conclusion}{}% 13
+\BOOKMARK [2][-]{subsection.4.1}{Feature Correlation}{section.4}% 13
+\BOOKMARK [2][-]{subsection.4.2}{Maximal Information Coefficient \(MIC\)}{section.4}% 14
+\BOOKMARK [2][-]{subsection.4.3}{Recursive Feature Elimination \(RFE\)}{section.4}% 15
+\BOOKMARK [2][-]{subsection.4.4}{Random Forest Classifier \(RFE\)}{section.4}% 16
+\BOOKMARK [2][-]{subsection.4.5}{Principal Component Analysis \(PCA\)}{section.4}% 17
+\BOOKMARK [1][-]{section.5}{Conclusion}{}% 18

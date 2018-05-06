@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass{article}\raggedbottom
 
 % if you need to pass options to natbib, use, e.g.:
 % \PassOptionsToPackage{numbers, compress}{natbib}
@@ -26,6 +26,7 @@
 \usepackage{graphicx}
 \usepackage{color}
 \usepackage{adjustbox}
+\usepackage{float}
 
 \title{Feature Selection in Finance, It is Delicious}
 \usepackage[final]{nips_2016}
@@ -121,10 +122,10 @@ Removing highly correlated features allows for the optimization of the classific
 	\label{fig:corr_heatmap}
 \end{figure}
 
-\subsection{Maximal Information Coefficient (MIC)}
-The MIC is a measure of two-variable dependence designed specifically for rapid exploration of many-dimensional data sets \cite{reshef2011detecting}. A benefit to MIC correlations between two variables is that it can be described regardless of linear or non-linear relationships. The MIC yields a single vale $0 \leq MIC \leq 1$ with a value closer to $1$ representing that the variables are more closely correlated, and a value near $0$ indicates statistically independent variables that have neither linear nor nonlinear relationships. The $minepy$ library was used in python to rank the features according to their MIC with the target variable. The MIC was calculated for each feature in each ticker, yielding 33 MIC values for each ticker, and then a final set of MIC values were calculated by taking the mean of all the sets of MIC values over all of the tickers.
+\subsection{Maximal Information Coefficient (MIC)}\raggedbottom
+The MIC is a measure of two-variable dependence designed specifically for rapid exploration of many-dimensional data sets \cite{reshef2011detecting}. A benefit to MIC correlations between two variables is that it can be described regardless of linear or non-linear relationships. The MIC yields a single vale $0 \leq MIC \leq 1$ with a value closer to $1$ representing that the variables are more closely correlated, and a value near $0$ indicates statistically independent variables that have neither linear nor nonlinear relationships. The $minepy$ library was used in python to rank the features according to their MIC with the target variable. The MIC was calculated for each feature in each ticker, yielding 33 MIC values for each ticker, and then a final set of MIC values were calculated by taking the ticker-wise mean over the MIC values.
 
-\begin{figure}[h!]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=\linewidth]{data/MICT1.png}
 	\caption{Maximal Information Coefficient}
@@ -145,7 +146,7 @@ The RFC is an ensemble algorithm implementing a combination of decision trees cl
 	\label{fig:RFC}
 \end{figure}
 
-\subsection{Principle Component Analysis (PCA)}
+\subsection{Principal Component Analysis (PCA)}
 PCA orthogonally transforms a set of features into a set of linearly uncorrelated principal components. PCA is a method for reducing the dimensionality of the feature set size while retaining principal component variance, and the features informational relevance. To analyze the performance of this method, PCA was implemented on the original 33 features and then the distilled principal components were used in the RFC classifier with 3 fold cross validation to determine the accuracy. The RFC classifier was used to analyze the validity of PCA because it intrinsically implements a form of feature selection as it weighs the features/principal components in terms of importance. The number of principal components the feature set was to be reduced to was iterated from 1 to 33 and then the accuracy of the RFC algorithm was calculated on each reduced feature set/principal component set. The following Figure \ref{fig:PCA} depicts the RFC accuracy and time taken with its corresponding reduced feature set of principal components.   
 
 \begin{figure}[h!]
@@ -156,6 +157,12 @@ PCA orthogonally transforms a set of features into a set of linearly uncorrelate
 \end{figure}
 
 \section{Results}
+\subsection{Feature Correlation}
+\subsection{Maximal Information Coefficient (MIC)}
+\subsection{Recursive Feature Elimination (RFE)}
+\subsection{Random Forest Classifier (RFE)}
+\subsection{Principal Component Analysis (PCA)}
+
 \section{Conclusion}
 
 \section*{References}
