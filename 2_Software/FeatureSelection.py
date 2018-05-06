@@ -37,6 +37,8 @@ def crossCorr(indicators, t):
     plt.title('Correlation Heat Map')
     sns_plot = sns.heatmap(total_corr, xticklabels=total_corr.columns.values,
                 yticklabels=total_corr.columns.values, cmap='gray')
+    plt.xticks(rotation=90)
+    plt.yticks(rotation=0)
     fig = sns_plot.get_figure()
     fig.savefig('../3_Deliverables/Final Paper/data/heatmapT'+str(t)+'.png')
     total_corr.to_csv('../3_Deliverables/Final Paper/data/corrT'+str(t)+'.csv') 

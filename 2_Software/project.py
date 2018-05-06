@@ -12,8 +12,8 @@ REINGEST_DATA   = False #imports data from quandl, dumps data to data.pickle
 REGENERATE_TA   = False #recalc features, dumps to indicators_norm.pickle
 REGENERATE_MIC  = False #recalc mic, dumps to mic.pickle 
 PLOT_CORR       = False #calc corr, plot heat map
-PREDICT         = True #run prediction algs.
-TIMEPERIODNUM    = 1
+PREDICT         = False #run prediction algs.
+TIMEPERIODNUM    = 3
 #Add more control here
 # =============================================================================
 if(TIMEPERIODNUM == 1):
@@ -21,7 +21,7 @@ if(TIMEPERIODNUM == 1):
 elif(TIMEPERIODNUM == 2):
     T = 25 #5 weeks
 elif(TIMEPERIODNUM == 3):
-    T = 5 #1 week
+    T = 70 #14 weeks
 else:
     print('Pick a valid TIMEPERIODNUM')
     exit()
@@ -48,8 +48,10 @@ else: #Load data from pickles
     x_all, y_all = ds.reformat(indicators_norm, y_ind)
 # =============================================================================    
 if(PREDICT):
-#    pred.MLP(x_all, y_all)
-    poop = pred.randomForest(x_all, y_all)
+    pred.MLP(x_all, y_all)
+#    poop = pred.randomForest(x_all, y_all)
+#    selF_SVM, selF_SVM_Acc = pred.RFE_SVM(x_all, y_all)
+#    selF_Ada, selF_Ada_Acc = pred.RFE_AdaBoost(x_all, y_all)
 # =============================================================================
 #Regnerate mic pickle files
 if(REGENERATE_MIC):

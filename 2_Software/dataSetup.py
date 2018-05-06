@@ -19,6 +19,8 @@ quandl.ApiConfig.api_key = 'HwQoB4ePcDi8bFzJ6SJA'
 def ingestData():
     start_date = '2006-12-31'
     end_date = '2017-12-31'
+#    start_date = '2017-01-01' :More test data, never train
+#    end_date = '2018-03-28'
     database_code = 'WIKI'
     
     #tickers_financials = []
