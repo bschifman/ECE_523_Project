@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2016.12.9)  6 MAY 2018 15:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2016.12.9)  6 MAY 2018 15:32
 entering extended mode
 **./523_Project_Paper.tex
 (523_Project_Paper.tex
@@ -982,13 +982,18 @@ Package pdftex.def Info: data/PCAT1.png used on input line 154.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-(523_Project_Paper.bbl [4pdfTeX warning (ext4): destination with the same ident
-ifier (name{figure.2}) has been already used, duplicate ignored
+<data/RFE.png, id=114, 1589.94pt x 1011.78pt>
+File: data/RFE.png Graphic file (type png)
+ <use data/RFE.png>
+Package pdftex.def Info: data/RFE.png used on input line 166.
+(pdftex.def)             Requested size: 397.48499pt x 252.94438pt.
+ [4pdfTeX warning (ext4): destination with the same identifier (name{figure.2})
+ has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.9 
-     <./data/MICT1.png>]
+l.169 \end{figure}
+                   <./data/MICT1.png>]
 
 LaTeX Warning: Text page 5 contains only floats.
 
@@ -997,37 +1002,36 @@ has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.9 
-    pdfTeX warning (ext4): destination with the same identifier (name{figure.4}
-) has been already used, duplicate ignored
+l.169 \end{figure}
+                  pdfTeX warning (ext4): destination with the same identifier (
+name{figure.4}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.9 
-     <./data/RFC_importancesT1.png> <./data/PCAT1.png>])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 173.
- [6]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 173.
+l.169 \end{figure}
+                   <./data/RFC_importancesT1.png> <./data/PCAT1.png>]
+(523_Project_Paper.bbl)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 180.
+ [6pdfTeX warning (ext4): destination with the same identifier (name{figure.5})
+ has been already used, duplicate ignored
 
-(523_Project_Paper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 173.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 173.
-
-
-Package rerunfilecheck Warning: File `523_Project_Paper.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `523_Project_Paper.out':
-(rerunfilecheck)             Before: F7269DA7862782048C6F99516CCEE883;1309
-(rerunfilecheck)             After:  F0140F77312EAB3AF378D26BB0DB068F;1309.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 173.
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.180 \end{document}
+                     <./data/RFE.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 180.
+ (523_Project_Paper.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 180.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 180.
+Package rerunfilecheck Info: File `523_Project_Paper.out' has not changed.
+(rerunfilecheck)             Checksum: 6FCE01376EE304E2B5E76CF0A26C3094;1309.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 180.
  ) 
 Here is how much of TeX's memory you used:
- 12623 strings out of 493333
- 209230 string characters out of 3139194
+ 12630 strings out of 493333
+ 209325 string characters out of 3139194
  368503 words of memory out of 3000000
- 15819 multiletter control sequences out of 15000+200000
+ 15825 multiletter control sequences out of 15000+200000
  33441 words of font info for 102 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  40i,9n,46p,1077b,486s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1039,9 +1043,9 @@ MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.
 ype1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw
 /times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb
 ><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on 523_Project_Paper.pdf (6 pages, 402877 bytes).
+Output written on 523_Project_Paper.pdf (6 pages, 476522 bytes).
 PDF statistics:
- 191 PDF objects out of 1000 (max. 8388607)
+ 193 PDF objects out of 1000 (max. 8388607)
  36 named destinations out of 1000 (max. 500000)
- 19109 words of extra memory for PDF output out of 20736 (max. 10000000)
+ 19114 words of extra memory for PDF output out of 20736 (max. 10000000)
 
