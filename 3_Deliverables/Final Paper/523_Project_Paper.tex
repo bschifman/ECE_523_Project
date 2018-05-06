@@ -24,6 +24,7 @@
 \usepackage{cleveref}
 \usepackage{csvsimple}
 \usepackage{graphicx}
+\usepackage{color}
 
 \title{Feature Selection in Finance, It is Delicious}
 \usepackage[final]{nips_2016}
@@ -54,6 +55,7 @@
 \maketitle
 
 \begin{abstract}
+	\color{red}
   The abstract paragraph should be indented \nicefrac{1}{2}~inch
   (3~picas) on both the left- and right-hand margins. Use 10~point
   type, with a vertical spacing (leading) of 11~points.  The word
@@ -62,7 +64,7 @@
   one paragraph.
 \end{abstract}
 
-\section{Introduction}
+\section{\color{red}Introduction}
 There exist technical analysis indicators traditionally used by analysts to evaluate and predict market and equity performance, as they “can provide a unique perspective on the strength and direction of the underlying price action” ({\bf <--what is this quote from??}). \\
 Feature selection is used to determine relevant indicators while identifying those that are irrelevant and redundant. Different implementations of algorithms based on these indicators could be used to predict performance of individual equities, sectors, or overall markets. They could also be used to classify and identify the correlation and interdependencies between equities, sectors, and markets. Our goal is to implement various approaches to determine efficacy of technical indicators as enablers to financial analysis. This project presented a couple challenges during implementation including developing an accurate testing method as well as handling and computing such large volumes of data.
 
@@ -104,19 +106,33 @@ Removing highly correlated features allows for the optimization of the classific
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=\linewidth]{data/heatmapT10.png}
+	\includegraphics[width=\linewidth]{data/heatmapT1.png}
 	\caption{Heat Map of Correlated Variables}
 	\label{fig:corr_heatmap}
 \end{figure}
 
 \subsection{Maximal Information Coefficient (MIC)}
-The Maximal Information Coefficient is "a measure of two-variable dependence designed specifically for rapid exploration of many-dimensional data sets" - http://www.exploredata.net/. A benefit to MIC correlations between two variables is that it can be described regardless of linear or non-linear relationships. The MIC yields a single vale $0 \leq MIC \leq 1$ with a value closer to $1$ representing that the variables are more closely correlated, and a value near $0$ indicates statistically independent variables that have neither linear nor nonlinear relationships. The $minepy$ library was used in python to rank the features according to their MIC with the target variable. The MIC was calculated for each feature in each ticker, and then a final MIC value for each feature was calculated by taking the mean of the values.
+The MIC is "a measure of two-variable dependence designed specifically for rapid exploration of many-dimensional data sets" - http://www.exploredata.net/. A benefit to MIC correlations between two variables is that it can be described regardless of linear or non-linear relationships. The MIC yields a single vale $0 \leq MIC \leq 1$ with a value closer to $1$ representing that the variables are more closely correlated, and a value near $0$ indicates statistically independent variables that have neither linear nor nonlinear relationships. The $minepy$ library was used in python to rank the features according to their MIC with the target variable. The MIC was calculated for each feature in each ticker, and then a final MIC value for each feature was calculated by taking the mean of the values.
 
-\subsection{Recursive Feature Elimination (RFE)}
+\textbf{\color{red}ADD TABLE OF MIC RESULTS!}
+
+\subsection{\color{red}Recursive Feature Elimination (RFE)}
 Given an external estimator 
 
 
-\subsection{Principle Component Analysis (PCA)}
+\subsection{\color{red}Random Forest Classifier (RFC)}
+The Random Forest Classifier is an ensemble technique implementing decision trees and 
+
+
+\subsection{\color{red}Principle Component Analysis (PCA)}
+PCA orthogonally transforms a set of features into a set of linearly uncorrelated principal components. PCA is a method for reducing the dimensionality of the feature set size while retaining principal component variance, and the features informational relevance. To analyze the performance of this method, PCA was implemented on the original 33 features and then the resulting principal components were used in the RFC classifier with 5 fold cross validation to see the resultant accuracy. The number of principal components were iterated from 1 to 33 and then the principal component were implemented in the RFC to find the optimal number of principal components to yield the best accuracy and in the least amount of time.  
+
+\begin{table}[h]
+	\csvreader[respect all, autotabular]{data/PCAT1.csv}{}{\csvlinetotablerow}
+	\centering
+	\caption{Principal Component Analysis}
+	\label{tab:pca}
+\end{table}
 
 
 \section{Results}
