@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2016.12.8)  6 MAY 2018 15:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2016.12.8)  6 MAY 2018 15:33
 entering extended mode
 **./523_Project_Paper.tex
 (523_Project_Paper.tex
@@ -925,7 +925,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
-<data/heatmapT1.png, id=68, 1589.94pt x 1011.78pt>
+<data/heatmapT1.png, id=88, 1589.94pt x 1011.78pt>
 File: data/heatmapT1.png Graphic file (type png)
  <use data/heatmapT1.png>
 Package pdftex.def Info: data/heatmapT1.png used on input line 120.
@@ -946,7 +946,7 @@ l.127
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.127 
-      ] <data/MICT1.png, id=82, 1589.94pt x 1011.78pt>
+      ] <data/MICT1.png, id=102, 1589.94pt x 1011.78pt>
 File: data/MICT1.png Graphic file (type png)
  <use data/MICT1.png>
 Package pdftex.def Info: data/MICT1.png used on input line 130.
@@ -963,7 +963,7 @@ l.134
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\@ifnextchar' on input line 139.
 
-<data/RFC_importancesT1.png, id=91, 1589.94pt x 1011.78pt>
+<data/RFC_importancesT1.png, id=111, 1589.94pt x 1011.78pt>
 File: data/RFC_importancesT1.png Graphic file (type png)
 
 <use data/RFC_importancesT1.png>
@@ -973,7 +973,7 @@ Package pdftex.def Info: data/RFC_importancesT1.png used on input line 144.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<data/PCAT1.png, id=93, 462.528pt x 346.896pt>
+<data/PCAT1.png, id=113, 462.528pt x 346.896pt>
 File: data/PCAT1.png Graphic file (type png)
  <use data/PCAT1.png>
 Package pdftex.def Info: data/PCAT1.png used on input line 154.
@@ -1019,15 +1019,15 @@ Package rerunfilecheck Warning: File `523_Project_Paper.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `523_Project_Paper.out':
-(rerunfilecheck)             Before: 16162AEA512D28210A6015406DEE04E6;891
-(rerunfilecheck)             After:  F7269DA7862782048C6F99516CCEE883;1309.
+(rerunfilecheck)             Before: F7269DA7862782048C6F99516CCEE883;1309
+(rerunfilecheck)             After:  F0140F77312EAB3AF378D26BB0DB068F;1309.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 173.
  ) 
 Here is how much of TeX's memory you used:
- 12615 strings out of 493333
- 209126 string characters out of 3139171
+ 12619 strings out of 493333
+ 209196 string characters out of 3139171
  368503 words of memory out of 3000000
- 15814 multiletter control sequences out of 15000+200000
+ 15819 multiletter control sequences out of 15000+200000
  33311 words of font info for 100 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  40i,9n,46p,1077b,486s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1039,9 +1039,9 @@ KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/
 fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
 pe1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utm
 r8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on 523_Project_Paper.pdf (6 pages, 401578 bytes).
+Output written on 523_Project_Paper.pdf (6 pages, 402776 bytes).
 PDF statistics:
- 176 PDF objects out of 1000 (max. 8388607)
- 36 named destinations out of 1000 (max. 500000)
- 19069 words of extra memory for PDF output out of 20736 (max. 10000000)
+ 190 PDF objects out of 1000 (max. 8388607)
+ 35 named destinations out of 1000 (max. 500000)
+ 19109 words of extra memory for PDF output out of 20736 (max. 10000000)
 
