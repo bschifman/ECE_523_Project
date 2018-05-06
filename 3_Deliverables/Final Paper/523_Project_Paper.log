@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2016.12.8)  5 MAY 2018 21:53
-=======
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2016.12.9)  5 MAY 2018 19:43
->>>>>>> f9b2dfab9232deac9bf248943bf6685e86b1cd54
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2016.12.9)  5 MAY 2018 22:09
 entering extended mode
 **./523_Project_Paper.tex
 (523_Project_Paper.tex
@@ -642,7 +638,6 @@ File: pdftex.def 2016/07/10 v0.06j Graphics/color for pdfTeX
 \Gin@req@height=\dimen130
 \Gin@req@width=\dimen131
 )
-<<<<<<< HEAD
 ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\color.sty"
 Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
 
@@ -651,8 +646,6 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 147.
 )
-(nips_2016.sty
-=======
 ("C:\Program Files\MiKTeX 2.9\tex\latex\adjustbox\adjustbox.sty"
 Package: adjustbox 2018/04/08 v1.1 Adjusting TeX boxes (trim, clip, ...)
 
@@ -707,7 +700,6 @@ Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \@vwid@loff=\dimen144
 \@vwid@roff=\dimen145
 )) (nips_2016.sty
->>>>>>> f9b2dfab9232deac9bf248943bf6685e86b1cd54
 Package: nips_2016 2016/08/08 NIPS 2016 submission/camera-ready style file
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\natbib\natbib.sty"
@@ -739,30 +731,26 @@ Package: geometry 2010/09/12 v5.6 Page Geometry
 (523_Project_Paper.aux)
 \openout1 = `523_Project_Paper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Try loading font information for T1+ptm on input line 52.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 53.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\t1ptm.fd"
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
-<<<<<<< HEAD
-\AtBeginShipoutBox=\box28
-=======
 \AtBeginShipoutBox=\box30
->>>>>>> f9b2dfab9232deac9bf248943bf6685e86b1cd54
-Package hyperref Info: Link coloring OFF on input line 52.
+Package hyperref Info: Link coloring OFF on input line 53.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
@@ -771,15 +759,15 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count127
 )
-LaTeX Info: Redefining \ref on input line 52.
-LaTeX Info: Redefining \pageref on input line 52.
-LaTeX Info: Redefining \nameref on input line 52.
+LaTeX Info: Redefining \ref on input line 53.
+LaTeX Info: Redefining \pageref on input line 53.
+LaTeX Info: Redefining \nameref on input line 53.
 
 (523_Project_Paper.out) (523_Project_Paper.out)
 \@outlinefile=\write4
 \openout4 = `523_Project_Paper.out'.
 
-LaTeX Info: Redefining \microtypecontext on input line 52.
+LaTeX Info: Redefining \microtypecontext on input line 53.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -886,12 +874,12 @@ G,.JBIG2,.JB2,.eps]
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <17.28> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 55.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 56.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\microtype\mt-cmr.cfg"
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 55.
+LaTeX Font Info:    Try loading font information for U+msa on input line 56.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -899,7 +887,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ("C:\Program Files\MiKTeX 2.9\tex\latex\microtype\mt-msa.cfg"
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 55.
+LaTeX Font Info:    Try loading font information for U+msb on input line 56.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -908,8 +896,8 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 55.
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 55.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 56.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 56.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1cmtt.fd"
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
@@ -919,28 +907,30 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 57.
-<<<<<<< HEAD
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 58.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@ifnextchar' on input line 67.
+(hyperref)                removing `\@ifnextchar' on input line 68.
 
 [1
 
 
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
-<data/heatmapT1.png, id=69, 462.528pt x 346.896pt>
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
+<data/heatmapT1.png, id=64, 462.528pt x 346.896pt>
 File: data/heatmapT1.png Graphic file (type png)
  <use data/heatmapT1.png>
 Package pdftex.def Info: data/heatmapT1.png used on input line 109.
 (pdftex.def)             Requested size: 397.48499pt x 298.12889pt.
 
 
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\@ifnextchar' on input line 119.
 
-[3 <./data/heatmapT1.png>]
+[2]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\@ifnextchar' on input line 123.
@@ -949,32 +939,12 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\@ifnextchar' on input line 127.
 
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 144.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [4]
-[5]
+[3 <./data/heatmapT1.png>] [4]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 144.
-=======
- [1
-
-
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
-<data/heatmapT10.png, id=60, 462.528pt x 346.896pt>
-File: data/heatmapT10.png Graphic file (type png)
- <use data/heatmapT10.png>
-Package pdftex.def Info: data/heatmapT10.png used on input line 107.
-(pdftex.def)             Requested size: 397.48499pt x 298.12889pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[2]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 128.
- [3 <./data/heatmapT10.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 128.
->>>>>>> f9b2dfab9232deac9bf248943bf6685e86b1cd54
  (523_Project_Paper.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 144.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 144.
@@ -983,35 +953,13 @@ Package rerunfilecheck Info: File `523_Project_Paper.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 144.
  ) 
 Here is how much of TeX's memory you used:
-<<<<<<< HEAD
- 11551 strings out of 493333
- 191765 string characters out of 3139171
- 337583 words of memory out of 3000000
- 14822 multiletter control sequences out of 15000+200000
+ 12502 strings out of 493333
+ 207594 string characters out of 3139194
+ 367163 words of memory out of 3000000
+ 15739 multiletter control sequences out of 15000+200000
  29658 words of font info for 90 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 40i,8n,46p,922b,335s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\Schifman Ben\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\
-dpi600\ectt1000.pk>{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:
-/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program
- Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/Mi
-KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/
-fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
-pe1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utm
-r8a.pfb>
-Output written on 523_Project_Paper.pdf (5 pages, 134388 bytes).
-PDF statistics:
- 142 PDF objects out of 1000 (max. 8388607)
- 24 named destinations out of 1000 (max. 500000)
- 14950 words of extra memory for PDF output out of 17280 (max. 10000000)
-=======
- 12440 strings out of 493333
- 206594 string characters out of 3139194
- 366267 words of memory out of 3000000
- 15691 multiletter control sequences out of 15000+200000
- 29398 words of font info for 86 fonts, out of 3000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 40i,8n,46p,922b,471s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 40i,9n,46p,922b,482s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\jsiek\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\
 ectt1000.pk>{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Progra
 m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/
@@ -1020,10 +968,9 @@ MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.
 ype1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw
 /times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb
 >
-Output written on 523_Project_Paper.pdf (3 pages, 130120 bytes).
+Output written on 523_Project_Paper.pdf (4 pages, 133976 bytes).
 PDF statistics:
- 129 PDF objects out of 1000 (max. 8388607)
- 20 named destinations out of 1000 (max. 500000)
- 14942 words of extra memory for PDF output out of 17280 (max. 10000000)
->>>>>>> f9b2dfab9232deac9bf248943bf6685e86b1cd54
+ 138 PDF objects out of 1000 (max. 8388607)
+ 23 named destinations out of 1000 (max. 500000)
+ 14950 words of extra memory for PDF output out of 17280 (max. 10000000)
 
