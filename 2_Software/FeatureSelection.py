@@ -104,7 +104,7 @@ def printMineStats(mine):
     print( "TIC", mine.tic())
     
 # =============================================================================
-def RFE_SVM(x, y, xTest, yTest):
+def RFE_SVM(x, y):
     np.random.seed(7)
     
     x_train,  x_test,  y_train,  y_test  = train_test_split(x, y, test_size=0.33)
@@ -116,15 +116,14 @@ def RFE_SVM(x, y, xTest, yTest):
     
     selector.fit(x_train, y_train.iloc[:,0])
     
-    selectedFeatures = selector.ranking_
     acc = selector.score(x_test, y_test.iloc[:,0])
     
     e_time = time.clock()
     print('\n Total Time: ', e_time-s_time)
     print(' Accuracy:', acc)
-    return selectedFeatures, acc
+    return selector, acc
 # =============================================================================
-def RFE_AdaBoost(x, y, xTest, yTest):
+def RFE_AdaBoost(x, y):
     np.random.seed(7)
     
     x_train,  x_test,  y_train,  y_test  = train_test_split(x, y, test_size=0.33)
@@ -136,10 +135,9 @@ def RFE_AdaBoost(x, y, xTest, yTest):
     
     selector.fit(x_train, y_train.iloc[:,0])
     
-    selectedFeatures = selector.ranking_
     acc = selector.score(x_test, y_test.iloc[:,0])
     
     e_time = time.clock()
     print('\n Total Time: ', e_time-s_time)
     print(' Accuracy:', acc)
-    return selectedFeatures, acc
+    return selector, acc
