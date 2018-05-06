@@ -157,9 +157,10 @@ PCA orthogonally transforms a set of features into a set of linearly uncorrelate
 \end{figure}
 
 \section{Results}
-\subsection{Feature Correlation}
+Two testing sets were used to obtain results in this project. First the data was split into two sections. The first set consists of the majority of data (Dec 31, 2006 to Dec 31, 2016). This first set was randomly split using sklearn's train\_test\_split function to train and test each approach. Therefore the test set split from the first set is a collection of random days with the associated labels. The second set (Jan 1, 2017 to Mar 27, 2018) was only used in testing and tests performance day to day over a large chunk of time untouched by any training. As our random forest approach used cross fold validation test and retrain, this second data set was not used as a secondary test for our random forest or PCA approaches.
 \subsection{Maximal Information Coefficient (MIC)}
 \subsection{Recursive Feature Elimination (RFE)}
+
 
 \begin{figure}[h!]
 	\centering
