@@ -66,7 +66,7 @@
 \end{abstract}
 
 \section{\color{red}Introduction}
-There exist technical analysis indicators traditionally used by analysts to evaluate and predict market and equity performance. These indicators provide a unique perspective on the strength and direction of the underlying price action in market data. Feature selection is used to determine relevant indicators while identifying those that are irrelevant and redundant. Different implementations of algorithms based on these indicators could be used to predict performance of individual equities, sectors, or overall markets. They could also be used to classify and identify the correlation and interdependencies between equities, sectors, and markets. Our goal is to implement various approaches to determine efficacy of technical indicators as enablers to financial analysis. This project presented a couple challenges during implementation including developing an accurate testing method as well as handling and computing such large volumes of data.
+There exist technical analysis indicators traditionally used by analysts to evaluate and predict market and equity performance. These indicators provide a unique perspective on the strength and direction of the underlying price action in market data. Feature selection is used to determine relevant indicators while identifying those that are irrelevant and redundant. Different implementations of algorithms based on these indicators could be used to predict performance of individual equities, sectors, or overall markets. They could also be used to classify and identify the correlation and interdependencies between equities, sectors, and markets. The goal of this paper is to implement various approaches to determine the efficacy of technical indicators as enablers to financial analysis. For analyzing features This project presented a couple challenges during implementation including developing an accurate testing method as well as handling and computing such large volumes of data.
 
 Possibly reword and keep/move:\\
 From this project we hope to deepen our understanding of the usage cases for applying specific machine learning algorithms as well as expanding upon our technical analysis of the stock market and which indicators play a role in successful market analysis.
@@ -111,12 +111,12 @@ Removing highly correlated features allows for the optimization of the classific
 \end{figure}
 
 \subsection{Maximal Information Coefficient (MIC)}
-The MIC is "a measure of two-variable dependence designed specifically for rapid exploration of many-dimensional data sets" - http://www.exploredata.net/. A benefit to MIC correlations between two variables is that it can be described regardless of linear or non-linear relationships. The MIC yields a single vale $0 \leq MIC \leq 1$ with a value closer to $1$ representing that the variables are more closely correlated, and a value near $0$ indicates statistically independent variables that have neither linear nor nonlinear relationships. The $minepy$ library was used in python to rank the features according to their MIC with the target variable. The MIC was calculated for each feature in each ticker, and then a final MIC value for each feature was calculated by taking the mean of the values.
+The MIC is a measure of two-variable dependence designed specifically for rapid exploration of many-dimensional data sets \cite{reshef2011detecting}. A benefit to MIC correlations between two variables is that it can be described regardless of linear or non-linear relationships. The MIC yields a single vale $0 \leq MIC \leq 1$ with a value closer to $1$ representing that the variables are more closely correlated, and a value near $0$ indicates statistically independent variables that have neither linear nor nonlinear relationships. The $minepy$ library was used in python to rank the features according to their MIC with the target variable. The MIC was calculated for each feature in each ticker, yielding 33 MIC values for each ticker, and then a final set of MIC values were calculated by taking the mean of all the sets of MIC values over all of the tickers.
 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=\linewidth]{data/MICT1.png}
-	\caption{MIC}
+	\caption{Maximal Information Coefficient}
 	\label{fig:MIC}
 \end{figure}
 
@@ -125,24 +125,33 @@ Given an external estimator
 
 
 \subsection{\color{red}Random Forest Classifier (RFC)}
-The Random Forest Classifier is an ensemble technique implementing decision trees and 
+The RFC is an ensemble algorithm implementing a combination of decision trees classifiers where the majority vote of all trees are used to classify the input feature vector \cite{pal2005random}. The RFC was used in order classify the input data, while also intrinsically implementing feature selection to return a vector of feature importances as depicted in Figure \ref{fig:RFC}.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\linewidth]{data/RFC_importancesT1.png}
+	\caption{Random Forest Classifier}
+	\label{fig:RFC}
+\end{figure}
+
 
 
 \subsection{\color{red}Principle Component Analysis (PCA)}
-PCA orthogonally transforms a set of features into a set of linearly uncorrelated principal components. PCA is a method for reducing the dimensionality of the feature set size while retaining principal component variance, and the features informational relevance. To analyze the performance of this method, PCA was implemented on the original 33 features and then the resulting principal components were used in the RFC classifier with 5 fold cross validation to see the resultant accuracy. The number of principal components were iterated from 1 to 33 and then the principal component were implemented in the RFC to find the optimal number of principal components to yield the best accuracy and in the least amount of time.  
+PCA orthogonally transforms a set of features into a set of linearly uncorrelated principal components. PCA is a method for reducing the dimensionality of the feature set size while retaining principal component variance, and the features informational relevance. To analyze the performance of this method, PCA was implemented on the original 33 features and then the resulting principal components were used in the RFC classifier with 5 fold cross validation to see the resultant accuracy. The number of principal components were iterated from 1 to 33 and then the principal components were implemented into the RFC to find the optimal number of principal components to yield the best accuracy and in the least amount of time. The following Figure \ref{fig:PCA} depicts the PCA accuracy and time taken with the RFC vs. the number of principal components.   
 
-\begin{table}[h]
-	\csvreader[respect all, autotabular]{data/PCAT1.csv}{}{\csvlinetotablerow}
+\begin{figure}[h!]
 	\centering
+	\includegraphics[width=\linewidth]{data/PCAT1.png}
 	\caption{Principal Component Analysis}
-	\label{tab:pca}
-\end{table}
-
+	\label{fig:PCA}
+\end{figure}
 
 \section{Results}
 \section{Conclusion}
 
 \section*{References}
+\bibliography{bibfile} 
+\bibliographystyle{unsrt}
 
 
 \end{document}

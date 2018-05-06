@@ -1,0 +1,15 @@
+\begin{thebibliography}{1}
+
+\bibitem{reshef2011detecting}
+David~N Reshef, Yakir~A Reshef, Hilary~K Finucane, Sharon~R Grossman, Gilean
+  McVean, Peter~J Turnbaugh, Eric~S Lander, Michael Mitzenmacher, and Pardis~C
+  Sabeti.
+\newblock Detecting novel associations in large data sets.
+\newblock {\em science}, 334(6062):1518--1524, 2011.
+
+\bibitem{pal2005random}
+Mahesh Pal.
+\newblock Random forest classifier for remote sensing classification.
+\newblock {\em International Journal of Remote Sensing}, 26(1):217--222, 2005.
+
+\end{thebibliography}

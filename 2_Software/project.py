@@ -10,9 +10,9 @@ import prediction as pred
 DEBUG           = False 
 REINGEST_DATA   = False #imports data from quandl, dumps data to data.pickle
 REGENERATE_TA   = False #recalc features, dumps to indicators_norm.pickle
-REGENERATE_MIC  = True  #recalc mic, dumps to mic.pickle 
+REGENERATE_MIC  = False  #recalc mic, dumps to mic.pickle 
 PLOT_CORR       = False #calc corr, plot heat map
-PREDICT         = False #run prediction algs.
+PREDICT         = True #run prediction algs.
 RUN_MLP         = False
 RUN_RFE         = False
 TIMEPERIODNUM    = 1
