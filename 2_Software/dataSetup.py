@@ -73,8 +73,10 @@ def ingestData():
     y = {}
     yTEST = {}
     for ticker in data:
-        y[ticker] = pd.DataFrame(np.concatenate((np.array([0.0]),np.sign(np.diff(data[ticker].iloc[:,3])))))
-        yTEST[ticker] = pd.DataFrame(np.concatenate((np.array([0.0]),np.sign(np.diff(dataTEST[ticker].iloc[:,3])))))
+        y[ticker] = pd.DataFrame(np.sign(np.diff(data[ticker].iloc[:,3])))
+        data[ticker].drop(data[ticker].index[-1], inplace=True)
+        yTEST[ticker] = pd.DataFrame(np.sign(np.diff(dataTEST[ticker].iloc[:,3])))
+        dataTEST[ticker].drop(dataTEST[ticker].index[-1], inplace=True)
     
     return data, y, dataTEST, yTEST
 # =============================================================================

@@ -78,7 +78,7 @@ This is optional. If wanted, save til last.
 The following subsections present details and explanations of the methods and functions implemented as part of this project.
 
 \subsection{Data and Technical Analysis Indicators}
-The Quandl platform was used to fetch 11 years of market data from Dec 31, 2006 to Dec 31, 2017 on various identified US tickers across different sectors. Tickers used in the project can be found in Table \ref{tab:tick} categorized by sector. As the amount of fetched and calculated data is very large, pickle files were used to save all data to be quickly reimported instead of refetching data through the Quandl platform. TA-Lib: Technical Analysis Library was used to calculate features on the market data for each ticker obtained using Quandl. <insert stuff about TA-lib having various types of features>. The features incorporated into this project are found with in \Cref{tab:inds}.
+The Quandl platform was used to fetch 11 years of market data in total from Dec 31, 2006 to March 27, 2018 on various identified US tickers across different sectors. Tickers used in the project can be found in Table \ref{tab:tick} categorized by sector. As the process to fetch and preprocess the data is time consuming, pickle files were used to save data locally to be quickly reimported. TA-Lib: Technical Analysis Library was used to calculate features on the market data for each ticker. TA-Lib has the ability to calculate many technical analysis indicators in various categories. The features incorporated into this project, found with in \Cref{tab:inds}, are a selected subset of the indicators offered in TA-lib based upon the categories in TA-Lib, popularity online, and expert's favorites and essentials.
 
 \begin{table}[h]
 	\centering
@@ -93,8 +93,19 @@ The Quandl platform was used to fetch 11 years of market data from Dec 31, 2006 
 	\label{tab:inds}
 \end{table}
 
+\subsubsection{Indicator Categories}
+  Overlap indicators generally can be overlayed onto the price charts. They most commonly include different styles of moving average calculations.
+\\Momentum indicators convey how quickly the price of the ticker is moving. For exampe, the faster the price of a ticker increases the larger its momentum.
+\\Volume indicators take into account the volume of the day's trading into account. 
+\\Cycle indicators attempt to identify changes in the overall direction of the ticker's movement.
+\\Price indicators combine the multiple prices in the data into one value.
+\\Volatility indicators convey how sporadic the ticker's prices are.
+\\Statistical indicators are based on statistical concepts and can be used in a number of different ways.
+\\Math Transformation indicators apply common mathematical operations upon the tickers prices.
+\\Pattern Recognition indicators look for patterns in the prices of a ticker traders have identified are indicative of future outcomes.
+
 \subsection{Normalization}
-As each technical analysis indicator produces values applicable based on the way the indicator was calculated, normalization of the indicators makes correlations between them during feature selection more accurate and applicable. Each value in a specified time period is normalized using Equation \eqref{eq:norm}. If there is extra data not consisting of a full time period, the extras are thrown out at the beginning of the data as data near the end may be more relevant and thus more desirable to keep. The start indices are computed for each ticker and return to ease future handling.
+As each technical analysis indicator produces values applicable based on how the indicator was calculated, normalization of the indicators makes correlations between them during feature selection more accurate and applicable. Each value in a specified time period is normalized using Equation \eqref{eq:norm}. If there is extra data not consisting of a full time period, the extras are thrown out at the beginning of the data as data near the end may be more relevant and thus more desirable to keep. The start indices are computed for each ticker and return to ease future handling.
 
 \begin{equation}\label{eq:norm}
 	x_n = \frac{x - min}{max - min}

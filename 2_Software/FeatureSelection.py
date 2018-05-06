@@ -104,13 +104,13 @@ def printMineStats(mine):
     print( "TIC", mine.tic())
     
 # =============================================================================
-def RFE_SVM(x, y):
+def RFE_SVM(x, y, numFeats):
     np.random.seed(7)
     
     x_train,  x_test,  y_train,  y_test  = train_test_split(x, y, test_size=0.33)
     
     clf = SVC(kernel='linear',probability=True, max_iter=200)
-    selector = RFE(estimator=clf, n_features_to_select=5, step=5)
+    selector = RFE(estimator=clf, n_features_to_select=numFeats, step=5)
     
     s_time = time.clock()
     
@@ -123,13 +123,13 @@ def RFE_SVM(x, y):
     print(' Accuracy:', acc)
     return selector, acc
 # =============================================================================
-def RFE_AdaBoost(x, y):
+def RFE_AdaBoost(x, y, numFeats):
     np.random.seed(7)
     
     x_train,  x_test,  y_train,  y_test  = train_test_split(x, y, test_size=0.33)
     
     clf = AdaBoostClassifier(base_estimator=None, n_estimators=50, learning_rate=1.0)
-    selector = RFE(estimator=clf, n_features_to_select=5, step=5)
+    selector = RFE(estimator=clf, n_features_to_select=numFeats, step=5)
     
     s_time = time.clock()
     

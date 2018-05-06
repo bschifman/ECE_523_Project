@@ -2,11 +2,12 @@
 \BOOKMARK [1][-]{section.2}{Related Work}{}% 2
 \BOOKMARK [1][-]{section.3}{Methods/Approach}{}% 3
 \BOOKMARK [2][-]{subsection.3.1}{Data and Technical Analysis Indicators}{section.3}% 4
-\BOOKMARK [2][-]{subsection.3.2}{Normalization}{section.3}% 5
-\BOOKMARK [2][-]{subsection.3.3}{Feature Correlation}{section.3}% 6
-\BOOKMARK [2][-]{subsection.3.4}{Maximal Information Coefficient \(MIC\)}{section.3}% 7
-\BOOKMARK [2][-]{subsection.3.5}{redRecursive Feature Elimination \(RFE\)}{section.3}% 8
-\BOOKMARK [2][-]{subsection.3.6}{redRandom Forest Classifier \(RFC\)}{section.3}% 9
-\BOOKMARK [2][-]{subsection.3.7}{redPrinciple Component Analysis \(PCA\)}{section.3}% 10
-\BOOKMARK [1][-]{section.4}{Results}{}% 11
-\BOOKMARK [1][-]{section.5}{Conclusion}{}% 12
+\BOOKMARK [3][-]{subsubsection.3.1.1}{Indicator Categories}{subsection.3.1}% 5
+\BOOKMARK [2][-]{subsection.3.2}{Normalization}{section.3}% 6
+\BOOKMARK [2][-]{subsection.3.3}{Feature Correlation}{section.3}% 7
+\BOOKMARK [2][-]{subsection.3.4}{Maximal Information Coefficient \(MIC\)}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.5}{redRecursive Feature Elimination \(RFE\)}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.6}{redRandom Forest Classifier \(RFC\)}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.7}{redPrinciple Component Analysis \(PCA\)}{section.3}% 11
+\BOOKMARK [1][-]{section.4}{Results}{}% 12
+\BOOKMARK [1][-]{section.5}{Conclusion}{}% 13

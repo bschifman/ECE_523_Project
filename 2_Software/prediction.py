@@ -18,7 +18,7 @@ import matplotlib.pyplot as plt
 def MLP(x, y):
     s_time = time.clock()
     num_classes = 3
-    epochs = 5
+    epochs = 20
     bs = 10
     np.random.seed(7)
     
