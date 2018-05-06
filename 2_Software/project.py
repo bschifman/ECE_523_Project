@@ -1,5 +1,6 @@
 # =============================================================================
 # Packages:
+from keras.utils import np_utils
 
 # Project Files:
 import dataSetup as ds
@@ -13,8 +14,8 @@ REGENERATE_TA   = False #recalc features, dumps to indicators_norm.pickle
 REGENERATE_MIC  = False #recalc mic, dumps to mic.pickle 
 PLOT_CORR       = False #calc corr, plot heat map
 PREDICT         = False #run prediction algs.
-RUN_MLP         = False
-RUN_RFE         = True
+RUN_MLP         = True
+RUN_RFE         = False
 TIMEPERIODNUM    = 1
 #Add more control here
 # =============================================================================
@@ -58,7 +59,9 @@ if(PLOT_CORR):
     fs.crossCorr(indicators_norm, t=TIMEPERIODNUM)  
 # =============================================================================
 if(RUN_MLP):
-    pred.MLP(x_all, y_all)
+    mlp, mplAcc = pred.MLP(x_all, y_all)
+    y_test_keras = np_utils.to_categorical(y_test, 3)
+    mlpAcc2 = mlp.evaluate(x_test, y_test_keras)[1]
 if(RUN_RFE):
     #Normalized
     selSVM, selF_SVM_Acc = fs.RFE_SVM(x_all, y_all)
