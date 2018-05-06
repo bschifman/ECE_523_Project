@@ -13,7 +13,7 @@ REINGEST_DATA   = False #imports data from quandl, dumps data to data.pickle
 LOAD_DATA       = False 
 REGENERATE_TA   = False #recalc features, dumps to indicators_norm.pickle
 LOAD_TA         = False
-REGENERATE_MIC  = False  #recalc mic, dumps to mic.pickle 
+REGENERATE_MIC  = True  #recalc mic, dumps to mic.pickle 
 LOAD_MIC        = False
 PLOT_CORR       = False #calc corr, plot heat map
 PREDICT         = False #run prediction algs.
@@ -95,8 +95,8 @@ if(PLOT_RFE):
     rfeAdaAcc2 = [selF_Ada5_Acc2, selF_Ada10_Acc2, selF_Ada15_Acc2]
     fs.plotRFE(rfeSvmAcc1, rfeSvmAcc2, rfeAdaAcc1, rfeAdaAcc2)
 if(PREDICT):
-#    pred.randomForest(x_all, y_all, switch=1, t=TIMEPERIODNUM)
-    pred.pca(x_all, y_all, t=TIMEPERIODNUM)
+    pred.randomForest(x_all, y_all, switch=1, t=TIMEPERIODNUM)
+#    pred.pca(x_all, y_all, t=TIMEPERIODNUM)
 # =============================================================================
 #Regnerate mic pickle files
 if(REGENERATE_MIC):

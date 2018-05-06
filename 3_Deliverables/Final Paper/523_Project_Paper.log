@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2016.12.9)  6 MAY 2018 13:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2016.12.9)  6 MAY 2018 14:57
 entering extended mode
 **./523_Project_Paper.tex
 (523_Project_Paper.tex
@@ -917,20 +917,20 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
-<data/heatmapT1.png, id=68, 1445.4pt x 1011.78pt>
+<data/heatmapT1.png, id=68, 1589.94pt x 1011.78pt>
 File: data/heatmapT1.png Graphic file (type png)
  <use data/heatmapT1.png>
 Package pdftex.def Info: data/heatmapT1.png used on input line 119.
-(pdftex.def)             Requested size: 397.48499pt x 278.23264pt.
+(pdftex.def)             Requested size: 397.48499pt x 252.94438pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[2] <data/MICT1.png, id=82, 1445.4pt x 1011.78pt>
+[2] <data/MICT1.png, id=82, 1589.94pt x 1011.78pt>
 File: data/MICT1.png Graphic file (type png)
  <use data/MICT1.png>
 Package pdftex.def Info: data/MICT1.png used on input line 129.
-(pdftex.def)             Requested size: 397.48499pt x 278.23264pt.
+(pdftex.def)             Requested size: 397.48499pt x 252.94438pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -941,13 +941,13 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@ifnextchar' on input line 138.
+(hyperref)                removing `\@ifnextchar' on input line 140.
 
 <data/RFC_importancesT1.png, id=85, 1589.94pt x 1011.78pt>
 File: data/RFC_importancesT1.png Graphic file (type png)
 
 <use data/RFC_importancesT1.png>
-Package pdftex.def Info: data/RFC_importancesT1.png used on input line 143.
+Package pdftex.def Info: data/RFC_importancesT1.png used on input line 145.
 (pdftex.def)             Requested size: 397.48499pt x 252.94438pt.
 
 
@@ -955,36 +955,36 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@ifnextchar' on input line 150.
+(hyperref)                removing `\@ifnextchar' on input line 152.
 
-[3 <./data/heatmapT1.png>] <data/PCAT1.png, id=95, 462.528pt x 346.896pt>
+
+Underfull \vbox (badness 5741) has occurred while \output is active []
+
+ [3 <./data/heatmapT1.png>] [4 <./data/MICT1.png> <./data/RFC_importancesT1.png
+>]
+<data/PCAT1.png, id=102, 462.528pt x 346.896pt>
 File: data/PCAT1.png Graphic file (type png)
-
-<use data/PCAT1.png>
-Package pdftex.def Info: data/PCAT1.png used on input line 155.
+ <use data/PCAT1.png>
+Package pdftex.def Info: data/PCAT1.png used on input line 157.
 (pdftex.def)             Requested size: 397.48499pt x 298.12889pt.
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-(523_Project_Paper.bbl [4 <./data/MICT1.png> <./data/RFC_importancesT1.png>])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 168.
-
-[5 <./data/PCAT1.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 168.
+(523_Project_Paper.bbl)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 170.
+ [5 <./data/PCAT1.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 170.
  (523_Project_Paper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 168.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 168.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 170.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 170.
 Package rerunfilecheck Info: File `523_Project_Paper.out' has not changed.
 (rerunfilecheck)             Checksum: 3D79991CF9B2C8C2C8D6CEBFC1DCECD0;897.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 168.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 170.
  ) 
 Here is how much of TeX's memory you used:
- 12557 strings out of 493333
- 208350 string characters out of 3139194
+ 12563 strings out of 493333
+ 208401 string characters out of 3139194
  367163 words of memory out of 3000000
  15760 multiletter control sequences out of 15000+200000
- 33571 words of font info for 104 fonts, out of 3000000 for 9000
+ 33831 words of font info for 108 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  40i,9n,46p,1019b,482s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc} <C:\Users\jsiek\App
@@ -995,7 +995,7 @@ MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.
 ype1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw
 /times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb
 ><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on 523_Project_Paper.pdf (5 pages, 355797 bytes).
+Output written on 523_Project_Paper.pdf (5 pages, 400201 bytes).
 PDF statistics:
  166 PDF objects out of 1000 (max. 8388607)
  30 named destinations out of 1000 (max. 500000)
