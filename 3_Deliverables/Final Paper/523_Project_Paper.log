@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2016.12.8)  5 MAY 2018 22:08
-=======
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2016.12.9)  5 MAY 2018 22:09
->>>>>>> 7f28bf98137771b61ac22df7bf8221ac2671a0b8
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2016.12.8)  5 MAY 2018 23:07
 entering extended mode
 **./523_Project_Paper.tex
 (523_Project_Paper.tex
@@ -924,7 +920,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 <data/heatmapT1.png, id=64, 462.528pt x 346.896pt>
 File: data/heatmapT1.png Graphic file (type png)
  <use data/heatmapT1.png>
-Package pdftex.def Info: data/heatmapT1.png used on input line 109.
+Package pdftex.def Info: data/heatmapT1.png used on input line 108.
 (pdftex.def)             Requested size: 397.48499pt x 298.12889pt.
 
 
@@ -932,43 +928,38 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@ifnextchar' on input line 119.
+(hyperref)                removing `\@ifnextchar' on input line 118.
 
 [2]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@ifnextchar' on input line 123.
+(hyperref)                removing `\@ifnextchar' on input line 122.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@ifnextchar' on input line 127.
+(hyperref)                removing `\@ifnextchar' on input line 126.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 144.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 143.
 [3 <./data/heatmapT1.png>] [4]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 144.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 143.
  (523_Project_Paper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 144.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 144.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 143.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 143.
 Package rerunfilecheck Info: File `523_Project_Paper.out' has not changed.
 (rerunfilecheck)             Checksum: E5667F9EE453EAC23BCBDF583A9F64BF;816.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 144.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 143.
  ) 
 Here is how much of TeX's memory you used:
  12502 strings out of 493333
-<<<<<<< HEAD
- 207594 string characters out of 3139171
-=======
- 207594 string characters out of 3139194
->>>>>>> 7f28bf98137771b61ac22df7bf8221ac2671a0b8
+ 207591 string characters out of 3139171
  367163 words of memory out of 3000000
  15739 multiletter control sequences out of 15000+200000
  29658 words of font info for 90 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 40i,9n,46p,922b,482s stack positions out of 5000i,500n,10000p,200000b,50000s
-<<<<<<< HEAD
+ 40i,9n,46p,978b,482s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\Schifman Ben\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\
 dpi600\ectt1000.pk>{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:
 /Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program
@@ -977,17 +968,7 @@ KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/
 fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
 pe1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utm
 r8a.pfb>
-=======
- <C:\Users\jsiek\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\
-ectt1000.pk>{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Progra
-m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/
-MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.
-9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
-ype1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw
-/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb
->
->>>>>>> 7f28bf98137771b61ac22df7bf8221ac2671a0b8
-Output written on 523_Project_Paper.pdf (4 pages, 133976 bytes).
+Output written on 523_Project_Paper.pdf (4 pages, 132594 bytes).
 PDF statistics:
  138 PDF objects out of 1000 (max. 8388607)
  23 named destinations out of 1000 (max. 500000)

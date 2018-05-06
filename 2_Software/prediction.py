@@ -22,12 +22,6 @@ import matplotlib.pyplot as plt
 # =============================================================================
 def MLP(x, y):
     s_time = time.clock()
-    #ATR, MOM, RSI, OBV
-#    keep_features = ['ATR', 'MOM', 'RSI', 'OBV']
-#    drop_features = list(set(list(x)).difference(keep_features))
-#    x.drop(drop_features, axis=1, inplace=True)    
- #   x = x.as_matrix()
- #   y = y.as_matrix()
     num_features = np.array((5,10,15))
     num_classes = 3
     epochs = 1
