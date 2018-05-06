@@ -2,7 +2,8 @@
 from keras.models import Sequential
 from keras.layers import Dense
 from keras.utils import np_utils, plot_model
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split, cross_val_score, KFold
+from sklearn.decomposition import PCA
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.ensemble import AdaBoostClassifier
 from sklearn.svm import SVC
@@ -32,8 +33,8 @@ def MLP(x, y):
     bs = 10
     np.random.seed(7)
     
-    x_train,  x_test,  y_train,  y_test  = train_test_split(x, y, test_size=0.33)
-        
+    x_train,  x_test,  y_train,  y_test  = train_test_split(x, y, test_size=0.33)    
+
  #   y_train  = np_utils.to_categorical(y_train, num_classes)
  #   y_test   = np_utils.to_categorical(y_test, num_classes)
  
@@ -59,21 +60,50 @@ def MLP(x, y):
     e_time = time.clock()
     print('\n Total Time: ', e_time-s_time)
 # =============================================================================
-def randomForest(x, y):
+def randomForest(x, y, switch, t):
     np.random.seed(7)
-    max_depth = 2
-  
-    x_train,  x_test,  y_train,  y_test  = train_test_split(x, y, test_size=0.33)
+    numFolds = 5
+    k_fold = KFold(n_splits=numFolds)
+    score = 0
+    RFC = RandomForestClassifier()
+
     
-#    RFC = RandomForestClassifier()
-    RFC = RandomForestClassifier(max_depth=max_depth)
-    RFC.fit(x_train, y_train)
+    x_arr = x.as_matrix()
+    y_arr = y.as_matrix()
+    
+    for train_index, test_index in k_fold.split(x_arr):
+        x_train, x_test = x_arr[train_index], x_arr[test_index]
+        y_train, y_test = y_arr[train_index], y_arr[test_index]
+        RFC.fit(x_train, y_train[:,0])
+        score += RFC.score(x_test, y_test[:,0])
+    score /= numFolds
+    print('5 Fold RFC Score: ', np.round(score,3))
     
     #Return the feature importances (the higher, the more important the feature).
-    f_importances = (pd.DataFrame(RFC.feature_importances_)).transpose()
-    f_names = list(x_train.columns.values)
-    f_importances = pd.DataFrame([f_importances], columns=[f_names])
-    f_importances.to_csv('../3_Deliverables/Final Paper/data/RFC_importances.csv', index=False)
+    if(switch):
+        f_names = list(x.columns.values)
+        f_importances = pd.DataFrame(np.round(RFC.feature_importances_, 2)).transpose()
+        f_importances.columns = f_names
+        f_importances.to_csv('../3_Deliverables/Final Paper/data/RFC_importancesT'+str(t)+'.csv', index=False)
+    else:
+        return(score)
+# =============================================================================
+def pca(x, y, t):
+    pca_out = np.zeros((x.shape[1],3))
+    pca_columns = ['Principal Components', 'Score', 'Time']
+    i = 1
+    while(i < x.shape[1]):
+        pca = PCA(n_components=i)
+        s = time.clock()
+        x_new = pd.DataFrame(pca.fit_transform(x))    
+        score = randomForest(x_new, y, switch=0, t=t)
+        pca_out[i-1,0] = i
+        pca_out[i-1,1] = round(score,2)
+        pca_out[i-1,2] = round(time.clock()-s,2)
+        i += 1
+    pca_out = pd.DataFrame(pca_out)
+    pca_out.columns = pca_columns
+    pca_out.to_csv('../3_Deliverables/Final Paper/data/PCAT'+str(t)+'.csv', index=False)
 # =============================================================================
 def RFE_SVM(x, y):
     np.random.seed(7)

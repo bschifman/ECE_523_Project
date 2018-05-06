@@ -32,7 +32,7 @@ def crossCorr(indicators, t):
                         corr_list.append((total_corr.index[i]
                         + ':' + total_corr.columns[j]))
                         
-    print('\n Highly Correlated Features (+0.85): ', corr_list, '\n')
+#    print('\n Highly Correlated Features (+0.85): ', corr_list, '\n')
     plt.figure()
     plt.title('Correlation Heat Map')
     sns_plot = sns.heatmap(total_corr, xticklabels=total_corr.columns.values,
@@ -41,8 +41,7 @@ def crossCorr(indicators, t):
     plt.yticks(rotation=0)
     fig = sns_plot.get_figure()
     fig.savefig('../3_Deliverables/Final Paper/data/heatmapT'+str(t)+'.png')
-    total_corr.to_csv('../3_Deliverables/Final Paper/data/corrT'+str(t)+'.csv') 
-    
+    total_corr.to_csv('../3_Deliverables/Final Paper/data/corrT'+str(t)+'.csv')    
 # =============================================================================    
 def genMIC(x, y):
     mic  = {}

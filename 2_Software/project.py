@@ -3,7 +3,7 @@
 
 # Project Files:
 import dataSetup as ds
-import FeatureSelection as fs
+import featureSelection as fs
 import prediction as pred
 # =============================================================================
 # #%% Control Variables %%#
@@ -47,10 +47,15 @@ else: #Load data from pickles
     indicators_norm, indicators, y_ind, xTestNorm, xTest, yTest = ds.loadTAdata(tNum=TIMEPERIODNUM)
     x_all, y_all = ds.reformat(indicators_norm, y_ind)
     x_test, y_test = ds.reformat(xTestNorm, yTest)
-# =============================================================================    
+# =============================================================================
+#Plot corr
+if(PLOT_CORR):
+    fs.crossCorr(indicators_norm, t=TIMEPERIODNUM)  
+# =============================================================================
 if(PREDICT):
-    pred.MLP(x_all, y_all)
-#    poop = pred.randomForest(x_all, y_all)
+#    pred.MLP(x_all, y_all)
+#    pred.randomForest(x_all, y_all, switch=1, t=TIMEPERIODNUM)
+    pred.pca(x_all, y_all, t=TIMEPERIODNUM)
 #    selF_SVM, selF_SVM_Acc = pred.RFE_SVM(x_all, y_all)
 #    selF_Ada, selF_Ada_Acc = pred.RFE_AdaBoost(x_all, y_all)
 # =============================================================================
@@ -61,7 +66,5 @@ if(REGENERATE_MIC):
 #else: #Load mic from pickle
 #    mic = fs.loadMIC(tNum=TIMEPERIODNUM)
 # =============================================================================    
-#Plot corr
-if(PLOT_CORR):
-    fs.crossCorr(indicators_norm, t=T)
+
     
