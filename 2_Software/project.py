@@ -12,7 +12,7 @@ REINGEST_DATA   = False #imports data from quandl, dumps data to data.pickle
 REGENERATE_TA   = True #recalc features, dumps to indicators_norm.pickle
 REGENERATE_MIC  = False #recalc mic, dumps to mic.pickle 
 PLOT_CORR       = False #calc corr, plot heat map
-PREDICT         = False #run prediction algs.
+PREDICT         = True #run prediction algs.
 TIMEPERIODNUM    = 1
 #Add more control here
 # =============================================================================
@@ -48,7 +48,8 @@ else: #Load data from pickles
     x_all, y_all = ds.reformat(indicators_norm, y_ind)
 # =============================================================================    
 if(PREDICT):
-    pred.MLP(x_all, y_all)
+#    pred.MLP(x_all, y_all)
+    poop = pred.randomForest(x_all, y_all)
 # =============================================================================
 #Regnerate mic pickle files
 if(REGENERATE_MIC):

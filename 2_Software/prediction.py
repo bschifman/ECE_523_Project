@@ -3,9 +3,10 @@ from keras.models import Sequential
 from keras.layers import Dense
 from keras.utils import np_utils, plot_model
 from sklearn.model_selection import train_test_split
-from sklearn.ensemble import AdaBoostClassifier as ABC
+from sklearn.ensemble import RandomForestClassifier
 from keras.wrappers.scikit_learn import KerasClassifier
 from sklearn.feature_selection import RFE
+import pandas as pd
 import numpy as np
 import time
 # =============================================================================
@@ -15,11 +16,11 @@ import time
 def MLP(x, y):
     s_time = time.clock()
     #ATR, MOM, RSI, OBV
-    keep_features = ['ATR', 'MOM', 'RSI', 'OBV']
-    drop_features = list(set(list(x)).difference(keep_features))
-    x.drop(drop_features, axis=1, inplace=True)    
-    x = x.as_matrix()
-    y = y.as_matrix()
+#    keep_features = ['ATR', 'MOM', 'RSI', 'OBV']
+#    drop_features = list(set(list(x)).difference(keep_features))
+#    x.drop(drop_features, axis=1, inplace=True)    
+ #   x = x.as_matrix()
+ #   y = y.as_matrix()
     num_features = np.array((5,10,15))
     num_classes = 3
     epochs = 1
@@ -27,10 +28,11 @@ def MLP(x, y):
     np.random.seed(7)
     
     x_train,  x_test,  y_train,  y_test  = train_test_split(x, y, test_size=0.33)
+    x_train.drop(['SAR', 'EXP'], axis=1, inplace=True)    
         
-#    y_train  = np_utils.to_categorical(y_train, num_classes)
-#    y_test   = np_utils.to_categorical(y_test, num_classes)
-
+ #   y_train  = np_utils.to_categorical(y_train, num_classes)
+ #   y_test   = np_utils.to_categorical(y_test, num_classes)
+ 
     # create model
     model  = Sequential()    
     model.add( Dense(50, input_shape=(x_train.shape[1],), activation='tanh'))    
@@ -39,23 +41,41 @@ def MLP(x, y):
     # Compile model
     model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
     #NEED HELP!!!!!
-# =============================================================================
-#     plot_model(model, to_file='../3_Deliverables/Final Paper/data/keras_model.png')
-# =============================================================================
+ # ============================================================================
+ #    plot_model(model, to_file='../3_Deliverables/Final Paper/data/keras_model.png')
+ # ============================================================================
     
     # Port Keras Framework into SK-Learn
     k_model  = KerasClassifier(build_fn=model, epochs=epochs, batch_size=bs, verbose=0)
     temp = k_model
     selector = RFE(temp, step=1)
-#    out = selector.fit(x_train, y_train[:,0])
-
+    out = selector.fit(x_train, y_train)
+ 
     # evaluate the model
-#    scores = model.evaluate(x_test,  y_test)
-#    print("\n%s: %.2f%%" % (indicators.metrics_names[1], scores[1]*100))
+ # ============================================================================
+ #    scores = model.evaluate(x_test,  y_test)
+ #    print("\n%s: %.2f%%" % (indicators.metrics_names[1], scores[1]*100))
+ # ============================================================================
     
     e_time = time.clock()
     print('\n Total Time: ', e_time-s_time)
 # =============================================================================
-def adaBoost(x, y):
-    temp = 1
+def randomForest(x, y):
+    np.random.seed(7)
+    max_depth = 2
+  
+    x_train,  x_test,  y_train,  y_test  = train_test_split(x, y, test_size=0.33)
+    x_train.drop(['SAR', 'EXP'], axis=1, inplace=True)    
+    
+#    RFC = RandomForestClassifier()
+    RFC = RandomForestClassifier(max_depth=max_depth)
+    RFC.fit(x_train, y_train)
+    
+    #Return the feature importances (the higher, the more important the feature).
+    f_importances = (pd.DataFrame(RFC.feature_importances_)).transpose()
+    f_names = list(x_train.columns.values)
+    f_importances = pd.DataFrame([f_importances], columns=[f_names])
+    f_importances.to_csv('../3_Deliverables/Final Paper/data/RFC_importances.csv', index=False)
+    
+    
 # =============================================================================
