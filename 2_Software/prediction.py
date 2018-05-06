@@ -50,7 +50,7 @@ def MLP(x, y):
 # =============================================================================
 def randomForest(x, y, switch, t):
     np.random.seed(7)
-    numFolds = 5
+    numFolds = 3
     k_fold = KFold(n_splits=numFolds)
     score = 0
     RFC = RandomForestClassifier()
@@ -73,6 +73,8 @@ def randomForest(x, y, switch, t):
         f_importances = pd.DataFrame(np.round(RFC.feature_importances_, 2)).transpose()
         f_importances.columns = f_names
         plot = f_importances.plot.bar(figsize=(22.0, 14.0))
+        plot.set_xlabel('Features', fontsize=18)
+        plot.set_ylabel('Feature Importance (%)', fontsize=18)
         fig  = plot.get_figure()
         fig.savefig('../3_Deliverables/Final Paper/data/RFC_importancesT'+str(t)+'.png')
         f_importances.to_csv('../3_Deliverables/Final Paper/data/RFC_importancesT'+str(t)+'.csv', index=False)
@@ -114,3 +116,4 @@ def pca(x, y, t):
     pca_out.columns = pca_columns
     pca_out.to_csv('../3_Deliverables/Final Paper/data/PCAT'+str(t)+'.csv', index=False)
     fig.savefig('../3_Deliverables/Final Paper/data/PCAT'+str(t)+'.png')
+# =============================================================================

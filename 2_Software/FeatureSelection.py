@@ -75,6 +75,8 @@ def genMIC(x, y, t):
     mic_mean.columns = f_names
     
     plot = mic_mean.plot.bar(figsize=(22.0, 14.0))
+    plot.set_xlabel('Features', fontsize=18)
+    plot.set_ylabel('MIC', fontsize=18)
     fig  = plot.get_figure()
     fig.savefig('../3_Deliverables/Final Paper/data/MICT'+str(t)+'.png')
 
