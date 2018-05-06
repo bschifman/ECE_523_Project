@@ -3,7 +3,7 @@
 
 # Project Files:
 import dataSetup as ds
-import featureSelection as fs
+import FeatureSelection as fs
 import prediction as pred
 # =============================================================================
 # #%% Control Variables %%#
@@ -12,8 +12,8 @@ REINGEST_DATA   = False #imports data from quandl, dumps data to data.pickle
 REGENERATE_TA   = False #recalc features, dumps to indicators_norm.pickle
 REGENERATE_MIC  = False #recalc mic, dumps to mic.pickle 
 PLOT_CORR       = False #calc corr, plot heat map
-PREDICT         = False #run prediction algs.
-TIMEPERIODNUM    = 3
+PREDICT         = True #run prediction algs.
+TIMEPERIODNUM    = 1
 #Add more control here
 # =============================================================================
 if(TIMEPERIODNUM == 1):

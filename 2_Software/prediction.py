@@ -12,6 +12,7 @@ from sklearn.feature_selection import RFE
 import pandas as pd
 import numpy as np
 import time
+import matplotlib.pyplot as plt
 # =============================================================================
 # Functions:
 # MLP(x, y)
@@ -77,7 +78,7 @@ def randomForest(x, y, switch, t):
         RFC.fit(x_train, y_train[:,0])
         score += RFC.score(x_test, y_test[:,0])
     score /= numFolds
-    print('5 Fold RFC Score: ', np.round(score,3))
+    print(numFolds, 'Fold RFC Score: ', np.round(score,3))
     
     #Return the feature importances (the higher, the more important the feature).
     if(switch):
@@ -89,7 +90,7 @@ def randomForest(x, y, switch, t):
         return(score)
 # =============================================================================
 def pca(x, y, t):
-    pca_out = np.zeros((x.shape[1],3))
+    pca_out = np.zeros((x.shape[1]-1,3))
     pca_columns = ['Principal Components', 'Score', 'Time']
     i = 1
     while(i < x.shape[1]):
@@ -101,9 +102,30 @@ def pca(x, y, t):
         pca_out[i-1,1] = round(score,2)
         pca_out[i-1,2] = round(time.clock()-s,2)
         i += 1
+        
+    fig, ax1 = plt.subplots()    
+    principalComponents = pca_out[:,0]
+    Times = pca_out[:,2]
+    scores = pca_out[:,1]
+    
+    ax1.plot(principalComponents, scores, 'b')
+    ax1.set_xlabel('Principal Components')
+    ax1.set_ylabel('Accuracy %', color='b')
+    ax1.tick_params('y', colors='b')
+    
+    ax2 = ax1.twinx()    
+
+    ax2.plot(principalComponents, Times, 'r')
+    ax2.set_ylabel('Time (s)', color='r')
+    ax2.tick_params('y', colors='r')    
+    fig.tight_layout()
+    
     pca_out = pd.DataFrame(pca_out)
     pca_out.columns = pca_columns
     pca_out.to_csv('../3_Deliverables/Final Paper/data/PCAT'+str(t)+'.csv', index=False)
+    fig.savefig('../3_Deliverables/Final Paper/data/PCAT'+str(t)+'.png')
+        
+
 # =============================================================================
 def RFE_SVM(x, y):
     np.random.seed(7)
