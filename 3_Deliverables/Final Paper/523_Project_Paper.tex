@@ -125,7 +125,7 @@ RFE is a method of recursively selecting smaller subsets of the larger feature s
 Given a base classifier, RFE can be performed by re-training copies of the base classifier using a certain number of dropped features per iteration until the specified number of features to keep has been hit. RFE was implemented independently with two different base classifiers, SVM and Adaboosted Decision Trees.
 
 \subsection{Random Forest Classifier (RFC)}
-The RFC is an ensemble algorithm implementing a combination of decision trees classifiers where the majority vote of all trees are used to classify the input feature vector \cite{pal2005random}. This RFC bagging method was used in order classify the input data, while also intrinsically implementing feature selection to return a vector of feature importances. The RFC was chosen due to its implementation of bagging, and the entire feature set was fed into the RFC while using 10 decision trees. The main focus of using the RFC was to determine the vector of feature importance, while the accuracy of the algorithm was secondary.
+The RFC is an ensemble algorithm implementing a combination of decision trees classifiers where the majority vote of all trees are used to classify the input feature vector \cite{pal2005random}. This RFC bagging method was used in order to classify the input data, while also intrinsically implementing feature selection to return a vector of feature importances. The RFC was chosen due to its implementation of bagging, and the entire feature set was fed into the RFC while using 10 decision trees. The main focus of using the RFC was to determine the vector of feature importance, while the accuracy of the algorithm was of secondary importance.
 
 \subsection{Principal Component Analysis (PCA)}
 PCA orthogonally transforms a set of features into a set of linearly uncorrelated principal components. PCA is a method for reducing the dimensionality of the feature set size while retaining principal component variance, and the features informational relevance. PCA was implemented on the original 33 features and then the distilled principal components were used in the RFC classifier with 3 fold cross validation to determine the accuracy. The RFC classifier was used to analyze the validity of PCA because it intrinsically implements a form of feature selection as it weighs the features/principal components in terms of importance. The number of principal components the feature set was to be reduced to was iterated from 1 to 33 and then the accuracy of the RFC algorithm was calculated on each reduced feature set/principal component set.
@@ -158,7 +158,7 @@ The RFE approaches were run multiple times to select 5, 10, and 15 final feature
 
 \subsection{Random Forest Classifier (RFC)}
 
-The RFC was calculated with all of the original features and the percentage of feature importances were plotted in \Cref{fig:RFC}
+The RFC was calculated with all of the original features and the percentage of feature importances were plotted in \Cref{fig:RFC}. These results from the RFC feature importance provide little data in determining which features are relevant and to be kept over a feature space.
 
 \begin{figure}[H]
 	\centering
@@ -178,7 +178,7 @@ The RFC was calculated with all of the original features and the percentage of f
 \end{figure}
 
 \subsection{Multi Layer Perceptron (MLP)}
-The results of the three neural nets can be seen in \Cref{tab:MLP}. Not surprisingly the results are at the same levels as previous methods, however a notable outcome is the handpicked features in the MLP slightly outperforms the other two in the first test set. The MLP with all features has the most accuracy of the three in test set 1 but the least with test set 1. This may point to overfitting similar to the results seen with RFE.
+The results of the three neural nets can be seen in \Cref{tab:MLP}. Not surprisingly the results are at the same levels as previous methods, however a notable outcome is the handpicked features in the MLP slightly outperforms the other two in the first test set. The MLP with all features has the most accuracy of the three in test set 2 but the least with test set 1. This may point to overfitting similar to the results seen with RFE.
 
 \begin{table}[h]
 	\centering
