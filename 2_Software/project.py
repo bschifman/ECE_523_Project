@@ -21,7 +21,7 @@ RUN_MLP         = False
 RUN_RFE         = False
 PLOT_RFE        = False
 GENTABLE_MLP    = False
-LABEL2          = True
+LABEL2          = False
 TIMEPERIODNUM   = 1
 #Add more control here
 # =============================================================================
