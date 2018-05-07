@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2016.12.9)  6 MAY 2018 19:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2016.12.8)  6 MAY 2018 20:19
 entering extended mode
 **./523_Project_Paper.tex
 (523_Project_Paper.tex
@@ -881,19 +881,13 @@ G,.JBIG2,.JB2,.eps]
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-<data/gf.png, id=75, 103.67303pt x 96.79018pt>
-File: data/gf.png Graphic file (type png)
- <use data/gf.png>
-Package pdftex.def Info: data/gf.png used on input line 58.
-(pdftex.def)             Requested size: 397.48499pt x 371.15459pt.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <17.28> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 63.
-
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 56.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\microtype\mt-cmr.cfg"
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 63.
+LaTeX Font Info:    Try loading font information for U+msa on input line 56.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -901,7 +895,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ("C:\Program Files\MiKTeX 2.9\tex\latex\microtype\mt-msa.cfg"
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 63.
+LaTeX Font Info:    Try loading font information for U+msb on input line 56.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -910,8 +904,8 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 63.
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 63.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 56.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 56.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1cmtt.fd"
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
@@ -921,137 +915,130 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 65.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 58.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [1
-
-
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}pdfTeX warning (ext4): dest
-ination with the same identifier (name{figure.1}) has been already used, duplic
-ate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.67 \end{abstract}
-                    <./data/gf.png>]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[1
+
+
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
+<data/heatmapT1.png, id=89, 1589.94pt x 1011.78pt>
+File: data/heatmapT1.png Graphic file (type png)
+ <use data/heatmapT1.png>
+Package pdftex.def Info: data/heatmapT1.png used on input line 107.
+(pdftex.def)             Requested size: 397.48499pt x 252.94438pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [2pdfTeX warning (ext4): destination with the same identifier (name{table.1}) h
 as been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.101 
-      ] <data/heatmapT1.png, id=95, 1589.94pt x 1011.78pt>
-File: data/heatmapT1.png Graphic file (type png)
-
-<use data/heatmapT1.png>
-Package pdftex.def Info: data/heatmapT1.png used on input line 114.
-(pdftex.def)             Requested size: 397.48499pt x 252.94438pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[3pdfTeX warning (ext4): destination with the same identifier (name{table.2}) h
-as been already used, duplicate ignored
+l.114 
+      pdfTeX warning (ext4): destination with the same identifier (name{table.2
+}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.128 
-      ] [4pdfTeX warning (ext4): destination with the same identifier (name{fig
-ure.2}) has been already used, duplicate ignored
+l.114 
+      ] [3pdfTeX warning (ext4): destination with the same identifier (name{fig
+ure.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.137 
-       <./data/heatmapT1.png>] <data/MICT1.png, id=117, 1589.94pt x 1011.78pt>
+l.124 
+       <./data/heatmapT1.png>] <data/MICT1.png, id=111, 1589.94pt x 1011.78pt>
 File: data/MICT1.png Graphic file (type png)
 
 <use data/MICT1.png>
-Package pdftex.def Info: data/MICT1.png used on input line 143.
+Package pdftex.def Info: data/MICT1.png used on input line 136.
 (pdftex.def)             Requested size: 397.48499pt x 252.94438pt.
- [5pdfTeX warning (ext4): destination with the same identifier (name{figure.3})
+ [4] <data/RFE_final.png, id=118, 1589.94pt x 1011.78pt>
+File: data/RFE_final.png Graphic file (type png)
+
+<use data/RFE_final.png>
+Package pdftex.def Info: data/RFE_final.png used on input line 146.
+(pdftex.def)             Requested size: 397.48499pt x 252.94438pt.
+ [5pdfTeX warning (ext4): destination with the same identifier (name{figure.2})
  has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.150 
-       <./data/MICT1.png>] <data/RFE_final.png, id=126, 1589.94pt x 1011.78pt>
-File: data/RFE_final.png Graphic file (type png)
-
-<use data/RFE_final.png>
-Package pdftex.def Info: data/RFE_final.png used on input line 153.
-(pdftex.def)             Requested size: 397.48499pt x 252.94438pt.
-
-<data/RFC_importancesT1.png, id=128, 1589.94pt x 1011.78pt>
+       <./data/MICT1.png>]
+<data/RFC_importancesT1.png, id=126, 1589.94pt x 1011.78pt>
 File: data/RFC_importancesT1.png Graphic file (type png)
 
 <use data/RFC_importancesT1.png>
-Package pdftex.def Info: data/RFC_importancesT1.png used on input line 164.
+Package pdftex.def Info: data/RFC_importancesT1.png used on input line 157.
 (pdftex.def)             Requested size: 397.48499pt x 252.94438pt.
- [6pdfTeX warning (ext4): destination with the same identifier (name{figure.4})
+ [6pdfTeX warning (ext4): destination with the same identifier (name{figure.3})
  has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.168 
-       <./data/RFE_final.png>] <data/PCAT1.png, id=136, 462.528pt x 346.896pt>
-File: data/PCAT1.png Graphic file (type png)
+l.164 
+      pdfTeX warning (ext4): destination with the same identifier (name{figure.
+4}) has been already used, duplicate ignored
 
-<use data/PCAT1.png>
-Package pdftex.def Info: data/PCAT1.png used on input line 174.
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.164 
+       <./data/RFE_final.png> <./data/RFC_importancesT1.png>]
+<data/PCAT1.png, id=135, 462.528pt x 346.896pt>
+File: data/PCAT1.png Graphic file (type png)
+ <use data/PCAT1.png>
+Package pdftex.def Info: data/PCAT1.png used on input line 167.
 (pdftex.def)             Requested size: 397.48499pt x 298.12889pt.
  [7pdfTeX warning (ext4): destination with the same identifier (name{figure.5})
  has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.178 
-       <./data/RFC_importancesT1.png>] (523_Project_Paper.bbl)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 194.
- [8pdfTeX warning (ext4): destination with the same identifier (name{figure.6})
- has been already used, duplicate ignored
+l.184 
+      pdfTeX warning (ext4): destination with the same identifier (name{table.3
+}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.194 \end{document}
-                    pdfTeX warning (ext4): destination with the same identifier
- (name{table.3}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.194 \end{document}
-                     <./data/PCAT1.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 194.
+l.184 
+       <./data/PCAT1.png>] (523_Project_Paper.bbl)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 188.
+ [8]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 188.
  (523_Project_Paper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 194.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 194.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 188.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 188.
 Package rerunfilecheck Info: File `523_Project_Paper.out' has not changed.
 (rerunfilecheck)             Checksum: 3053D1371AA404FC318BF386A36BA0CA;1346.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 194.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 188.
  ) 
 Here is how much of TeX's memory you used:
- 12663 strings out of 493333
- 209844 string characters out of 3139194
- 371503 words of memory out of 3000000
- 15838 multiletter control sequences out of 15000+200000
- 31369 words of font info for 110 fonts, out of 3000000 for 9000
+ 12661 strings out of 493333
+ 209797 string characters out of 3139171
+ 372486 words of memory out of 3000000
+ 15832 multiletter control sequences out of 15000+200000
+ 31629 words of font info for 114 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  40i,9n,46p,1067b,486s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc} <C:\Users\jsiek\App
-Data\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ectt1000.pk><C:/Progra
-m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/
-MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.
-9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
-ype1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw
-/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb
-><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on 523_Project_Paper.pdf (8 pages, 666311 bytes).
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc} <C:\Users\Schifman 
+Ben\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ectt1000.pk><C:
+/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program
+ Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/
+fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
+pe1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utm
+r8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on 523_Project_Paper.pdf (8 pages, 526413 bytes).
 PDF statistics:
- 212 PDF objects out of 1000 (max. 8388607)
- 40 named destinations out of 1000 (max. 500000)
- 18607 words of extra memory for PDF output out of 20736 (max. 10000000)
+ 210 PDF objects out of 1000 (max. 8388607)
+ 39 named destinations out of 1000 (max. 500000)
+ 18602 words of extra memory for PDF output out of 20736 (max. 10000000)
 

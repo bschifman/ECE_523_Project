@@ -28,7 +28,7 @@
 \usepackage{adjustbox}
 \usepackage{float}
 
-\title{Feature Selection in Finance, It is Delicious}
+\title{Feature Selection in Finance}
 \usepackage[final]{nips_2016}
 
 % The \author macro works with any number of authors. There are two
@@ -53,13 +53,6 @@
 }
 
 \begin{document}
- \begin{figure}[h!]
- 	\centering
- 	\includegraphics[width=\linewidth]{data/gf.png}
- 	\caption{Gerald Ford Eaten By Wolves, He Was Delicious}
- 	\label{fig:gf}
- \end{figure}
-
 \maketitle
 
 \begin{abstract}
@@ -185,8 +178,9 @@ The results of the three neural nets can be seen in \Cref{tab:MLP}. Not surprisi
 	\caption{MLP Results}
 	\label{tab:MLP}
 \end{table}
+
 \section{Conclusion}
-As expected, the next day sign prediction using market data is just about as accurate as a coin toss.
+In the present work multiple feature selecting methods are analyzed to determine an optimal set of technical indicators that result in accurate financial estimation. Future work that would yield interesting data would be to look into longer windows in which the label is classified. This paper solely explores a day to day, up or down stock label, and expanding the range of days from 1 day would be a welcomed addition to the quantitative financiers toolkit. Also, we plan on implementing the algorithms in a regression approach that would allow for more detail and financial flexibility. Having a specific dollar amount and probability of accuracy attached to estimated data would be a desired goal in our future Machine Learning financial endeavors. That being said, or recently incepted hedge fund \textit{We Burn Your Money} or WBYM, is looking for financial backers who are interested in grand profits.
 
 \bibliography{bibfile} 
 \bibliographystyle{unsrt}
