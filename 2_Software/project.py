@@ -10,7 +10,7 @@ import prediction as pred
 # #%% Control Variables %%#
 DEBUG           = False 
 REINGEST_DATA   = False #imports data from quandl, dumps data to data.pickle
-LOAD_DATA       = True 
+LOAD_DATA       = False 
 REGENERATE_TA   = False #recalc features, dumps to indicators_norm.pickle
 LOAD_TA         = False
 REGENERATE_MIC  = False  #recalc mic, dumps to mic.pickle 
@@ -21,7 +21,7 @@ RUN_MLP         = False
 RUN_RFE         = False
 PLOT_RFE        = False
 GENTABLE_MLP    = False
-LABEL2         = True
+LABEL2          = True
 TIMEPERIODNUM   = 1
 #Add more control here
 # =============================================================================
@@ -118,3 +118,5 @@ if(LOAD_MIC): #Load mic from pickle
 #=============================================================================    
 if(LABEL2):
     dataLABEL2, yLABEL2 = ds.labelOut5(data)
+    x_label2, y_label2 = ds.reformat(dataLABEL2, yLABEL2)
+    mlpLabel2, mlpLabel2Acc = pred.MLP(x_label2, y_label2)
