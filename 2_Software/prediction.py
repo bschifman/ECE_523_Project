@@ -47,6 +47,8 @@ def MLP(x, y):
     e_time = time.clock()
     print('\n Total Time: ', e_time-s_time)
     return model, acc
+def plotRFE():
+    temp = 1
 # =============================================================================
 def randomForest(x, y, switch, t):
     np.random.seed(7)

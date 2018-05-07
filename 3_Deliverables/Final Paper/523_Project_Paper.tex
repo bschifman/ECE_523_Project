@@ -140,17 +140,14 @@ The RFC is an ensemble algorithm implementing a combination of decision trees cl
 \end{figure}
 
 \subsection{Principal Component Analysis (PCA)}
-PCA orthogonally transforms a set of features into a set of linearly uncorrelated principal components. PCA is a method for reducing the dimensionality of the feature set size while retaining principal component variance, and the features informational relevance. To analyze the performance of this method, PCA was implemented on the original 33 features and then the distilled principal components were used in the RFC classifier with 3 fold cross validation to determine the accuracy. The RFC classifier was used to analyze the validity of PCA because it intrinsically implements a form of feature selection as it weighs the features/principal components in terms of importance. The number of principal components the feature set was to be reduced to was iterated from 1 to 33 and then the accuracy of the RFC algorithm was calculated on each reduced feature set/principal component set. The following Figure \ref{fig:PCA} depicts the RFC accuracy and time taken with its corresponding reduced feature set of principal components.   
+PCA orthogonally transforms a set of features into a set of linearly uncorrelated principal components. PCA is a method for reducing the dimensionality of the feature set size while retaining principal component variance, and the features informational relevance. PCA was implemented on the original 33 features and then the distilled principal components were used in the RFC classifier with 3 fold cross validation to determine the accuracy. The RFC classifier was used to analyze the validity of PCA because it intrinsically implements a form of feature selection as it weighs the features/principal components in terms of importance. The number of principal components the feature set was to be reduced to was iterated from 1 to 33 and then the accuracy of the RFC algorithm was calculated on each reduced feature set/principal component set.
 
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=\linewidth]{data/PCAT1.png}
-	\caption{Principal Component Analysis}
-	\label{fig:PCA}
-\end{figure}
+\subsection{Multi Layer Perceptron (MLP)}
+Training a multi layer perceptron inherently weights the input features and allows for complex interdependencies to be computed within the network. Three models were built using keras with three layers, 50 hidden nodes using the hyperbolic tangent activation function, and an output layer using the softmax activation function. Each model is trained on different feature sets. The first is trained using all 33 features, however the second and third only consist of five. The second MLP takes handpicked features selected as those with the highest confidence by experts. The third MLP uses the five features selected by the RFE-Adaboosted Decision Trees selector.
 
 \section{Results}
-Two testing sets were used to obtain results in this project. First the data was split into two sections. The first set consists of the majority of data (Dec 31, 2006 to Dec 31, 2016). This first set was randomly split using sklearn's train\_test\_split function to train and test each approach. Therefore the test set split from the first set is a collection of random days with the associated labels. The second set (Jan 1, 2017 to Mar 27, 2018) was only used in testing and tests performance day to day over a large chunk of time untouched by any training. As our random forest approach used cross fold validation test and retrain, this second data set was not used as a secondary test for our random forest or PCA approaches.
+Two testing sets were used to obtain results in this project. First the data was split into two sections. The first set consists of the majority of data (Dec 31, 2006 to Dec 31, 2016). This first set was randomly split using sklearn's train\_test\_split function to train and test each approach. Therefore the test set split from the first set is a collection of random days with the associated labels. The second set (Jan 1, 2017 to Mar 27, 2018) was only used in testing and tests performance day to day over a large chunk of time untouched by any training. As our random forest approach used cross fold validation to test and retrain, this second data set was not used as a secondary test for our random forest or PCA approaches.
+
 \subsection{Maximal Information Coefficient (MIC)}
 The results from the MIC algorithm are depicted in the following Figure \ref{fig:MIC}. From observing this outputted MIC data it would appear that the following technical indicators: SAR, HT\textunderscore TREND, CDLENGULFING, CDLDOJI, CDLHAMMER, and CDLHANGINGMAN carry minimal importance in regards to the MIC, where as all of the other technical indicators have a relatively similar resulting MIC value. This conclusion, however, holds very little relevance when trying to implement in the various types of feature selection as it doesn't provide sufficient granularity of detail to properly select from the remaining feature set. Also, the removed MIC values hold value in the other feature selection techniques, and it would seem that the calculation of the MIC is biased against pattern recognition technical indicators as it suggested that these pattern recognition techniques were negligible.
 
@@ -162,21 +159,32 @@ The results from the MIC algorithm are depicted in the following Figure \ref{fig
 \end{figure}
 
 \subsection{Recursive Feature Elimination (RFE)}
-
+The RFE approaches were run multiple times to select 5, 10, and 15 final features. The results of both RFE-SVM and RFE-Adaboost were then plotted in \Cref{fig:RFE}. For both test sets, The Adaboost classifier performs slightly better than the SVM classifier. Since the SVM classifier is a linear classifier, no polynomial transformations were done on the features, and linear separability in much more unlikely in the feature set, decreased performance would be expected. Another interesting and unexpected result is that the accuracy of the models increases when tested using the secondary test set. This may be indicative of less volatility in the second test set. Lastly, three of the four test cases perform slightly better with fewer final features. This suggest that more features may result in easily overfitting.
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=\linewidth]{data/RFE.png}
+	\includegraphics[width=\linewidth]{data/RFE_final.png}
 	\caption{Recursive Feature Elimation Accuracies}
 	\label{fig:RFE}
 \end{figure}
 \subsection{Random Forest Classifier (RFC)}
 \subsection{Principal Component Analysis (PCA)}
+Figure \ref{fig:PCA} depicts the PCA accuracy and time taken with its corresponding reduced feature set of principal components.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\linewidth]{data/PCAT1.png}
+	\caption{Principal Component Analysis}
+	\label{fig:PCA}
+\end{figure}
+
+\subsection{Multi Layer Perceptron (MLP)}
+
 
 \section{Conclusion}
+As expected, the next day sign prediction using market data is just about as accurate as a coin toss.
 
 \bibliography{bibfile} 
 \bibliographystyle{unsrt}
-
 
 \end{document}
