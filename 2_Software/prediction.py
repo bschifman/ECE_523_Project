@@ -48,7 +48,7 @@ def MLP(x, y):
     print('\n Total Time: ', e_time-s_time)
     return model, acc
 def genMLPTable(mlpAccuracies):
-    table = pd.DataFrame(mlpAccuracies, index=['Test Set 1', 'Test Set 2', 'Average'], columns=['MLP All Features', 'MLP Handpicked', 'MLP RFE-AdaBoost'])
+    table = pd.DataFrame(np.round(mlpAccuracies,4), index=['Test Set 1', 'Test Set 2'], columns=['MLP All Features', 'MLP Handpicked', 'MLP RFE-AdaBoost'])
     table.to_csv('../3_Deliverables/Final Paper/data/MLP.csv')
 # =============================================================================
 def randomForest(x, y, switch, t):

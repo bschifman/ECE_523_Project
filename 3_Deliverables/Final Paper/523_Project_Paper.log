@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2016.12.9)  6 MAY 2018 18:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2016.12.9)  6 MAY 2018 19:25
 entering extended mode
 **./523_Project_Paper.tex
 (523_Project_Paper.tex
@@ -921,80 +921,86 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\@ifnextchar' on input line 69.
 
-
-Underfull \vbox (badness 1748) has occurred while \output is active []
-
- [1
+[1
 
 
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}] [2pdfTeX warning (ext4): 
-destination with the same identifier (name{table.1}) has been already used, dup
-licate ignored
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
+<data/heatmapT1.png, id=88, 1589.94pt x 1011.78pt>
+File: data/heatmapT1.png Graphic file (type png)
+ <use data/heatmapT1.png>
+Package pdftex.def Info: data/heatmapT1.png used on input line 117.
+(pdftex.def)             Requested size: 397.48499pt x 252.94438pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[2pdfTeX warning (ext4): destination with the same identifier (name{table.1}) h
+as been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.117 
+l.124 
       pdfTeX warning (ext4): destination with the same identifier (name{table.2
 }) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.117 
-      ] <data/heatmapT1.png, id=102, 1589.94pt x 1011.78pt>
-File: data/heatmapT1.png Graphic file (type png)
+l.124 
+      ]
 
-<use data/heatmapT1.png>
-Package pdftex.def Info: data/heatmapT1.png used on input line 120.
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@ifnextchar' on input line 129.
+
+<data/RFC_importancesT1.png, id=104, 1589.94pt x 1011.78pt>
+File: data/RFC_importancesT1.png Graphic file (type png)
+
+<use data/RFC_importancesT1.png>
+Package pdftex.def Info: data/RFC_importancesT1.png used on input line 134.
 (pdftex.def)             Requested size: 397.48499pt x 252.94438pt.
 
 
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@ifnextchar' on input line 132.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [3pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) 
 has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.134 
-       <./data/heatmapT1.png>]
-<data/RFC_importancesT1.png, id=114, 1589.94pt x 1011.78pt>
-File: data/RFC_importancesT1.png Graphic file (type png)
-
-<use data/RFC_importancesT1.png>
-Package pdftex.def Info: data/RFC_importancesT1.png used on input line 137.
-(pdftex.def)             Requested size: 397.48499pt x 252.94438pt.
- [4pdfTeX warning (ext4): destination with the same identifier (name{figure.2})
- has been already used, duplicate ignored
+l.141 
+       <./data/heatmapT1.png>] [4pdfTeX warning (ext4): destination with the sa
+me identifier (name{figure.2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.150 
-       <./data/RFC_importancesT1.png>]
-<data/MICT1.png, id=123, 1589.94pt x 1011.78pt>
+l.148 \subsection
+                 {Maximal Information Coefficient (MIC)} <./data/RFC_importance
+sT1.png>] <data/MICT1.png, id=119, 1589.94pt x 1011.78pt>
 File: data/MICT1.png Graphic file (type png)
  <use data/MICT1.png>
-Package pdftex.def Info: data/MICT1.png used on input line 156.
+Package pdftex.def Info: data/MICT1.png used on input line 153.
 (pdftex.def)             Requested size: 397.48499pt x 252.94438pt.
+
+<data/RFE_final.png, id=121, 1589.94pt x 1011.78pt>
+File: data/RFE_final.png Graphic file (type png)
+ <use data/RFE_final.png>
+Package pdftex.def Info: data/RFE_final.png used on input line 163.
+(pdftex.def)             Requested size: 397.48499pt x 252.94438pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<data/PCAT1.png, id=123, 462.528pt x 346.896pt>
+File: data/PCAT1.png Graphic file (type png)
+ <use data/PCAT1.png>
+Package pdftex.def Info: data/PCAT1.png used on input line 173.
+(pdftex.def)             Requested size: 397.48499pt x 298.12889pt.
  [5pdfTeX warning (ext4): destination with the same identifier (name{figure.3})
  has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.163 
-       <./data/MICT1.png>] <data/RFE_final.png, id=132, 1589.94pt x 1011.78pt>
-File: data/RFE_final.png Graphic file (type png)
-
-<use data/RFE_final.png>
-Package pdftex.def Info: data/RFE_final.png used on input line 166.
-(pdftex.def)             Requested size: 397.48499pt x 252.94438pt.
- <data/PCAT1.png, id=134, 462.528pt x 346.896pt>
-File: data/PCAT1.png Graphic file (type png)
-
-<use data/PCAT1.png>
-Package pdftex.def Info: data/PCAT1.png used on input line 176.
-(pdftex.def)             Requested size: 397.48499pt x 298.12889pt.
-
+l.176 \end{figure}
+                   <./data/MICT1.png>]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -1011,30 +1017,30 @@ tifier (name{table.3}) has been already used, duplicate ignored
                                                   \fi \fi 
 l.15 \end{thebibliography}
                            <./data/RFE_final.png>])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 195.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 193.
  [7pdfTeX warning (ext4): destination with the same identifier (name{figure.5})
  has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.195 \end{document}
+l.193 \end{document}
                      <./data/PCAT1.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 195.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 193.
  (523_Project_Paper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 195.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 195.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 193.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 193.
 Package rerunfilecheck Info: File `523_Project_Paper.out' has not changed.
-(rerunfilecheck)             Checksum: 301154C5B51D501717522407EB94A05A;1401.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 195.
+(rerunfilecheck)             Checksum: 3BBADEECAC898552D9682F38372AC50B;1352.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 193.
  ) 
 Here is how much of TeX's memory you used:
- 12663 strings out of 493333
- 209844 string characters out of 3139194
- 369503 words of memory out of 3000000
- 15836 multiletter control sequences out of 15000+200000
- 34221 words of font info for 114 fonts, out of 3000000 for 9000
+ 12667 strings out of 493333
+ 209875 string characters out of 3139194
+ 368503 words of memory out of 3000000
+ 15835 multiletter control sequences out of 15000+200000
+ 34481 words of font info for 118 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 40i,9n,46p,1201b,486s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 40i,9n,46p,1205b,486s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc} <C:\Users\jsiek\App
 Data\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ectt1000.pk><C:/Progra
 m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/
@@ -1043,9 +1049,9 @@ MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.
 ype1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw
 /times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb
 ><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on 523_Project_Paper.pdf (7 pages, 523224 bytes).
+Output written on 523_Project_Paper.pdf (7 pages, 523903 bytes).
 PDF statistics:
- 209 PDF objects out of 1000 (max. 8388607)
- 39 named destinations out of 1000 (max. 500000)
- 19122 words of extra memory for PDF output out of 20736 (max. 10000000)
+ 206 PDF objects out of 1000 (max. 8388607)
+ 38 named destinations out of 1000 (max. 500000)
+ 19114 words of extra memory for PDF output out of 20736 (max. 10000000)
 

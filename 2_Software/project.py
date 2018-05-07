@@ -10,7 +10,7 @@ import prediction as pred
 # #%% Control Variables %%#
 DEBUG           = False 
 REINGEST_DATA   = False #imports data from quandl, dumps data to data.pickle
-LOAD_DATA       = False 
+LOAD_DATA       = True 
 REGENERATE_TA   = False #recalc features, dumps to indicators_norm.pickle
 LOAD_TA         = False
 REGENERATE_MIC  = False  #recalc mic, dumps to mic.pickle 
@@ -20,7 +20,8 @@ PREDICT         = False #run prediction algs.
 RUN_MLP         = False
 RUN_RFE         = False
 PLOT_RFE        = False
-GENTABLE_MLP    = True
+GENTABLE_MLP    = False
+LABEL2         = True
 TIMEPERIODNUM   = 1
 #Add more control here
 # =============================================================================
@@ -102,8 +103,7 @@ if(RUN_MLP):
     mlpAda5Acc2 = mlpAda5.evaluate(x_ada5Test, y_test_keras)[1]
 if(GENTABLE_MLP):
     mlpAccuracies = [[mlpAcc, mlpHandAcc, mlpAda5Acc],
-                     [mlpAcc2, mlpHandAcc2, mlpAda5Acc2],
-                     [(mlpAcc+mlpAcc2)/2, (mlpHandAcc+mlpHandAcc2)/2, (mlpAda5Acc+mlpAda5Acc2)/2]]
+                     [mlpAcc2, mlpHandAcc2, mlpAda5Acc2]]
     pred.genMLPTable(mlpAccuracies)
 if(PREDICT):
 #    pred.randomForest(x_all, y_all, switch=1, t=TIMEPERIODNUM)
@@ -116,4 +116,5 @@ if(REGENERATE_MIC):
 if(LOAD_MIC): #Load mic from pickle
     mic = fs.loadMIC(tNum=TIMEPERIODNUM)
 #=============================================================================    
-
+if(LABEL2):
+    dataLABEL2, yLABEL2 = ds.labelOut5(data)
