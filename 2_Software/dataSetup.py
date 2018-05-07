@@ -187,13 +187,15 @@ def reformat(x, y):
         y_new = y_new.append(y[ticker])
     return x_new, y_new
 def labelOut5(dataIn):
-    y_out5 = {}
+    y_out5 = dict.fromkeys(dataIn, pd.DataFrame())
     dataOut = copy.deepcopy(dataIn)
     for ticker in dataOut:
-        N = np.size(dataOut[ticker],0)
-        for i in range(0,N-5,5):
+        N = np.size(dataOut[ticker],0)-5
+        for i in range(0,N,5):
             timeInd = np.arange(i,i+5)
-            y_out5[ticker].iloc[timeInd] = pd.DataFrame(np.sign(np.array(dataOut[ticker].iloc[timeInd+5,3])-np.array(dataOut[ticker].iloc[timeInd,3])))
-        dataOut[ticker].drop(dataOut[ticker].index[-5,-4,-3,-2,-1], inplace=True)
+            if(timeInd[-1] < N):
+                y_out5[ticker] = y_out5[ticker].append(pd.DataFrame(np.sign(np.array(dataOut[ticker].iloc[timeInd+5,3])-np.array(dataOut[ticker].iloc[timeInd,3]))))
+        yN = np.size(y_out5[ticker],0)
+        dataOut[ticker].drop(dataOut[ticker].index[np.arange(-(N+5-yN),0)], inplace=True)
         
     return dataOut, y_out5
