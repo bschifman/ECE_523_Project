@@ -12,16 +12,16 @@ DEBUG           = False
 REINGEST_DATA   = False #imports data from quandl, dumps data to data.pickle
 LOAD_DATA       = True 
 REGENERATE_TA   = False #recalc features, dumps to indicators_norm.pickle
-LOAD_TA         = False
+LOAD_TA         = True
 REGENERATE_MIC  = False  #recalc mic, dumps to mic.pickle 
 LOAD_MIC        = False
-PLOT_CORR       = False #calc corr, plot heat map
+PLOT_CORR       = True #calc corr, plot heat map
 PREDICT         = False #run prediction algs.
 RUN_MLP         = False
 RUN_RFE         = False
 PLOT_RFE        = False
 GENTABLE_MLP    = False
-LABEL2         = True
+LABEL2          = True
 TIMEPERIODNUM   = 1
 #Add more control here
 # =============================================================================

@@ -81,16 +81,24 @@ The Quandl platform was used to fetch 11 years of market data in total from Dec 
 	\label{tab:inds}
 \end{table}
 
-\subsubsection{Indicator Categories}
-  Overlap indicators generally can be overlayed onto the price charts. They most commonly include different styles of moving average calculations.
-\\Momentum indicators convey how quickly the price of the ticker is moving. For example, the faster the price of a ticker increases the larger its momentum.
-\\Volume indicators take into account the volume of the day's trading into account. 
-\\Cycle indicators attempt to identify changes in the overall direction of the ticker's movement.
-\\Price indicators combine the multiple prices in the data into one value.
-\\Volatility indicators convey how sporadic the ticker's prices are.
-\\Statistical indicators are based on statistical concepts and can be used in a number of different ways.
-\\Math Transformation indicators apply common mathematical operations upon the tickers prices.
-\\Pattern Recognition indicators look for patterns in the prices of a ticker traders have identified are indicative of future outcomes.
+\subsubsection{Overlap Indicators}
+Overlap indicators generally can be overlayed onto the 	price charts. They most commonly include different styles of moving average calculations.
+\subsubsection{Momentum Indicators}
+Momentum indicators convey how quickly the price of the ticker is moving. For example, the faster the price of a ticker increases the larger its momentum.
+\subsubsection{Volume Indicators}
+Volume indicators take into account the volume of the day's trading. 
+\subsubsection{Cycle Indicators}
+Cycle indicators attempt to identify changes in the overall direction of the ticker's movement.
+\subsubsection{Price Indicators}
+Price indicators combine the multiple prices in the data into one value.
+\subsubsection{Volatility Indicators}
+Volatility indicators convey how sporadic the ticker's prices are.
+\subsubsection{Statistical Indicators}
+Statistical indicators are based on statistical concepts and can be used in a number of different ways.
+\subsubsection{Math Transformation Indicators}
+Math Transformation indicators apply common mathematical operations upon the tickers prices.
+\subsubsection{Pattern Recognition Indicators}
+Pattern Recognition indicators look for patterns in the prices of a ticker traders have identified are indicative of future outcomes.
 
 \subsection{Normalization}
 As each technical analysis indicator produces values applicable based on how the indicator was calculated, normalization of the indicators makes correlations between them during feature selection more accurate and applicable. Each value is normalized using Equation \eqref{eq:norm}.
@@ -114,7 +122,7 @@ The MIC is a measure of two-variable dependence designed specifically for rapid 
 
 \subsection{Recursive Feature Elimination (RFE)}
 RFE is a method of recursively selecting smaller subsets of the larger feature set to then be used in an external classifier. The goal of RFE is to reduce the feature set into the smallest set of relevant and valuable features which yield the greatest accuracy. The time to run of the external classifier is reduced due to the fact that there are fewer features analyzed in the classification.
-Given a base classifier, recursive feature elimination can be performed by re-training copies of the base classifier using a certain number of dropped features per iteration until the specified number of features to keep has been hit. RFE was implemented independently with two different base classifiers, SVM and Adaboosted Decision Trees.
+Given a base classifier, RFE can be performed by re-training copies of the base classifier using a certain number of dropped features per iteration until the specified number of features to keep has been hit. RFE was implemented independently with two different base classifiers, SVM and Adaboosted Decision Trees.
 
 \subsection{Random Forest Classifier (RFC)}
 The RFC is an ensemble algorithm implementing a combination of decision trees classifiers where the majority vote of all trees are used to classify the input feature vector \cite{pal2005random}. This RFC bagging method was used in order classify the input data, while also intrinsically implementing feature selection to return a vector of feature importances. The RFC was chosen due to its implementation of bagging, and the entire feature set was fed into the RFC while using 10 decision trees. The main focus of using the RFC was to determine the vector of feature importance, while the accuracy of the algorithm was secondary.

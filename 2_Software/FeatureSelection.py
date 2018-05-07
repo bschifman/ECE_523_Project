@@ -29,15 +29,15 @@ def crossCorr(indicators, t):
         total_corr  = total_corr.add(corr, fill_value=0) 
     
     total_corr  = total_corr.divide(len(indicators.keys()))    
-    corr_list  = []    
-    for i in range(total_corr.shape[0]):
-            for j in range(total_corr.shape[0]):
-                if(i < j):
-                    total_corr.iloc[i,j]  = -1
-                elif(i > j):
-                    if(total_corr.iloc[i,j]  > Threshold):                        
-                        corr_list.append((total_corr.index[i]
-                        + ':' + total_corr.columns[j]))
+#    corr_list  = []    
+#    for i in range(total_corr.shape[0]):
+#            for j in range(total_corr.shape[0]):
+#                if(i < j):
+#                    total_corr.iloc[i,j]  = -1
+#                elif(i > j):
+#                    if(total_corr.iloc[i,j]  > Threshold):                        
+#                        corr_list.append((total_corr.index[i]
+#                        + ':' + total_corr.columns[j]))
                         
 #    print('\n Highly Correlated Features (+0.85): ', corr_list, '\n')
     plt.figure(figsize=(22.0, 14.0))
