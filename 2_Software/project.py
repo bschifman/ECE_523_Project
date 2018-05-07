@@ -20,8 +20,8 @@ PREDICT         = False #run prediction algs.
 RUN_MLP         = False
 RUN_RFE         = False
 PLOT_RFE        = False
-PLOT_MLP        = True
-TIMEPERIODNUM    = 1
+GENTABLE_MLP    = True
+TIMEPERIODNUM   = 1
 #Add more control here
 # =============================================================================
 if(TIMEPERIODNUM == 1):
@@ -100,8 +100,11 @@ if(RUN_MLP):
     x_ada5Test = x_test[['ROC', 'MACD', 'OBV', 'ATR', 'VAR']].copy()
     mlpAda5, mlpAda5Acc = pred.MLP(x_ada5, y_all)
     mlpAda5Acc2 = mlpAda5.evaluate(x_ada5Test, y_test_keras)[1]
-if(PLOT_MLP):    
-    fs.plotMLP()
+if(GENTABLE_MLP):
+    mlpAccuracies = [[mlpAcc, mlpHandAcc, mlpAda5Acc],
+                     [mlpAcc2, mlpHandAcc2, mlpAda5Acc2],
+                     [(mlpAcc+mlpAcc2)/2, (mlpHandAcc+mlpHandAcc2)/2, (mlpAda5Acc+mlpAda5Acc2)/2]]
+    pred.genMLPTable(mlpAccuracies)
 if(PREDICT):
 #    pred.randomForest(x_all, y_all, switch=1, t=TIMEPERIODNUM)
     pred.pca(x_all, y_all, t=TIMEPERIODNUM)

@@ -47,8 +47,9 @@ def MLP(x, y):
     e_time = time.clock()
     print('\n Total Time: ', e_time-s_time)
     return model, acc
-def plotRFE():
-    temp = 1
+def genMLPTable(mlpAccuracies):
+    table = pd.DataFrame(mlpAccuracies, index=['Test Set 1', 'Test Set 2', 'Average'], columns=['MLP All Features', 'MLP Handpicked', 'MLP RFE-AdaBoost'])
+    table.to_csv('../3_Deliverables/Final Paper/data/MLP.csv')
 # =============================================================================
 def randomForest(x, y, switch, t):
     np.random.seed(7)

@@ -7,7 +7,7 @@
 \BOOKMARK [2][-]{subsection.3.3}{Feature Correlation}{section.3}% 7
 \BOOKMARK [2][-]{subsection.3.4}{Maximal Information Coefficient \(MIC\)}{section.3}% 8
 \BOOKMARK [2][-]{subsection.3.5}{Recursive Feature Elimination \(RFE\)}{section.3}% 9
-\BOOKMARK [2][-]{subsection.3.6}{redRandom Forest Classifier \(RFC\)}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.6}{Random Forest Classifier \(RFC\)}{section.3}% 10
 \BOOKMARK [2][-]{subsection.3.7}{Principal Component Analysis \(PCA\)}{section.3}% 11
 \BOOKMARK [2][-]{subsection.3.8}{Multi Layer Perceptron \(MLP\)}{section.3}% 12
 \BOOKMARK [1][-]{section.4}{Results}{}% 13
