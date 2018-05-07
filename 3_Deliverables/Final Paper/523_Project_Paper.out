@@ -1,4 +1,4 @@
-\BOOKMARK [1][-]{section.1}{redIntroduction}{}% 1
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
 \BOOKMARK [1][-]{section.2}{Methods/Approach}{}% 2
 \BOOKMARK [2][-]{subsection.2.1}{Data and Technical Analysis Indicators}{section.2}% 3
 \BOOKMARK [3][-]{subsubsection.2.1.1}{Indicator Categories}{subsection.2.1}% 4
@@ -6,7 +6,7 @@
 \BOOKMARK [2][-]{subsection.2.3}{Feature Correlation}{section.2}% 6
 \BOOKMARK [2][-]{subsection.2.4}{Maximal Information Coefficient \(MIC\)}{section.2}% 7
 \BOOKMARK [2][-]{subsection.2.5}{Recursive Feature Elimination \(RFE\)}{section.2}% 8
-\BOOKMARK [2][-]{subsection.2.6}{redRandom Forest Classifier \(RFC\)}{section.2}% 9
+\BOOKMARK [2][-]{subsection.2.6}{Random Forest Classifier \(RFC\)}{section.2}% 9
 \BOOKMARK [2][-]{subsection.2.7}{Principal Component Analysis \(PCA\)}{section.2}% 10
 \BOOKMARK [2][-]{subsection.2.8}{Multi Layer Perceptron \(MLP\)}{section.2}% 11
 \BOOKMARK [1][-]{section.3}{Results}{}% 12
