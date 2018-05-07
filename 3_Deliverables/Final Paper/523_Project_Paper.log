@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2016.12.8)  6 MAY 2018 19:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2016.12.8)  6 MAY 2018 19:49
 entering extended mode
 **./523_Project_Paper.tex
 (523_Project_Paper.tex
@@ -937,10 +937,6 @@ ate ignored
 l.67 \end{abstract}
                     <./data/gf.png>]
 
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@ifnextchar' on input line 69.
-
-
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [2pdfTeX warning (ext4): destination with the same identifier (name{table.1}) h
@@ -1008,13 +1004,15 @@ File: data/PCAT1.png Graphic file (type png)
 <use data/PCAT1.png>
 Package pdftex.def Info: data/PCAT1.png used on input line 177.
 (pdftex.def)             Requested size: 397.48499pt x 298.12889pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-(523_Project_Paper.bbl)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 196.
  [7pdfTeX warning (ext4): destination with the same identifier (name{figure.5})
+ has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.181 
+       <./data/RFC_importancesT1.png>] (523_Project_Paper.bbl)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 196.
+ [8pdfTeX warning (ext4): destination with the same identifier (name{figure.6})
  has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
@@ -1026,30 +1024,23 @@ l.196 \end{document}
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.196 \end{document}
-                     <./data/RFC_importancesT1.png>] [8pdfTeX warning (ext4): d
-estination with the same identifier (name{figure.6}) has been already used, dup
-licate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.196 \end{document}
                      <./data/PCAT1.png>]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 196.
  (523_Project_Paper.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 196.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 196.
 Package rerunfilecheck Info: File `523_Project_Paper.out' has not changed.
-(rerunfilecheck)             Checksum: DDE43723695B4C8140A4387379DB2393;1398.
+(rerunfilecheck)             Checksum: 214CBC97F64D3F798B6EEA6D866B655A;1395.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 196.
  ) 
 Here is how much of TeX's memory you used:
- 12666 strings out of 493333
- 209879 string characters out of 3139171
+ 12662 strings out of 493333
+ 209840 string characters out of 3139171
  371503 words of memory out of 3000000
- 15840 multiletter control sequences out of 15000+200000
- 31369 words of font info for 110 fonts, out of 3000000 for 9000
+ 15839 multiletter control sequences out of 15000+200000
+ 31239 words of font info for 108 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 40i,9n,46p,1029b,486s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 40i,9n,46p,1067b,486s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc} <C:\Users\Schifman 
 Ben\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ectt1000.pk><C:
 /Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program
@@ -1058,7 +1049,7 @@ KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/
 fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
 pe1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utm
 r8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on 523_Project_Paper.pdf (8 pages, 665116 bytes).
+Output written on 523_Project_Paper.pdf (8 pages, 665477 bytes).
 PDF statistics:
  215 PDF objects out of 1000 (max. 8388607)
  41 named destinations out of 1000 (max. 500000)

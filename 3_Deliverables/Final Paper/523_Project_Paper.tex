@@ -66,8 +66,8 @@
 	There exist technical analysis indicators traditionally used by analysts to evaluate and predict market and equity performance. These indicators provide a unique perspective on the strength and direction of the underlying price action in market data. Being able to identify the most relevant technical analysis indicators through the use of feature selecting methods offers for a more optimized strategy in quantitatively computing financial estimation models.
 \end{abstract}
 
-\section{\color{red}Introduction}
-	Feature selection is used to determine relevant indicators while identifying those that are irrelevant and redundant. This paper analyzes multiple implementations and approaches of feature selection and dimensionality reduction in the form of: Feature Correlation, Maximal Information Coefficient, Recursive Feature Elimination, and Principal Component Analysis. Optimizing algorithms based on these reduced indicator sets could be used to predict performance of individual equities, sectors, or overall markets along with classifying and identifying the correlation and interdependencies between them. The goal of this paper is to implement various approaches to determine the efficacy of technical indicators as enablers to financial analysis.	From this project we hope to deepen our understanding of the usage cases for applying specific machine learning algorithms as well as expanding upon our technical analysis of the stock market and which indicators play a role in successful market analysis.
+\section{Introduction}
+	Feature selection is used to determine relevant indicators while identifying those that are irrelevant and redundant. This paper analyzes multiple implementations and approaches of feature selection and dimensionality reduction in the form of: Feature Correlation, Maximal Information Coefficient, Recursive Feature Elimination, and Principal Component Analysis. Optimizing algorithms based on these reduced indicator sets could be used to predict performance of individual equities, sectors, or overall markets along with classifying and identifying the correlation and interdependencies between them. The goal of this paper is to implement various methods of feature selection to determine the efficacy of specific technical indicators as enablers to successful financial analysis. From this project we hope to deepen our understanding of the usage cases for applying specific machine learning algorithms as well as expanding upon our technical analysis of the stock market and which indicators play a role in successful market analysis.
 
 \section{Related Work}
 This is optional. If wanted, save til last.
@@ -127,7 +127,7 @@ RFE is a method of recursively selecting smaller subsets of the larger feature s
 Given a base classifier, recursive feature elimination can be performed by re-training copies of the base classifier using a certain number of dropped features per iteration until the specified number of features to keep has been hit. RFE was implemented independently with two different base classifiers, SVM and Adaboosted Decision Trees.
 
 \subsection{Random Forest Classifier (RFC)}
-The RFC is an ensemble algorithm implementing a combination of decision trees classifiers where the majority vote of all trees are used to classify the input feature vector \cite{pal2005random}. This RFC bagging method was used in order classify the input data, while also intrinsically implementing feature selection to return a vector of feature importances. The RFC was chosen due to its implementation of bagging, and the entire feature set was fed into the RFC while using 10 decision trees.
+The RFC is an ensemble algorithm implementing a combination of decision trees classifiers where the majority vote of all trees are used to classify the input feature vector \cite{pal2005random}. This RFC bagging method was used in order classify the input data, while also intrinsically implementing feature selection to return a vector of feature importances. The RFC was chosen due to its implementation of bagging, and the entire feature set was fed into the RFC while using 10 decision trees. The main focus of using the RFC was to determine the vector of feature importance, while the accuracy of the algorithm was secondary.
 
 \subsection{Principal Component Analysis (PCA)}
 PCA orthogonally transforms a set of features into a set of linearly uncorrelated principal components. PCA is a method for reducing the dimensionality of the feature set size while retaining principal component variance, and the features informational relevance. PCA was implemented on the original 33 features and then the distilled principal components were used in the RFC classifier with 3 fold cross validation to determine the accuracy. The RFC classifier was used to analyze the validity of PCA because it intrinsically implements a form of feature selection as it weighs the features/principal components in terms of importance. The number of principal components the feature set was to be reduced to was iterated from 1 to 33 and then the accuracy of the RFC algorithm was calculated on each reduced feature set/principal component set.
@@ -160,7 +160,7 @@ The RFE approaches were run multiple times to select 5, 10, and 15 final feature
 
 \subsection{Random Forest Classifier (RFC)}
 
-The RFC was run with all of the original features and the percentage of feature importances were plotted in \Cref{fig:RFC}.
+The RFC was calculated with all of the original features and the percentage of feature importances were plotted in \Cref{fig:RFC}
 
 \begin{figure}[H]
 	\centering
@@ -170,9 +170,9 @@ The RFC was run with all of the original features and the percentage of feature 
 \end{figure}
 
 \subsection{Principal Component Analysis (PCA)}
-\Cref{fig:PCA} depicts the PCA accuracy and time taken with its corresponding reduced feature set of principal components.
+\Cref{fig:PCA} depicts the PCA accuracy and time taken with its corresponding reduced feature set of principal components. The results indicate that using fewer principal components (5-10) yields a small, somewhat negligible trade off between the accuracy of the RFC, and the time taken to run the algorithm. 
 
-\begin{figure}[h!]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=\linewidth]{data/PCAT1.png}
 	\caption{Principal Component Analysis}
